@@ -31,6 +31,12 @@ namespace GmaeObject
 		virtual void draw() const = 0;
 
 		/// <summary>
+		/// 削除するかどうか示す
+		/// </summary>
+		/// <returns> 削除するとき true , そうでないとき false </returns>
+		virtual bool eraser() const = 0;
+
+		/// <summary>
 		/// 他オブジェクトとの交差判定
 		/// </summary>
 		/// <param name="obj"> オブジェクト </param>
