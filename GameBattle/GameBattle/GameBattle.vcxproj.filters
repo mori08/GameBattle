@@ -79,11 +79,14 @@
     <Filter Include="ソース ファイル\GameObject">
       <UniqueIdentifier>{fe3fed54-5df4-48df-bb99-753241084fee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameData">
+      <UniqueIdentifier>{08118118-2b76-4056-a5c5-9794bf6dfa5d}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ヘッダー ファイル\GameObject">
       <UniqueIdentifier>{53b5cefe-bf2a-4b7a-b66e-b50fa63cbe32}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\GameData">
-      <UniqueIdentifier>{ff2b3128-74c5-48b7-b543-ed8b63808d94}</UniqueIdentifier>
+      <UniqueIdentifier>{09ab68a3-de20-44d0-96ab-85d9d1988bec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -405,12 +408,15 @@
     <ClCompile Include="Code\GameObject.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="Code\StageData.cpp">
+      <Filter>ソース ファイル\GameData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Code\MapData.h">
+    <ClInclude Include="Code\StageData.h">
       <Filter>ヘッダー ファイル\GameData</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,11 +15,16 @@ namespace GameData
 
 		static const int HEIGHT = 30;
 
-		bool cell[WIDTH][HEIGHT];
+		static const int CELLSIZE = 16;
+
+		bool cell[HEIGHT][WIDTH];
 
 	private:
 
-		StageData();
+		StageData()
+		{
+			read();
+		}
 
 		StageData(const StageData & sd) {}
 
@@ -47,6 +52,11 @@ namespace GameData
 		/// <param name="collider"> 長方形 </param>
 		/// <returns> 交差しているとき true , そうでないとき false </returns>
 		bool get(const Rect & rect) const;
+
+		/// <summary>
+		/// マップのデータを描画する
+		/// </summary>
+		void draw() const;
 
 	private:
 
