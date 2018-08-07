@@ -52,11 +52,11 @@ void GameData::StageData::draw() const
 
 void GameData::StageData::read()
 {
-	const CSVReader csv(L"Asset/Stage.csv");
+	const CSVReader csv(L"Asset/Data/Stage.csv");
 
 	for (int y = 0; y < HEIGHT; ++y)
 	{
-		for (int x = 0; x > WIDTH; ++x)
+		for (int x = 0; x < WIDTH; ++x)
 		{
 			cell[y][x] = csv.get<int>(y, x) != 0;
 		}

@@ -26,9 +26,9 @@ namespace GameData
 			read();
 		}
 
-		StageData(const StageData & sd) {}
+		StageData(const StageData &) {}
 
-		StageData(StageData && sd) {}
+		StageData(StageData &&) {}
 
 	public:
 

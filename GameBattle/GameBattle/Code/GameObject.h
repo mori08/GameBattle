@@ -48,7 +48,7 @@ namespace GmaeObject
 		/// 交差判定用の長方形の取得します。
 		/// </summary>
 		/// <returns> 交差判定用の長方形 </returns>
-		virtual Rect & getCollider()const
+		virtual Rect getCollider()const
 		{
 			return Rect(_pos.asPoint() - _size / 2, _size);
 		}

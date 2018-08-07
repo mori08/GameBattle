@@ -1,4 +1,5 @@
 #include<Siv3D.hpp>
+#include"StageData.h"
 
 void Main()
 {
@@ -6,6 +7,6 @@ void Main()
 
 	while (System::Update())
 	{
-
+		GameData::StageData::Instance().draw();
 	}
 }
