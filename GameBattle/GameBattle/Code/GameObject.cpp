@@ -8,3 +8,16 @@ void GmaeObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& o
 		obj->collisionUpdate(_tag);
 	}
 }
+
+
+void GmaeObject::GameObject::moveObject(bool useMapData)
+{
+	if (!useMapData)
+	{
+		_pos += _velocity;
+
+		return;
+	}
+
+	// MapData‚ªŠ®¬‚µ‚½‚çÀ‘•
+}
