@@ -82,6 +82,9 @@
     <Filter Include="ヘッダー ファイル\GameObject">
       <UniqueIdentifier>{53b5cefe-bf2a-4b7a-b66e-b50fa63cbe32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\GameData">
+      <UniqueIdentifier>{ff2b3128-74c5-48b7-b543-ed8b63808d94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -406,6 +409,9 @@
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\MapData.h">
+      <Filter>ヘッダー ファイル\GameData</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 
 void Main()
 {
+	Window::Resize(960, 540);
 
 	while (System::Update())
 	{
