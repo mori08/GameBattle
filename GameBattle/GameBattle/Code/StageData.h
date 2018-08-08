@@ -11,13 +11,21 @@ namespace GameData
 	{
 	private:
 
-		static const int WIDTH = 60;
+		static const int WIDTH    = 60; // 幅
 
-		static const int HEIGHT = 30;
+		static const int HEIGHT   = 30; // 高さ
 
-		static const int CELLSIZE = 16;
+		static const int CELLSIZE = 16; // １マスの１辺の長さ
 
-		bool cell[HEIGHT][WIDTH];
+		int cell[HEIGHT][WIDTH];        // マスごとのステージデータ
+
+	public:
+
+		static const int EMPTY      = 0; // 何もない
+
+		static const int HARF_BLOCK = 1; // 上からは通過できるブロック
+
+		static const int BLOCK      = 2; // ブロック
 
 	private:
 
@@ -44,14 +52,14 @@ namespace GameData
 		/// </summary>
 		/// <param name="pos"> 座標 </param>
 		/// <returns> ステージのデータ </returns>
-		bool get(const Point & pos) const;
+		int get(const Point & pos) const;
 
 		/// <summary>
 		/// 長方形がステージと交差しているか取得します。
 		/// </summary>
 		/// <param name="collider"> 長方形 </param>
 		/// <returns> 交差しているとき true , そうでないとき false </returns>
-		bool get(const Rect & rect) const;
+		int get(const Rect & rect) const;
 
 		/// <summary>
 		/// マップのデータを描画する
@@ -60,6 +68,9 @@ namespace GameData
 
 	private:
 
+		/// <summary>
+		/// CSVファイルの読み込み
+		/// </summary>
 		void read();
 
 	};
