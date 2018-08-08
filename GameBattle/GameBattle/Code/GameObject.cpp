@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "StageData.h"
 
 
 void GmaeObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& obj)
@@ -19,5 +20,40 @@ void GmaeObject::GameObject::moveObject(bool useMapData)
 		return;
 	}
 
-	// MapData‚ªŠ®¬‚µ‚½‚çŽÀ‘•
+	_pos.x += _velocity.x;
+
+	if (Abs(_velocity.x) > 0.01)
+	{
+
+		int unit = _velocity.x / Abs(_velocity.x);
+
+		while (GameData::StageData::Instance().get(getCollider()) == GameData::StageData::BLOCK)
+		{
+			_velocity.x = 0;
+			_pos.x -= unit;
+		}
+
+	}
+
+	if (Abs(_velocity.y) < 0.01) { return; }
+
+	_pos.y += _velocity.y;
+	int unit = _velocity.y / Abs(_velocity.y);
+
+	if (_velocity.y < 0 || GameData::StageData::Instance().get(getCollider()) == GameData::StageData::HARF_BLOCK)
+	{
+		while (GameData::StageData::Instance().get(getCollider()) == GameData::StageData::BLOCK)
+		{
+			_velocity.y = 0;
+			_pos.y -= unit;
+		}
+
+		return;
+	}
+
+	while (GameData::StageData::Instance().get(getCollider()) != GameData::StageData::EMPTY)
+	{
+		_velocity.y = 0;
+		_pos.y -= unit;
+	}
 }
