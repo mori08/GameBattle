@@ -2,7 +2,7 @@
 #include "StageData.h"
 
 
-void GmaeObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& obj)
+void GameObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& obj)
 {
 	if (getCollider().intersects(obj->getCollider()))
 	{
@@ -11,7 +11,7 @@ void GmaeObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& o
 }
 
 
-void GmaeObject::GameObject::moveObject(bool useMapData)
+void GameObject::GameObject::moveObject(bool useMapData)
 {
 	if (!useMapData)
 	{
@@ -24,24 +24,23 @@ void GmaeObject::GameObject::moveObject(bool useMapData)
 
 	if (Abs(_velocity.x) > 0.01)
 	{
-
-		int unit = _velocity.x / Abs(_velocity.x);
+		double unit = _velocity.x / Abs(_velocity.x);
 
 		while (GameData::StageData::Instance().get(getCollider()) == GameData::StageData::BLOCK)
 		{
 			_velocity.x = 0;
 			_pos.x -= unit;
 		}
-
 	}
 
 	if (Abs(_velocity.y) < 0.01) { return; }
 
-	_pos.y += _velocity.y;
-	int unit = _velocity.y / Abs(_velocity.y);
+	double unit = _velocity.y / Abs(_velocity.y);
 
 	if (_velocity.y < 0 || GameData::StageData::Instance().get(getCollider()) == GameData::StageData::HARF_BLOCK)
 	{
+		_pos.y += _velocity.y;
+
 		while (GameData::StageData::Instance().get(getCollider()) == GameData::StageData::BLOCK)
 		{
 			_velocity.y = 0;
@@ -50,6 +49,8 @@ void GmaeObject::GameObject::moveObject(bool useMapData)
 
 		return;
 	}
+
+	_pos.y += _velocity.y;
 
 	while (GameData::StageData::Instance().get(getCollider()) != GameData::StageData::EMPTY)
 	{

@@ -4,7 +4,7 @@
 #include<Siv3D.hpp>
 
 
-namespace GmaeObject
+namespace GameObject
 {
 	class GameObject
 	{
@@ -19,6 +19,8 @@ namespace GmaeObject
 		String _tag;      // タグ
 
 	public:
+
+		virtual ~GameObject(){}
 
 		/// <summary>
 		/// 更新
@@ -58,8 +60,6 @@ namespace GmaeObject
 		/// </summary>
 		/// <param name="tag"> タグ </param>
 		virtual void collisionUpdate(const String & Tag) = 0;
-
-	private:
 
 		/// <summary>
 		/// 速度に応じて座標を変更します。

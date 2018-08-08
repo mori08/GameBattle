@@ -411,6 +411,9 @@
     <ClCompile Include="Code\StageData.cpp">
       <Filter>ソース ファイル\GameData</Filter>
     </ClCompile>
+    <ClCompile Include="Code\TestObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
@@ -418,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="Code\StageData.h">
       <Filter>ヘッダー ファイル\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\TestObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

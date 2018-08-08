@@ -277,10 +277,12 @@
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
+    <ClCompile Include="Code\TestObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\StageData.h" />
+    <ClInclude Include="Code\TestObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
