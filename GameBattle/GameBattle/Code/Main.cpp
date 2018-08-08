@@ -1,12 +1,12 @@
 #include<Siv3D.hpp>
 #include"StageData.h"
-#include"TestObject.h"
+#include"Player.h"
 
 void Main()
 {
 	Window::Resize(960, 540);
 
-	GameObject::TestObject test;
+	GameObject::Player test(1);
 
 	while (System::Update())
 	{

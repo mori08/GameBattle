@@ -7,7 +7,7 @@ GameObject::Player::Player(int id)
 
 	_pos = Point(100, 100);
 	_velocity = Point::Zero;
-	_size = Point(48, 64);
+	_size = Point(40, 60);
 	_tag = L"Player[" + ToString(id) + L"]";
 }
 
