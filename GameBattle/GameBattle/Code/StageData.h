@@ -48,13 +48,6 @@ namespace GameData
 		}
 
 		/// <summary>
-		/// 指定された座標のステージのデータを取得します。
-		/// </summary>
-		/// <param name="pos"> 座標 </param>
-		/// <returns> ステージのデータ </returns>
-		int get(const Point & pos) const;
-
-		/// <summary>
 		/// 長方形がステージと交差しているか取得します。
 		/// </summary>
 		/// <param name="collider"> 長方形 </param>
@@ -67,6 +60,13 @@ namespace GameData
 		void draw() const;
 
 	private:
+
+		/// <summary>
+		/// 指定された座標のステージのデータを取得します。
+		/// </summary>
+		/// <param name="pos"> 座標 </param>
+		/// <returns> ステージのデータ </returns>
+		int getCell(const Point & pos) const;
 
 		/// <summary>
 		/// CSVファイルの読み込み

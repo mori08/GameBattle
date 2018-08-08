@@ -1,27 +1,12 @@
 #include"StageData.h"
 
 
-int GameData::StageData::get(const Point & pos) const
-{
-	int x = pos.x / CELLSIZE;
-	int y = pos.y / CELLSIZE;
-
-	if (x < 0 || x >= WIDTH) { return 2; }
-
-	if (y < 0) { return 0; }
-
-	if (y >= HEIGHT) { return 2; }
-
-	return cell[y][x];
-}
-
-
 int GameData::StageData::get(const Rect & rect) const
 {
-	int t = rect.y / CELLSIZE;
-	int b = (rect.y + rect.h) / CELLSIZE;
-	int l = rect.x / CELLSIZE;
-	int r = (rect.x + rect.w) / CELLSIZE;
+	int t = rect.y < 0 ? -1 : rect.y / CELLSIZE;
+	int b = (rect.y + rect.h) < 0 ? -1 : ((rect.y + rect.h) / CELLSIZE);
+	int l = rect.x < 0 ? -1 : rect.x / CELLSIZE;
+	int r = (rect.x + rect.w) < 0 ? -1 : ((rect.x + rect.w) / CELLSIZE);
 
 	int rtn = 0;
 
@@ -29,7 +14,7 @@ int GameData::StageData::get(const Rect & rect) const
 	{
 		for (int x = l; x <= r; ++x)
 		{
-			rtn = Max(rtn, cell[y][x]);
+			rtn = Max(rtn, getCell(Point(x, y)));
 		}
 	}
 
@@ -53,6 +38,18 @@ void GameData::StageData::draw() const
 			}
 		}
 	}
+}
+
+
+int GameData::StageData::getCell(const Point & pos) const
+{
+	if (pos.x < 0 || pos.x >= WIDTH) { return 2; }
+
+	if (pos.y < 0) { return 0; }
+
+	if (pos.y >= HEIGHT) { return 2; }
+
+	return cell[pos.y][pos.x];
 }
 
 
