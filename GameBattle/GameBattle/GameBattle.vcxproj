@@ -276,11 +276,13 @@
   <ItemGroup>
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
+    <ClCompile Include="Code\Player.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
     <ClCompile Include="Code\TestObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h" />
+    <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\StageData.h" />
     <ClInclude Include="Code\TestObject.h" />
   </ItemGroup>
