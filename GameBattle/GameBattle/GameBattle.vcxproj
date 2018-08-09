@@ -274,6 +274,7 @@
     <Font Include="Example\YomogiFont.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\Player.cpp" />
@@ -281,6 +282,7 @@
     <ClCompile Include="Code\TestObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\StageData.h" />
