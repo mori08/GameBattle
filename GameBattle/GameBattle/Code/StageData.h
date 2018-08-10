@@ -11,13 +11,13 @@ namespace GameData
 	{
 	private:
 
-		static const int WIDTH    = 60; // 幅
+		static const int WIDTH    = 120; // 幅
 
-		static const int HEIGHT   = 30; // 高さ
+		static const int HEIGHT   = 60;  // 高さ
 
-		static const int CELLSIZE = 16; // １マスの１辺の長さ
+		static const int CELLSIZE = 16;  // １マスの１辺の長さ
 
-		int cell[HEIGHT][WIDTH];        // マスごとのステージデータ
+		int cell[HEIGHT][WIDTH];         // マスごとのステージデータ
 
 	public:
 
