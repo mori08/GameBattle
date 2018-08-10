@@ -28,8 +28,6 @@ void GameData::GameCamera::update()
 	Point pos = (_posTL + _posBR) / 2;
 	Size  size = _posTL - _posBR;
 
-	Println(pos);
-
 	const Size MIN_SIZE = Size(400, 200); // ç≈è¨ÉTÉCÉY
 	
 	if (size.x < MIN_SIZE.x && size.y < MIN_SIZE.y) { size = MIN_SIZE; }
@@ -53,7 +51,12 @@ void GameData::GameCamera::update()
 		pos.y = StageData::Instance().getSize().y - size.y / 2;
 	}
 	
-	setPos(pos);
-	setScale(1.0*StageData::Instance().getSize().x / size.x);
-	Println(L"Camera", getPos());
+	double scl = 1.0*StageData::Instance().getSize().x / size.x;
+
+	m_pos = s3d::Math::Lerp(m_pos, pos, 0.2);
+
+	m_scale = s3d::Math::Lerp(m_scale, scl, 0.2);
+
+	setPos(m_pos);
+	setScale(m_scale);
 }
