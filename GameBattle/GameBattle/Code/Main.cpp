@@ -7,19 +7,23 @@ void Main()
 {
 	Window::SetBaseSize(960, 480);
 	Window::Resize(960, 540);
-	GameObject::Player test(1);
+	GameObject::Player test0(0);
+	GameObject::Player test1(1);
 
 	while (System::Update())
 	{
 		ClearPrint();
 		
-		test.update();
+		test0.update();
+		test1.update();
+
 		GameData::GameCamera::Instance().update();
 
 		const auto t1 = GameData::GameCamera::Instance().createTransformer();
 		{
 			GameData::StageData::Instance().draw();
-			test.draw();
+			test0.draw();
+			test1.draw();
 		}
 	}
 }

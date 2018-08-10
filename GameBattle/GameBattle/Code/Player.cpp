@@ -15,12 +15,17 @@ GameObject::Player::Player(int id)
 
 void GameObject::Player::update()
 {
-	_velocity.x = 0;
-	if (Input::KeyD.pressed) { _velocity.x = +4; }
-	if (Input::KeyA.pressed) { _velocity.x = -4; }
+	if (Abs(Gamepad(_id).x) > 0.1)
+	{
+		_velocity.x = 4 * Gamepad(_id).x;
+	}
+	else
+	{
+		_velocity.x = 0;
+	}
 
 	_velocity.y += 0.6;
-	if (Input::KeyW.clicked) { _velocity.y = -12; }
+	if (Gamepad(_id).button(2).clicked) { _velocity.y = -12; }
 
 	moveObject(true);
 
