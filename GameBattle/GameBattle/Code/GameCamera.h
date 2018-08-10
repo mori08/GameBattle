@@ -18,7 +18,14 @@ namespace GameData
 
 		bool     _reset;  // true ‚Ì‚Æ‚«À•W‚ğİ’è‚µ‚È‚¨‚·
 
+		double   _raito;  // ‰æ–Ê”ä
+
 	public:
+
+		GameCamera()
+			: _reset(true)
+			, _raito(2.0)
+		{}
 
 		/// <summary>
 		/// ”íÊ‘Ì‚ÌÀ•W‚ğ“o˜^‚µ‚Ü‚·B
