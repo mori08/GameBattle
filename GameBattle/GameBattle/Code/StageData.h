@@ -55,6 +55,14 @@ namespace GameData
 		int get(const Rect & rect) const;
 
 		/// <summary>
+		/// ステージのサイズを取得します。
+		/// </summary>
+		Size getSize() const
+		{
+			return CELLSIZE*Size(WIDTH, HEIGHT);
+		}
+
+		/// <summary>
 		/// マップのデータを描画する
 		/// </summary>
 		void draw() const;
