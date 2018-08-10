@@ -47,5 +47,8 @@ void GameData::GameCamera::update()
 		pos.y = StageData::Instance().getSize().y - size.y / 2;
 	}
 
+	setTargetPos(pos);
+	setTargetScale(size.x / StageData::Instance().getSize().x);
+
 	Camera2D::update();
 }
