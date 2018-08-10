@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "GameCamera.h"
 
 
 GameObject::Player::Player(int id)
@@ -22,12 +23,17 @@ void GameObject::Player::update()
 	if (Input::KeyW.clicked) { _velocity.y = -12; }
 
 	moveObject(true);
+
+	GameData::GameCamera::Instance().setPlayerPos(_pos.asPoint());
+	Println(_pos);
 }
 
 
 void GameObject::Player::draw() const
 {
 	getCollider().draw(Palette::Orange);
+	Circle(_pos, 10).draw(Color(250, 0, 0, 100));
+	Circle(GameData::GameCamera::Instance().getPos(), 10).draw(Color(0, 0, 250, 100));
 }
 
 

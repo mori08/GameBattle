@@ -1,12 +1,13 @@
 #pragma once
 
 
+#include <Siv3D.hpp>
 #include <HamFramework.hpp>
 
 
 namespace GameData
 {
-	class GameCamera : public Camera2D
+	class GameCamera : public BasicCamera2D
 	{
 	private:
 

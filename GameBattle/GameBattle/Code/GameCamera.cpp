@@ -9,6 +9,8 @@ void GameData::GameCamera::setPlayerPos(const Point & pos)
 		_posTL = pos;
 		_posBR = pos;
 
+		_reset = false;
+
 		return;
 	}
 
@@ -21,34 +23,37 @@ void GameData::GameCamera::setPlayerPos(const Point & pos)
 
 void GameData::GameCamera::update()
 {
+	_reset = true;
+
 	Point pos = (_posTL + _posBR) / 2;
 	Size  size = _posTL - _posBR;
 
-	const Size MIN_SIZE = Size(200, 100); // 最小サイズ
+	Println(pos);
 
+	const Size MIN_SIZE = Size(400, 200); // 最小サイズ
+	
 	if (size.x < MIN_SIZE.x && size.y < MIN_SIZE.y) { size = MIN_SIZE; }
-	else if ((double)size.x > _raito*size.y) { size.y = size.x / _raito; }
-	else { size.x = _raito*size.y; }
-
+	else if ((double)size.x > _raito*size.y) { size.y = (int)(size.x / _raito); }
+	else { size.x = (int)(_raito*size.y); }
+	
 	if (pos.x - size.x / 2 < 0) 
 	{
-		pos.x = size.x; 
+		pos.x = size.x / 2;
 	}
 	if (pos.x + size.x / 2 > StageData::Instance().getSize().x) 
 	{
 		pos.x = StageData::Instance().getSize().x - size.x / 2;
 	}
-	if (pos.y - size.y < 0)
+	if (pos.y - size.y / 2 < 0)
 	{
-		pos.y = size.y;
+		pos.y = size.y / 2;
 	}
 	if (pos.y + size.y / 2 > StageData::Instance().getSize().y)
 	{
 		pos.y = StageData::Instance().getSize().y - size.y / 2;
 	}
-
-	setTargetPos(pos);
-	setTargetScale(size.x / StageData::Instance().getSize().x);
-
-	Camera2D::update();
+	
+	setPos(pos);
+	setScale(1.0*StageData::Instance().getSize().x / size.x);
+	Println(L"Camera", getPos());
 }
