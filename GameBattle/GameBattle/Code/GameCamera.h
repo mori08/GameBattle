@@ -20,12 +20,25 @@ namespace GameData
 
 		double   _raito;  // ‰æ–Ê”ä
 
-	public:
+	private:
 
 		GameCamera()
 			: _reset(true)
 			, _raito(2.0)
 		{}
+
+		GameCamera(const GameCamera &) {}
+
+		GameCamera(GameCamera &&) {}
+
+	public:
+
+		static GameCamera & Instance()
+		{
+			static GameCamera camera;
+
+			return camera;
+		}
 
 		/// <summary>
 		/// ”íÊ‘Ì‚ÌÀ•W‚ğ“o˜^‚µ‚Ü‚·B
