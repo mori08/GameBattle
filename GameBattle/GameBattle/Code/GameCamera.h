@@ -21,11 +21,14 @@ namespace GameData
 
 		double   _raito;  // ‰æ–Ê”ä
 
+		double   _lerpRatio;
+
 	private:
 
 		GameCamera()
 			: _reset(true)
 			, _raito(2.0)
+			, _lerpRatio(0.01)
 		{}
 
 		GameCamera(const GameCamera &) {}
