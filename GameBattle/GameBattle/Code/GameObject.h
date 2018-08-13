@@ -8,6 +8,10 @@ namespace GameObject
 {
 	class GameObject
 	{
+	private:
+
+		bool _isLanding = false;  // 接地判定
+
 	protected:
 
 		Vec2   _pos;      // 座標
@@ -66,6 +70,16 @@ namespace GameObject
 		/// </summary>
 		/// <param name="useMapData"> マップデータをしようするとき true , しないとき false </param>
 		void moveObject(bool useMapData);
+
+		/// <summary>
+		/// このオブジェクトが接地しているか示します。
+		/// </summary>
+		/// <returns> 接地しているとき true , そうでないとき false </returns>
+		/// <remark> moveObjectを呼ばないとで判定は更新されない </remark>
+		bool isLanding()
+		{
+			return _isLanding;
+		}
 
 	};
 }

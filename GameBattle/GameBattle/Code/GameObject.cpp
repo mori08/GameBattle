@@ -33,6 +33,8 @@ void GameObject::GameObject::moveObject(bool useMapData)
 		}
 	}
 
+	_isLanding = false;
+
 	if (Abs(_velocity.y) < 0.01) { return; }
 
 	double unit = _velocity.y / Abs(_velocity.y);
@@ -43,6 +45,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 
 		while (GameData::StageData::Instance().get(getCollider()) == GameData::StageData::BLOCK)
 		{
+			_isLanding = true;
 			_velocity.y = 0;
 			_pos.y -= unit;
 		}
@@ -54,6 +57,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 
 	while (GameData::StageData::Instance().get(getCollider()) != GameData::StageData::EMPTY)
 	{
+		_isLanding = true;
 		_velocity.y = 0;
 		_pos.y -= unit;
 	}
