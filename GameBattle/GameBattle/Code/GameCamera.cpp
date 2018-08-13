@@ -28,7 +28,7 @@ void GameData::GameCamera::update()
 	Point pos = (_posTL + _posBR) / 2;
 	Size  size = Point(100, 200) + _posBR - _posTL;
 
-	const Size MIN_SIZE = 300*Size(2, 1); // 最小サイズ
+	const Size MIN_SIZE = 300 * Size(2, 1); // 最小サイズ
 
 	if (size.x > StageData::Instance().getSize().x || size.y > StageData::Instance().getSize().y)
 	{
@@ -58,13 +58,13 @@ void GameData::GameCamera::update()
 
 	double scl = 1.0*Window::BaseSize().x / size.x;
 
-	if (scl > m_scale)
+	if (getCameraArea().contains(_posTL) && getCameraArea().contains(_posBR))
 	{
-		_lerpRatio = s3d::Math::Lerp(_lerpRatio, 0.1, 0.01);
+		_lerpRatio = s3d::Math::Lerp(_lerpRatio, 0.01, 0.02);
 	}
-	else if(scl < m_scale)
+	else
 	{
-		_lerpRatio = s3d::Math::Lerp(_lerpRatio, 0.05, 0.01);
+		_lerpRatio = s3d::Math::Lerp(_lerpRatio, 0.1, 0.02);
 	}
 
 	m_pos = s3d::Math::Lerp(m_pos, pos, _lerpRatio);
