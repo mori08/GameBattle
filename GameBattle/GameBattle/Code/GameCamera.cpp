@@ -26,7 +26,7 @@ void GameData::GameCamera::update()
 	_reset = true;
 
 	Point pos = (_posTL + _posBR) / 2;
-	Size  size = Point(100, 200) + _posBR - _posTL;
+	Size  size = _posBR - _posTL + 200 * Size(2, 1);
 
 	const Size MIN_SIZE = 300 * Size(2, 1); // ç≈è¨ÉTÉCÉY
 
@@ -34,9 +34,8 @@ void GameData::GameCamera::update()
 	{
 		size = StageData::Instance().getSize();
 	}
-
-	if (size.x < MIN_SIZE.x && size.y < MIN_SIZE.y) { size = MIN_SIZE; }
-	else if ((double)size.x > _raito*size.y) { size.y = (int)(size.x / _raito); }
+	
+	if ((double)size.x > _raito*size.y) { size.y = (int)(size.x / _raito); }
 	else { size.x = (int)(_raito*size.y); }
 
 	if (pos.x - size.x / 2 < 0)
@@ -57,18 +56,12 @@ void GameData::GameCamera::update()
 	}
 
 	double scl = 1.0*Window::BaseSize().x / size.x;
+	
+	_lerpRatio = 0.02;// s3d::Math::Lerp(_lerpRatio, 0.01, 0.02);
 
-	if (getCameraArea().contains(_posTL) && getCameraArea().contains(_posBR))
-	{
-		_lerpRatio = s3d::Math::Lerp(_lerpRatio, 0.01, 0.02);
-	}
-	else
-	{
-		_lerpRatio = s3d::Math::Lerp(_lerpRatio, 0.1, 0.02);
-	}
-
-	m_pos = s3d::Math::Lerp(m_pos, pos, _lerpRatio);
-	m_scale = s3d::Math::Lerp(m_scale, scl, _lerpRatio);
+	m_pos.x = s3d::Math::Lerp(m_pos.x, pos.x, 0.05);
+	m_pos.y = s3d::Math::Lerp(m_pos.y, pos.y, 0.01);
+	m_scale = s3d::Math::Lerp(m_scale, scl, 0.05);
 
 	setPos(m_pos);
 	setScale(m_scale);
