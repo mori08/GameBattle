@@ -25,7 +25,7 @@ void GameObject::Player::update()
 	}
 
 	_velocity.y += 0.6;
-	if (Gamepad(_id).button(2).clicked) { _velocity.y = -12; }
+	if (Gamepad(_id).button(2).clicked && isLanding()) { _velocity.y = -12; }
 
 	moveObject(true);
 

@@ -75,11 +75,7 @@ namespace GameObject
 		/// このオブジェクトが接地しているか示します。
 		/// </summary>
 		/// <returns> 接地しているとき true , そうでないとき false </returns>
-		/// <remark> moveObjectを呼ばないとで判定は更新されない </remark>
-		bool isLanding()
-		{
-			return _isLanding;
-		}
+		bool isLanding() const;
 
 	};
 }

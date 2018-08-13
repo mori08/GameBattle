@@ -45,7 +45,6 @@ void GameObject::GameObject::moveObject(bool useMapData)
 
 		while (GameData::StageData::Instance().get(getCollider()) == GameData::StageData::BLOCK)
 		{
-			_isLanding = true;
 			_velocity.y = 0;
 			_pos.y -= unit;
 		}
@@ -57,8 +56,27 @@ void GameObject::GameObject::moveObject(bool useMapData)
 
 	while (GameData::StageData::Instance().get(getCollider()) != GameData::StageData::EMPTY)
 	{
-		_isLanding = true;
 		_velocity.y = 0;
 		_pos.y -= unit;
 	}
+}
+
+
+bool GameObject::GameObject::isLanding() const
+{
+	Rect rect = getCollider();
+	rect.y++;
+
+	if (GameData::StageData::Instance().get(rect) == GameData::StageData::BLOCK)
+	{
+		return true;
+	}
+
+	if (GameData::StageData::Instance().get(getCollider()) == GameData::StageData::EMPTY
+		&& GameData::StageData::Instance().get(rect) == GameData::StageData::HARF_BLOCK)
+	{
+		return true;
+	}
+
+	return false;
 }
