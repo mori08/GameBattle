@@ -14,6 +14,8 @@ namespace GameData
 
 	public:
 
+		GameObjectManager();
+
 		/// <summary>
 		/// オブジェクトの更新
 		/// </summary>

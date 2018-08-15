@@ -1,4 +1,14 @@
 #include "GameObjectManager.h"
+#include "Player.h"
+
+
+GameData::GameObjectManager::GameObjectManager()
+{
+	for (int i = 0; i < 2; ++i)
+	{
+		_gameObjectList.emplace_back(std::make_unique<GameObject::Player>(i));
+	}
+}
 
 
 void GameData::GameObjectManager::update()
