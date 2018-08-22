@@ -17,7 +17,14 @@ namespace GameObject
 	{
 	private:
 
-		int _id; // ¯•Ê”Ô†
+		using skill_ptr = std::shared_ptr<GameData::Skill>;
+		using skill_list = std::array<skill_ptr, 4>;
+
+	private:
+
+		int        _id;    // ¯•Ê”Ô†
+
+		skill_list _skill; // ƒXƒLƒ‹
 
 		bool _col;
 
