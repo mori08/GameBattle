@@ -16,6 +16,13 @@ GameData::GameObjectManager::GameObjectManager()
 
 void GameData::GameObjectManager::update()
 {
+	// オブジェクトの生成
+	while (!_generator->empty())
+	{
+		_gameObjectList.emplace_back(move(_generator->front()));
+		_generator->pop();
+	}
+
 	// オブジェクトの更新
 	for (auto & object : _gameObjectList)
 	{
