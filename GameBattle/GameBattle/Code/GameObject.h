@@ -3,6 +3,20 @@
 
 #include<Siv3D.hpp>
 
+#include<queue>
+
+
+namespace GameObject
+{
+	class GameObject;
+}
+
+
+namespace GameData
+{
+	using Generator = std::queue<std::unique_ptr<GameObject::GameObject>>;
+}
+
 
 namespace GameObject
 {
@@ -11,6 +25,8 @@ namespace GameObject
 	private:
 
 		bool _isLanding = false;  // 接地判定
+
+		static std::shared_ptr<GameData::Generator> _generator;
 
 	protected:
 
@@ -47,6 +63,15 @@ namespace GameObject
 		/// </summary>
 		/// <param name="obj"> オブジェクト </param>
 		virtual void collisionCheck(const std::unique_ptr<GameObject> & obj);
+
+		/// <summary>
+		/// オブジェクトの生成リストを設定する。
+		/// </summary>
+		/// <param name="generator"> オブジェクトの生成リスト </param>
+		static void setGenerator(const std::shared_ptr<GameData::Generator> & generator)
+		{
+			_generator = generator;
+		}
 
 	protected:
 

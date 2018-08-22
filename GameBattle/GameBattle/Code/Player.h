@@ -13,6 +13,8 @@ namespace GameObject
 
 		int _id; // ¯•Ê”Ô†
 
+		bool _col;
+
 	public:
 
 		Player(int id);
