@@ -15,6 +15,8 @@ GameObject::Player::Player(int id)
 
 void GameObject::Player::update()
 {
+	_col = false;
+
 	if (Abs(Gamepad(_id).x) > 0.1)
 	{
 		_velocity.x = 4 * Gamepad(_id).x;
@@ -35,7 +37,7 @@ void GameObject::Player::update()
 
 void GameObject::Player::draw() const
 {
-	getCollider().draw(Palette::Orange);
+	getCollider().draw(_col?Palette::Red : Palette::Orange);
 }
 
 
@@ -47,4 +49,5 @@ bool GameObject::Player::eraser() const
 
 void GameObject::Player::collisionUpdate(const String &)
 {
+	_col = true;
 }
