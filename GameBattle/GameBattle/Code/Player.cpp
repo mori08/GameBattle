@@ -10,6 +10,11 @@ GameObject::Player::Player(int id)
 	_velocity = Point::Zero;
 	_size = Point(40, 60);
 	_tag = L"Player[" + ToString(id) + L"]";
+
+	for (auto & s : _skill)
+	{
+		s = nullptr;
+	}
 }
 
 
