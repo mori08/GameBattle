@@ -4,6 +4,12 @@
 #include"GameObject.h"
 
 
+namespace GameData
+{
+	class Skill;
+}
+
+
 namespace GameObject
 {
 

@@ -443,5 +443,8 @@
     <ClInclude Include="Code\GameObjectManager.h">
       <Filter>ヘッダー ファイル\GameData</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Skill.h">
+      <Filter>ヘッダー ファイル\GameData</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
