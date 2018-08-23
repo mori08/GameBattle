@@ -47,6 +47,20 @@ namespace GameObject
 
 		void collisionCheck(const std::unique_ptr<GameObject> & obj) override;
 
+	public:
+
+		/// <summary>
+		/// 座標を取得します。
+		/// </summary>
+		/// <returns> 座標 </returns>
+		Vec2 getPos() const { return _pos; }
+
+		/// <summary>
+		/// プレイヤーの識別番号を取得します。
+		/// </summary>
+		/// <returns> プレイヤーの識別番号 </returns>
+		int getId() const { return _id; }
+
 	private:
 
 		void collisionUpdate(const String & tag) override;

@@ -75,7 +75,7 @@ void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
 
 	if (_state != State::USING_SKILL) { return; }
 	
-	String skillTag = _skillList[_sId]->collision(obj->getCollider());
+	String skillTag = _skillList[_sId]->collision(_time, *this, obj->getCollider());
 
 	if (skillTag == L"") { return; }
 
