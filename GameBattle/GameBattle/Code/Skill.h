@@ -10,7 +10,7 @@ namespace GameObject
 }
 
 
-namespace GameData
+namespace Skill
 {
 
 	class Skill

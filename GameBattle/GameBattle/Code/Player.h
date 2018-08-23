@@ -11,7 +11,7 @@ namespace GameObject
 	{
 	private:
 
-		using skill_ptr  = std::shared_ptr<GameData::Skill>;
+		using skill_ptr  = std::shared_ptr<Skill::Skill>;
 		using skill_list = std::array<skill_ptr, 4>;
 
 		enum class State
