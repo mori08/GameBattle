@@ -26,8 +26,6 @@ namespace GameObject
 
 		bool _isLanding = false;  // 接地判定
 
-		static std::shared_ptr<GameData::Generator> _generator;
-
 	protected:
 
 		Vec2   _pos;      // 座標
@@ -37,6 +35,8 @@ namespace GameObject
 		Point  _size;     // サイズ
 
 		String _tag;      // タグ
+
+		static std::shared_ptr<GameData::Generator> _generator;
 
 	public:
 
@@ -73,8 +73,6 @@ namespace GameObject
 			_generator = generator;
 		}
 
-	protected:
-
 		/// <summary>
 		/// 交差判定用の長方形の取得します。
 		/// </summary>
@@ -89,6 +87,8 @@ namespace GameObject
 		/// </summary>
 		/// <param name="tag"> タグ </param>
 		virtual void collisionUpdate(const String & Tag) = 0;
+
+	protected:
 
 		/// <summary>
 		/// 速度に応じて座標を変更します。

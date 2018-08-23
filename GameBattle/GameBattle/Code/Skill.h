@@ -1,7 +1,13 @@
 #pragma once
 
 
-#include"Player.h"
+#include"GameObject.h"
+
+
+namespace GameObject
+{
+	class Player;
+}
 
 
 namespace GameData
@@ -32,6 +38,13 @@ namespace GameData
 		/// <param name="time"> スキル進行状況 </param>
 		/// <param name="player"> プレイヤー </param>
 		virtual void draw(int time, const GameObject::Player & player) const = 0;
+
+		/// <summary>
+		/// 終了判定
+		/// </summary>
+		/// <param name="time"> スキル進行状況 </param>
+		/// <returns> 終了するとき true , そうでないとき false </returns>
+		virtual bool finish(int time) const = 0;
 
 	};
 

@@ -4,16 +4,18 @@
 
 GameObject::Player::Player(int id)
 {
-	_id = id;
+	_id    = id;
+	_time  = 0;
+	_state = State::NORMAL;
 
-	_pos = Point(100, 100);
+	_pos      = Point(100, 100);
 	_velocity = Point::Zero;
-	_size = Point(40, 60);
-	_tag = L"Player[" + ToString(id) + L"]";
+	_size     = Point(40, 60);
+	_tag      = L"Player[" + ToString(id) + L"]";
 
-	for (auto & s : _skill)
+	for (auto & skill : _skillList)
 	{
-		s = nullptr;
+		skill = nullptr;
 	}
 }
 
@@ -22,17 +24,24 @@ void GameObject::Player::update()
 {
 	_col = false;
 
-	if (Abs(Gamepad(_id).x) > 0.1)
-	{
-		_velocity.x = 4 * Gamepad(_id).x;
-	}
-	else
+	if (isLanding())
 	{
 		_velocity.x = 0;
 	}
-
 	_velocity.y += 0.6;
-	if (Gamepad(_id).button(2).clicked && isLanding()) { _velocity.y = -12; }
+
+	++_time;
+
+	switch(_state)
+	{
+	case State::NORMAL:
+		controll();
+		break;
+
+	case State::USING_SKILL:
+		useSkill();
+		break;
+	}
 
 	moveObject(true);
 
@@ -43,6 +52,11 @@ void GameObject::Player::update()
 void GameObject::Player::draw() const
 {
 	getCollider().draw(_col?Palette::Red : Palette::Orange);
+
+	if (_state == State::USING_SKILL)
+	{
+		_skillList[_sId]->draw(_time, *this);
+	}
 }
 
 
@@ -52,7 +66,62 @@ bool GameObject::Player::eraser() const
 }
 
 
+void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
+{
+	if (getCollider().intersects(obj->getCollider()))
+	{
+		obj->collisionUpdate(_tag);
+	}
+
+	if (_state != State::USING_SKILL) { return; }
+	
+	String skillTag = _skillList[_sId]->collision(obj->getCollider());
+
+	if (skillTag == L"") { return; }
+
+	obj->collisionUpdate(skillTag);
+}
+
+
 void GameObject::Player::collisionUpdate(const String &)
 {
 	_col = true;
+}
+
+
+void GameObject::Player::changeState(const State & state)
+{
+	if (_state == state) return;
+
+	_time = 0;
+	_state = state;
+}
+
+
+void GameObject::Player::controll()
+{
+	_velocity.x = 4 * Gamepad(_id).x;
+
+	if (Gamepad(_id).button(2).clicked && isLanding()) { _velocity.y = -12; }
+
+	for (int i = 0; i < 4; ++i)
+	{
+		if (Gamepad(_id).button(i).clicked)
+		{
+			_sId = i;
+
+			_state = State::USING_SKILL;
+		}
+	}
+}
+
+
+void GameObject::Player::useSkill()
+{
+	if (_skillList[_sId]->finish(_time))
+	{
+		changeState(State::NORMAL);
+	}
+
+	_skillList[_sId]->update(_time, *this, _generator);
 }
