@@ -15,6 +15,14 @@ namespace GameObject
 namespace GameData
 {
 	using Generator = std::queue<std::unique_ptr<GameObject::GameObject>>;
+
+	class Tag
+	{
+	public:
+		String type;
+
+		Array<String> info;
+	};
 }
 
 
@@ -22,6 +30,10 @@ namespace GameObject
 {
 	class GameObject
 	{
+	protected:
+
+		using TagData = Array<GameData::Tag>;
+
 	private:
 
 		bool _isLanding = false;  // 接地判定
@@ -86,7 +98,7 @@ namespace GameObject
 		/// 他オブジェクトと交差した際の処理を行います。
 		/// </summary>
 		/// <param name="tag"> タグ </param>
-		virtual void collisionUpdate(const String & Tag) = 0;
+		virtual void collisionUpdate(const String & tag) = 0;
 
 	protected:
 
@@ -101,6 +113,12 @@ namespace GameObject
 		/// </summary>
 		/// <returns> 接地しているとき true , そうでないとき false </returns>
 		bool isLanding() const;
+
+		/// <summary>
+		/// タグの文字列を分割・整理します。
+		/// </summary>
+		/// <param name="tagStr"> タグの文字列 </param>
+		static TagData makeTagData(const String & tagsStr);
 
 	};
 }

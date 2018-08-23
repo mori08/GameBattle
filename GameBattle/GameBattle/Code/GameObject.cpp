@@ -80,3 +80,27 @@ bool GameObject::GameObject::isLanding() const
 
 	return false;
 }
+
+
+
+GameObject::GameObject::TagData GameObject::GameObject::makeTagData(const String & tagsStr)
+{
+	if (tagsStr == L"")
+	{
+		return move(TagData());
+	}
+
+	TagData tagData;
+
+	for (const auto & tagStr : tagsStr.split(L']'))
+	{
+		GameData::Tag tag;
+
+		tag.type = tagStr.split(L'[')[0];
+		tag.info = tagStr.split(L'[')[1].split(L',');
+
+		tagData.emplace_back(tag);
+	}
+
+	return move(tagData);
+}
