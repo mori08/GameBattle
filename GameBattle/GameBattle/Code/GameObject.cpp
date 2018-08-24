@@ -2,6 +2,9 @@
 #include "StageData.h"
 
 
+std::shared_ptr<GameData::Generator> GameObject::GameObject::_generator;
+
+
 void GameObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& obj)
 {
 	if (getCollider().intersects(obj->getCollider()))
@@ -95,6 +98,8 @@ GameObject::GameObject::TagData GameObject::GameObject::makeTagData(const String
 	for (const auto & tagStr : tagsStr.split(L']'))
 	{
 		GameData::Tag tag;
+
+		if (tagStr.split(L'[').size() < 2) { continue; }
 
 		tag.type = tagStr.split(L'[')[0];
 		tag.info = tagStr.split(L'[')[1].split(L',');

@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "GameCamera.h"
+#include "TestSkill.h"
 
 
 GameObject::Player::Player(int id)
@@ -17,6 +18,8 @@ GameObject::Player::Player(int id)
 	{
 		skill = nullptr;
 	}
+
+	_skillList[0] = std::make_shared<Skill::TestSkill1>();
 }
 
 
@@ -83,9 +86,15 @@ void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
 }
 
 
-void GameObject::Player::collisionUpdate(const String &)
+void GameObject::Player::collisionUpdate(const String & tag)
 {
-	_col = true;
+	for(const auto & t : makeTagData(tag))
+	{
+		if (t.type == L"Attack")
+		{
+			_col = true;
+		}
+	}
 }
 
 
@@ -100,17 +109,26 @@ void GameObject::Player::changeState(const State & state)
 
 void GameObject::Player::controll()
 {
-	_velocity.x = 4 * Gamepad(_id).x;
+	if (Abs(Gamepad(_id).x) > 0.1)
+	{
+		_velocity.x = 4 * Gamepad(_id).x;
+	}
+	else
+	{
+		_velocity.x = 0;
+	}
 
-	if (Gamepad(_id).button(2).clicked && isLanding()) { _velocity.y = -12; }
+	if ((Gamepad(_id).button(4).clicked || Gamepad(_id).button(5).clicked) && isLanding()) { _velocity.y = -12; }
 
 	for (int i = 0; i < 4; ++i)
 	{
+		if (_skillList[i] == nullptr) { continue; }
+	
 		if (Gamepad(_id).button(i).clicked)
 		{
 			_sId = i;
 
-			_state = State::USING_SKILL;
+			changeState(State::USING_SKILL);
 		}
 	}
 }

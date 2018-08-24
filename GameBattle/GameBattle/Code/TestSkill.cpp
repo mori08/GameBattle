@@ -18,7 +18,7 @@ String Skill::TestSkill1::collision(int, const GameObject::Player & player, cons
 }
 
 
-void Skill::TestSkill1::draw(int time, const GameObject::Player & player) const
+void Skill::TestSkill1::draw(int, const GameObject::Player & player) const
 {
 	Circle(player.getPos(), 30).draw(Palette::Lime);
 }

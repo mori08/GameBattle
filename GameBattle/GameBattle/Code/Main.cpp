@@ -12,7 +12,7 @@ void Main()
 
 	while (System::Update())
 	{
-		ClearPrint();
+		//ClearPrint();
 		
 		gameObject.update();
 
