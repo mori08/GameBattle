@@ -426,11 +426,11 @@
     <ClCompile Include="Code\GameCamera.cpp">
       <Filter>ソース ファイル\GameData</Filter>
     </ClCompile>
-    <ClCompile Include="Code\GameObjectManager.cpp">
-      <Filter>ソース ファイル\GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="Code\TestSkill.cpp">
       <Filter>ソース ファイル\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GameObjectManager.cpp">
+      <Filter>ソース ファイル\GameData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
