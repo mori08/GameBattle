@@ -122,7 +122,7 @@ namespace GameData
 
 			static Font font(10);
 
-			Point base = Point::Zero;
+			Point base = Point(0, 20);
 
 			for (int i = 0; i < PLAYER_NUM; ++i)
 			{

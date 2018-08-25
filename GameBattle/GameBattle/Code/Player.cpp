@@ -26,6 +26,7 @@ GameObject::Player::Player(int id)
 	}
 
 	_skillList[0] = std::make_shared<Skill::TestSkill1>();
+	_skillList[1] = std::make_shared<Skill::TestSkill2>();
 }
 
 
@@ -99,7 +100,7 @@ void GameObject::Player::collisionUpdate(const String & tag)
 {
 	for(const auto & t : makeTagData(tag))
 	{
-		if (t.type == L"Attack")
+		if (t.type == L"Attack" && _id != ParseOr<int>(t.info[0], -1))
 		{
 			_col = true;
 		}

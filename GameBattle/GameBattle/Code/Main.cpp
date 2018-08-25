@@ -13,8 +13,13 @@ void Main()
 
 	while (System::Update())
 	{
-		//ClearPrint();
+		ClearPrint();
 		
+#ifdef _DEBUG
+		Println(Profiler::FPS(), L"FPS");
+#endif // _DEBUG
+
+
 		gameObject.update();
 
 		GameData::GameCamera::Instance().update();
