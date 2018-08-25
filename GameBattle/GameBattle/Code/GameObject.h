@@ -115,6 +115,12 @@ namespace GameObject
 		bool isLanding() const;
 
 		/// <summary>
+		/// このオブジェクトがマップに接しているか示します。
+		/// </summary>
+		/// <returns> 接しているとき true , そうでないとき false </returns>
+		bool isTouchingMap() const;
+
+		/// <summary>
 		/// タグの文字列を分割・整理します。
 		/// </summary>
 		/// <param name="tagStr"> タグの文字列 </param>
