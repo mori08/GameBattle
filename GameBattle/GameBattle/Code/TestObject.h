@@ -9,9 +9,15 @@ namespace GameObject
 
 	class TestObject : public GameObject
 	{
+	private:
+
+		bool _eraseFlag = false;
+
+		int  _id;
+
 	public:
 
-		TestObject();
+		TestObject(Vec2 pos, Vec2 vel, int id);
 
 		void update() override;
 
