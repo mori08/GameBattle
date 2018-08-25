@@ -14,7 +14,7 @@ bool GameData::InputManager::get(int id, const Button & button, const InputType 
 
 	if (Gamepad(id).isConnected())
 	{
-		return instatnce(id).padInput(Gamepad(id), button, inputType);
+		return Instatnce(id).padInput(Gamepad(id), button, inputType);
 	}
 
 	return keyInput(button, inputType);
@@ -27,7 +27,7 @@ void GameData::InputManager::updatePreVec()
 	{
 		if (Gamepad(i).isConnected())
 		{
-			instatnce(i).preVec = Vec2(Gamepad(i).x, Gamepad(i).y);
+			Instatnce(i).preVec = Vec2(Gamepad(i).x, Gamepad(i).y);
 		}
 	}
 }

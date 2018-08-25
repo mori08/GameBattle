@@ -2,6 +2,7 @@
 #include"StageData.h"
 #include"GameCamera.h"
 #include"GameObjectManager.h"
+#include"InputManager.h"
 
 void Main()
 {
@@ -18,10 +19,14 @@ void Main()
 
 		GameData::GameCamera::Instance().update();
 
-		const auto t1 = GameData::GameCamera::Instance().createTransformer();
 		{
+			const auto t1 = GameData::GameCamera::Instance().createTransformer();
+
 			GameData::StageData::Instance().draw();
 			gameObject.draw();
 		}
+
+		GameData::InputManager::test();
+		GameData::InputManager::updatePreVec();
 	}
 }
