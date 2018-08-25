@@ -435,6 +435,9 @@
     <ClCompile Include="Code\InputManager.cpp">
       <Filter>ソース ファイル\GameData</Filter>
     </ClCompile>
+    <ClCompile Include="Code\SkillManager.cpp">
+      <Filter>ソース ファイル\GameData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
@@ -462,6 +465,9 @@
       <Filter>ヘッダー ファイル\Skill</Filter>
     </ClInclude>
     <ClInclude Include="Code\InputManager.h">
+      <Filter>ヘッダー ファイル\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\SkillManager.h">
       <Filter>ヘッダー ファイル\GameData</Filter>
     </ClInclude>
   </ItemGroup>

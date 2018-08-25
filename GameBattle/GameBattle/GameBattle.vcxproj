@@ -280,6 +280,7 @@
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\Player.cpp" />
+    <ClCompile Include="Code\SkillManager.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
     <ClCompile Include="Code\TestObject.cpp" />
     <ClCompile Include="Code\TestSkill.cpp" />
@@ -291,6 +292,7 @@
     <ClInclude Include="Code\InputManager.h" />
     <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\Skill.h" />
+    <ClInclude Include="Code\SkillManager.h" />
     <ClInclude Include="Code\StageData.h" />
     <ClInclude Include="Code\TestObject.h" />
     <ClInclude Include="Code\TestSkill.h" />
