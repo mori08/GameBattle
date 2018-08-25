@@ -5,9 +5,10 @@
 
 GameObject::Player::Player(int id)
 {
-	_id    = id;
-	_time  = 0;
-	_state = State::NORMAL;
+	_id        = id;
+	_time      = 0;
+	_state     = State::NORMAL;
+	_direction = RIGHT;
 
 	_pos      = Point(100, 100);
 	_velocity = Point::Zero;
@@ -47,6 +48,9 @@ void GameObject::Player::update()
 	}
 
 	moveObject(true);
+
+	if (_velocity.x < 0) { _direction = LEFT;  }
+	if (_velocity.x > 0) { _direction = RIGHT; }
 
 	GameData::GameCamera::Instance().setPlayerPos(_pos.asPoint());
 }

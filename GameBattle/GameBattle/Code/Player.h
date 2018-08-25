@@ -21,6 +21,9 @@ namespace GameObject
 			USING_SKILL
 		};
 
+		static const int LEFT  = -1;
+		static const int RIGHT = +1;
+
 	private:
 
 		int        _id;        // 識別番号
@@ -32,6 +35,8 @@ namespace GameObject
 		int	       _time;      // 演出用の時間
 
 		State      _state;     // 状態
+
+		int	       _direction; // 向き 左向きのとき -1 , 右向きのとき +1
 
 		bool _col;
 
@@ -60,6 +65,12 @@ namespace GameObject
 		/// </summary>
 		/// <returns> プレイヤーの識別番号 </returns>
 		int getId() const { return _id; }
+
+		/// <summary>
+		/// プレイヤーの向いている方向を取得します。
+		/// </summary>
+		/// <returns> 方向 左向きのとき -1 , 右向きのとき +1 </returns>
+		int getDirection() const { return _direction; };
 
 	private:
 
