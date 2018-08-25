@@ -31,7 +31,7 @@ namespace GameData
 		SkillManager& operator=(const SkillManager&) = delete;
 		SkillManager(SkillManager&&)                 = delete;
 		SkillManager & operator=(SkillManager&&)     = delete;
-
+		
 	public:
 
 		/// <summary>
@@ -49,7 +49,28 @@ namespace GameData
 		/// </summary>
 		/// <param name="key"> キーとなる文字列 </param>
 		/// <returns> スキルのポインタを返します </returns>
-		skill_ptr & getSkill(const String & key) const;
+		skill_ptr getSkill(const String & key) const;
+
+	private:
+
+		/// <summary>
+		/// ゲームで使用するスキルを全て登録します。
+		/// </summary>
+		void setAllSkill();
+
+		/// <summary>
+		/// スキルを登録します。
+		/// </summary>
+		/// <param name="key"> キーとなる文字列 </param>
+		template<typename SKILL_TYPE>
+		void setSkill(const String & key)
+		{
+			_skillMap[key] = std::make_shared<SKILL_TYPE>();
+
+			_skillKeyList.emplace_back(key);
+
+			_raito.emplace_back(1);
+		}
 
 	};
 

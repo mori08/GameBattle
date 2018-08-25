@@ -3,6 +3,7 @@
 #include"GameCamera.h"
 #include"GameObjectManager.h"
 #include"InputManager.h"
+#include"SkillManager.h"
 
 void Main()
 {
@@ -10,6 +11,7 @@ void Main()
 	Window::Resize(960, 540);
 	
 	GameData::GameObjectManager gameObject;
+	GameData::SkillManager::instance(); // ‰Šú‰»
 
 	while (System::Update())
 	{
