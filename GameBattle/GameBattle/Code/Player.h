@@ -24,8 +24,10 @@ namespace GameObject
 		static const int LEFT  = -1;
 		static const int RIGHT = +1;
 
-	private:
+		const double DEFAULT_MOVE_SPEED = 4.0; // 初期移動速度
 
+	private:
+		
 		int        _id;        // 識別番号
 
 		int	       _sId;       // スキルの識別番号
@@ -37,6 +39,8 @@ namespace GameObject
 		State      _state;     // 状態
 
 		int	       _direction; // 向き 左向きのとき -1 , 右向きのとき +1
+
+		double     _moveSpeed; // 左右方向への移動速度
 
 		bool _col;
 

@@ -1,6 +1,10 @@
 #include "Player.h"
 #include "GameCamera.h"
 #include "TestSkill.h"
+#include "InputManager.h"
+
+
+using namespace GameData;
 
 
 GameObject::Player::Player(int id)
@@ -9,6 +13,7 @@ GameObject::Player::Player(int id)
 	_time      = 0;
 	_state     = State::NORMAL;
 	_direction = RIGHT;
+	_moveSpeed = DEFAULT_MOVE_SPEED;
 
 	_pos      = Point(100, 100);
 	_velocity = Point::Zero;
@@ -52,7 +57,7 @@ void GameObject::Player::update()
 	if (_velocity.x < 0) { _direction = LEFT;  }
 	if (_velocity.x > 0) { _direction = RIGHT; }
 
-	GameData::GameCamera::Instance().setPlayerPos(_pos.asPoint());
+	GameCamera::Instance().setPlayerPos(_pos.asPoint());
 }
 
 
@@ -113,22 +118,24 @@ void GameObject::Player::changeState(const State & state)
 
 void GameObject::Player::controll()
 {
-	if (Abs(Gamepad(_id).x) > 0.1)
+	_velocity.x = 0;
+
+	if ( InputManager::get(_id, Button::Left, InputType::Pressed) && !InputManager::get(_id, Button::Right, InputType::Pressed))
 	{
-		_velocity.x = 4 * Gamepad(_id).x;
+		_velocity.x = LEFT*_moveSpeed;
 	}
-	else
+	if (!InputManager::get(_id, Button::Left, InputType::Pressed) &&  InputManager::get(_id, Button::Right, InputType::Pressed))
 	{
-		_velocity.x = 0;
+		_velocity.x = RIGHT*_moveSpeed;
 	}
 
-	if ((Gamepad(_id).button(4).clicked || Gamepad(_id).button(5).clicked) && isLanding()) { _velocity.y = -12; }
+	if (InputManager::get(_id, Button::Up, InputType::Clicked) && isLanding()) { _velocity.y = -12; }
 
 	for (int i = 0; i < 4; ++i)
 	{
 		if (_skillList[i] == nullptr) { continue; }
 	
-		if (Gamepad(_id).button(i).clicked)
+		if (InputManager::get(_id, i, InputType::Clicked))
 		{
 			_sId = i;
 

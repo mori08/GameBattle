@@ -70,6 +70,15 @@ namespace GameData
 		static bool get(int id, const Button & button, const InputType & inputType);
 
 		/// <summary>
+		/// 入力を取得します。
+		/// </summary>
+		/// <param name="id"> プレイヤーの識別番号 </param>
+		/// <param name="buttonId"> どのボタンの入力か </param>
+		/// <param name="inputType"> どのような入力か </param>
+		/// <returns> 入力があったとき true , そうでないとき false </returns>
+		static bool get(int id, int buttonId, const InputType & inputType);
+
+		/// <summary>
 		/// アナログパッドの倒されている方向を更新します。
 		/// </summary>
 		static void updatePreVec();

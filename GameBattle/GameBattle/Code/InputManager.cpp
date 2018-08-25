@@ -21,6 +21,22 @@ bool GameData::InputManager::get(int id, const Button & button, const InputType 
 }
 
 
+bool GameData::InputManager::get(int id, int buttonId, const InputType & inputType)
+{
+	switch (buttonId)
+	{
+	case 0: return get(id, Button::One  , inputType);
+
+	case 1: return get(id, Button::Two  , inputType);
+	
+	case 2: return get(id, Button::Three, inputType);
+	
+	case 3: return get(id, Button::Four , inputType);
+	}
+
+	return false;
+}
+
 void GameData::InputManager::updatePreVec()
 {
 	for (int i = 0; i < PLAYER_NUM; ++i)
@@ -125,8 +141,10 @@ bool GameData::InputManager::padInput(const Gamepad & pad, const Button & button
 
 bool GameData::InputManager::analogInput(double value, double preValue, InputType inputType)
 {
-	bool input    = value    > 0.9;
-	bool preInput = preValue > 0.9;
+	static const double BORDER = 0.99;
+
+	bool input    = value    > BORDER;
+	bool preInput = preValue > BORDER;
 
 	switch (inputType)
 	{
