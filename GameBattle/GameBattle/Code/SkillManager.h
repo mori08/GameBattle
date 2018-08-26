@@ -19,7 +19,7 @@ namespace GameData
 
 		Array<String> _skillKeyList; // _skillMapのキー（文字列）のリスト
 
-		Array<int>    _raito;        // 確率を計算するための値
+		Array<int>    _rate;         // 確率を計算するための値
 
 	private:
 
@@ -50,6 +50,12 @@ namespace GameData
 		/// <param name="key"> キーとなる文字列 </param>
 		/// <returns> スキルのポインタを返します </returns>
 		skill_ptr getSkill(const String & key) const;
+
+		/// <summary>
+		/// ランダムでキーとなる文字列を取得します。
+		/// </summary>
+		/// <returns> キーとなる文字列 </returns>
+		String getKeyRamdom();
 
 	private:
 
