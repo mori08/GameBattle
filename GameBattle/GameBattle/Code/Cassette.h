@@ -11,7 +11,7 @@ namespace GameObject
 	{
 	private:
 
-		
+		String _skillKey;
 
 	public:
 

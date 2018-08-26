@@ -1,9 +1,10 @@
 #include "Cassette.h"
+#include "SkillManager.h"
 
 
 void GameObject::Cassette::update()
 {
-
+	_skillKey = GameData::SkillManager::instance().getKeyRamdom();
 }
 
 
