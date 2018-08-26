@@ -15,6 +15,8 @@ namespace GameData
 
 		std::shared_ptr<Generator> _generator; // 生成するオブジェクトのリスト
 
+		Array<Point> _cassettePos;
+
 	public:
 
 		GameObjectManager();

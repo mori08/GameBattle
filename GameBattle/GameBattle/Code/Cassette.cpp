@@ -23,7 +23,7 @@ GameObject::Cassette::Cassette(const size_t & id)
 
 void GameObject::Cassette::update()
 {
-	_velocity.y += 0.02;
+	_velocity.y += 0.2;
 
 	moveObject(true);
 }

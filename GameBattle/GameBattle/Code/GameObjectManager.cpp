@@ -1,5 +1,7 @@
 #include "GameObjectManager.h"
+#include "StageData.h"
 #include "Player.h"
+#include "Cassette.h"
 
 
 GameData::GameObjectManager::GameObjectManager()
@@ -12,7 +14,7 @@ GameData::GameObjectManager::GameObjectManager()
 		_gameObjectList.emplace_back(std::make_unique<GameObject::Player>(i));
 	}
 
-
+	_gameObjectList.emplace_back(std::make_unique<GameObject::Cassette>(4));
 }
 
 
