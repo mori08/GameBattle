@@ -15,6 +15,8 @@ namespace GameObject
 
 	public:
 
+		Cassette();
+
 		void update() override;
 
 		void draw() const override;

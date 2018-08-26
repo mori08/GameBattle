@@ -2,9 +2,17 @@
 #include "SkillManager.h"
 
 
-void GameObject::Cassette::update()
+GameObject::Cassette::Cassette()
 {
 	_skillKey = GameData::SkillManager::instance().getKeyRamdom();
+
+	_tag = L"Cassette[" + _skillKey + L"]";
+}
+
+
+void GameObject::Cassette::update()
+{
+	
 }
 
 
@@ -22,5 +30,5 @@ bool GameObject::Cassette::eraser() const
 
 void GameObject::Cassette::collisionUpdate(const String & tag)
 {
-
+	
 }
