@@ -11,6 +11,8 @@ GameData::GameObjectManager::GameObjectManager()
 	{
 		_gameObjectList.emplace_back(std::make_unique<GameObject::Player>(i));
 	}
+
+
 }
 
 

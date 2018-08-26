@@ -30,11 +30,11 @@ String GameData::SkillManager::getKeyRamdom()
 
 	int v = Random(0, total - 1);
 
-	for (int i = 0; i < _rate.size(); ++i)
+	for (size_t i = 0; i < _rate.size(); ++i)
 	{
-		if (v < _rate.size())
+		if (v < (int)_rate.size())
 		{
-			for (int j = 0; j < _rate.size(); ++j)
+			for (size_t j = 0; j < _rate.size(); ++j)
 			{
 				if (i == j) { _rate[i] = 0; }
 

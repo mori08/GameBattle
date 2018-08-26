@@ -7,7 +7,7 @@
 namespace GameObject
 {
 
-	class Cassette : public GameObject::GameObject
+	class Cassette : public GameObject
 	{
 	private:
 

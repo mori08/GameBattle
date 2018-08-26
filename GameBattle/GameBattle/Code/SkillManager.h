@@ -75,7 +75,7 @@ namespace GameData
 
 			_skillKeyList.emplace_back(key);
 
-			_raito.emplace_back(1);
+			_rate.emplace_back(1);
 		}
 
 	};
