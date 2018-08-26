@@ -13,6 +13,8 @@ namespace GameObject
 
 		String _skillKey;
 
+		bool   _eraseFlag;
+
 	public:
 
 		Cassette();
