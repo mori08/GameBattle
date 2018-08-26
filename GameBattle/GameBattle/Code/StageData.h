@@ -9,30 +9,33 @@ namespace GameData
 
 	class StageData
 	{
+	public:
+
+		static const int CELLSIZE   = 16; // １マスの１辺の長さ
+
+		static const int EMPTY      = 0;  // 何もない
+
+		static const int HARF_BLOCK = 1;  // 上からは通過できるブロック
+
+		static const int BLOCK      = 2;  // ブロック
+
 	private:
 
-		static const int WIDTH    = 120; // 幅
+		static const int WIDTH = 120; // 幅
 
-		static const int HEIGHT   = 60;  // 高さ
+		static const int HEIGHT = 60;  // 高さ
 
-		static const int CELLSIZE = 16;  // １マスの１辺の長さ
+		static const int CASSETTE_POS = 3; // カセット出現箇所
+
+	private:
 
 		int cell[HEIGHT][WIDTH];         // マスごとのステージデータ
 
-	public:
-
-		static const int EMPTY      = 0; // 何もない
-
-		static const int HARF_BLOCK = 1; // 上からは通過できるブロック
-
-		static const int BLOCK      = 2; // ブロック
+		Array<Vec2> cassettePos;        // カセットを生成する座標
 
 	private:
 
-		StageData()
-		{
-			read();
-		}
+		StageData();
 
 		StageData(const StageData &) {}
 
@@ -61,6 +64,13 @@ namespace GameData
 		{
 			return CELLSIZE*Size(WIDTH, HEIGHT);
 		}
+
+		/// <summary>
+		/// カセットを出現させる座標をランダムで決定します。
+		/// </summary>
+		/// <param name="id"> 抽選から除外する座標の番号 </param>
+		/// <returns> 座標とその識別番号 </returns>
+		std::pair<Vec2, size_t> getCassettePos(const size_t & id) const;
 
 		/// <summary>
 		/// マップのデータを描画する
