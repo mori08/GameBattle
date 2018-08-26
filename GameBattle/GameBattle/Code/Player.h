@@ -88,12 +88,32 @@ namespace GameObject
 		/// <summary>
 		/// プレイヤーの動きをコントローラーで制御します。
 		/// </summary>
-		void controll();
+		void controllMove();
+
+		/// <summary>
+		/// 通常時の処理
+		/// </summary>
+		void normal();
 
 		/// <summary>
 		/// スキルを使用します。
 		/// </summary>
 		void useSkill();
+
+		/// <summary>
+		/// スキルを獲得します。
+		/// </summary>
+		void getSkill();
+
+		/// <summary>
+		/// プレイヤーを描画します。
+		/// </summary>
+		void drawPlayer() const;
+
+		/// <summary>
+		/// スキルを獲得するための壁を描画します。
+		/// </summary>
+		void drawSkillWall() const;
 
 	};
 

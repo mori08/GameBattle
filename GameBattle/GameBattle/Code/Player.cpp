@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "GameCamera.h"
+#include "SkillManager.h"
 #include "TestSkill.h"
 #include "InputManager.h"
 
@@ -45,11 +46,15 @@ void GameObject::Player::update()
 	switch(_state)
 	{
 	case State::NORMAL:
-		controll();
+		normal();
 		break;
 
 	case State::USING_SKILL:
 		useSkill();
+		break;
+
+	case State::GET_SKILL:
+		getSkill();
 		break;
 	}
 
@@ -64,11 +69,20 @@ void GameObject::Player::update()
 
 void GameObject::Player::draw() const
 {
-	getCollider().draw(_col?Palette::Red : Palette::Orange);
-
-	if (_state == State::USING_SKILL)
+	switch (_state)
 	{
+	case State::NORMAL:
+		drawPlayer();
+		break;
+
+	case State::USING_SKILL:
+		drawPlayer();
 		_skillList[_sId]->draw(_time, *this);
+		break;
+
+	case State::GET_SKILL:
+		drawSkillWall();
+		break;
 	}
 }
 
@@ -104,6 +118,11 @@ void GameObject::Player::collisionUpdate(const String & tag)
 		{
 			_col = true;
 		}
+
+		if (t.type == L"Cassette" && _state == State::GET_SKILL)
+		{
+			_skillList[_sId] = SkillManager::instance().getSkill(t.info[0]);
+		}
 	}
 }
 
@@ -117,7 +136,7 @@ void GameObject::Player::changeState(const State & state)
 }
 
 
-void GameObject::Player::controll()
+void GameObject::Player::controllMove()
 {
 	_velocity.x = 0;
 
@@ -131,16 +150,29 @@ void GameObject::Player::controll()
 	}
 
 	if (InputManager::get(_id, Button::Up, InputType::Clicked) && isLanding()) { _velocity.y = -12; }
+}
+
+
+void GameObject::Player::normal()
+{
+	controllMove();
 
 	for (int i = 0; i < 4; ++i)
 	{
-		if (_skillList[i] == nullptr) { continue; }
-	
 		if (InputManager::get(_id, i, InputType::Clicked))
 		{
-			_sId = i;
+			if (_skillList[i] == nullptr)
+			{
+				_sId = i;
 
-			changeState(State::USING_SKILL);
+				changeState(State::GET_SKILL);
+			}
+			else
+			{
+				_sId = i;
+
+				changeState(State::USING_SKILL);
+			}
 		}
 	}
 }
@@ -154,4 +186,62 @@ void GameObject::Player::useSkill()
 	}
 
 	_skillList[_sId]->update(_time, *this, _generator);
+}
+
+
+
+void GameObject::Player::getSkill()
+{
+	controllMove();
+
+	if (_skillList[_sId] == nullptr)
+	{
+		changeState(State::NORMAL);
+
+		normal();
+
+		return;
+	}
+
+	if (_time == 145) 
+	{
+		changeState(State::NORMAL);
+	}
+}
+
+
+void GameObject::Player::drawPlayer() const
+{
+	getCollider().draw(_col ? Palette::Red : Palette::Orange);
+}
+
+
+void GameObject::Player::drawSkillWall() const
+{
+	Point p = _pos.asPoint();
+
+	if (_time < 15)
+	{
+		int t = _time;
+		drawPlayer();
+		Rect(p - Point(t * 8, t * 6), t * 16, t * 12).draw(Color(0, 0, 255, 128));
+	}
+	else if (_time < 45)
+	{
+		drawPlayer();
+		Rect(p - Point(15 * 8, 15 * 6), 15 * 16, 15 * 12).draw(Color(0, 0, 255, 128));
+	}
+	else if(_time < 105)
+	{
+		int t = 285 - _time;
+		drawPlayer();
+		Rect(p - Point(t / 2, t * 3 / 8), t, t * 3 / 4).draw(Color(0, 0, 255, 128));
+	}
+	else if (_time < 145)
+	{
+		int t = 285 - _time;
+		int a = 128 - 2 * (_time - 105);
+		Rect(p - Point(t / 2, t * 3 / 8), t, t * 3 / 4).draw(Color(0, 0, 255, a));
+		drawPlayer();
+	}
 }
