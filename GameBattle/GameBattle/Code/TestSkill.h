@@ -33,4 +33,26 @@ namespace Skill
 		bool finish(int time)const override;
 	};
 
+	class TestSkill3 : public Skill
+	{
+		void update(int time, const GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
+
+		String collision(int, const GameObject::Player &, const Rect &) override;
+
+		void draw(int, const GameObject::Player &) const override;
+
+		bool finish(int time)const override;
+	};
+
+	class TestSkill4 : public Skill
+	{
+		void update(int time, const GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
+
+		String collision(int, const GameObject::Player &, const Rect &) override;
+
+		void draw(int, const GameObject::Player &) const override;
+
+		bool finish(int time)const override;
+	};
+
 }
