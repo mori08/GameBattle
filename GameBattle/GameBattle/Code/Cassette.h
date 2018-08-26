@@ -11,13 +11,15 @@ namespace GameObject
 	{
 	private:
 
+		size_t _id;
+
 		String _skillKey;
 
 		bool   _eraseFlag;
 
 	public:
 
-		Cassette(const Vec2 & pos);
+		Cassette(const size_t & id, const Vec2 & pos);
 
 		void update() override;
 

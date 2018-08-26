@@ -2,15 +2,16 @@
 #include "Cassette.h"
 
 
-GameObject::Cassette::Cassette(const Vec2 & pos)
+GameObject::Cassette::Cassette(const size_t & id, const Vec2 & pos)
 {
+	_id        = id;
 	_skillKey  = GameData::SkillManager::instance().getKeyRamdom();
 	_eraseFlag = false;
 
-	_pos      = pos;
-	_size     = Size(30, 30);
+	_pos = pos;
+	_size = Size(30, 30);
 	_velocity = Vec2(0, -10);
-	_tag      = L"Cassette[" + _skillKey + L"]";	
+	_tag = L"Cassette[" + _skillKey + L"]";
 }
 
 
