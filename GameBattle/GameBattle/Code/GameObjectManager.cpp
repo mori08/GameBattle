@@ -14,7 +14,7 @@ GameData::GameObjectManager::GameObjectManager()
 		_gameObjectList.emplace_back(std::make_unique<GameObject::Player>(i));
 	}
 
-	_gameObjectList.emplace_back(std::make_unique<GameObject::Cassette>(4));
+	_gameObjectList.emplace_back(std::make_unique<GameObject::Cassette>(-1)); 
 }
 
 
@@ -34,6 +34,7 @@ void GameData::GameObjectManager::update()
 	}
 
 	// 交差判定及びその処理
+	/*
 	for(auto & object1 : _gameObjectList)
 	{
 		for (auto & object2 : _gameObjectList)
@@ -46,7 +47,7 @@ void GameData::GameObjectManager::update()
 			object1->collisionCheck(object2);
 		}
 	}
-
+	*/
 	// オブジェクトの削除
 	_gameObjectList.remove_if([](auto & itr) { return itr->eraser(); });
 }

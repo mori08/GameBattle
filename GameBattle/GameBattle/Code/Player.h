@@ -34,6 +34,8 @@ namespace GameObject
 
 		skill_list _skillList; // スキル
 
+		std::array<int,4> _skillNum;  // スキルの残り使用回数
+
 		int	       _time;      // 演出用の時間
 
 		State      _state;     // 状態

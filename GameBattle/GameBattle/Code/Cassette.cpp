@@ -16,14 +16,14 @@ GameObject::Cassette::Cassette(const size_t & id)
 
 	_pos      = data.first;
 	_size     = Size(30, 30);
-	_velocity = Vec2(0, -10);
+	_velocity = Vec2(0, -1);
 	_tag      = L"Cassette[" + _skillKey + L"]";
 }
 
 
 void GameObject::Cassette::update()
 {
-	_velocity.y += 0.2;
+	_velocity.y += 0.02;
 
 	moveObject(true);
 }
@@ -48,8 +48,6 @@ void GameObject::Cassette::collisionUpdate(const String & tag)
 		if (t.type == L"GetSkill")
 		{
 			_eraseFlag = true;
-
-			_tag = L"";
 
 			_generator->push(std::make_unique<Cassette>(_id));
 		}

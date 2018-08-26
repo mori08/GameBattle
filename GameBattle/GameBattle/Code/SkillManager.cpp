@@ -32,13 +32,13 @@ String GameData::SkillManager::getKeyRamdom()
 
 	for (size_t i = 0; i < _rate.size(); ++i)
 	{
-		if (v < (int)_rate.size())
+		if (v < _rate[i])
 		{
 			for (size_t j = 0; j < _rate.size(); ++j)
 			{
-				if (i == j) { _rate[i] = 0; }
+				if (i == j) { _rate[j] = 0; }
 
-				else { _rate[i]++; }
+				else { _rate[j]++; }
 			}
 
 			return _skillKeyList[i];
@@ -46,6 +46,10 @@ String GameData::SkillManager::getKeyRamdom()
 
 		v -= _rate[i];
 	}
+
+	Println(L"error > getKeyRandom‚Å³‚µ‚­ˆ—‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
+
+	return _skillKeyList[Random<int>(0, _skillKeyList.size() - 1)];
 }
 
 
@@ -56,6 +60,10 @@ void GameData::SkillManager::setAllSkill()
 	setSkill<Skill::TestSkill1>(L"TestSkill1");
 	
 	setSkill<Skill::TestSkill2>(L"TestSkill2");
+
+	setSkill<Skill::TestSkill3>(L"TestSkill3");
+
+	setSkill<Skill::TestSkill4>(L"TestSkill4");
 
 #endif // _DEBUG
 }

@@ -67,31 +67,13 @@ bool Skill::TestSkill2::finish(int time) const
 
 void Skill::TestSkill3::update(int time, const GameObject::Player & player, const std::shared_ptr<GameData::Generator>& generator)
 {
-	if (time == 10)
+	if (time % 10 == 0)
 	{
 		Vec2 pos = player.getPos();
 
-		Vec2 vel = Vec2(player.getDirection() * 8, -8);
+		Vec2 vel = Vec2(player.getDirection() * Random(4, 10), -Random(4, 10));
 
-		generator->push(std::make_unique<GameObject::TestObject>(pos, vel, player.getId()));
-	}
-
-	if (time == 30)
-	{
-		Vec2 pos = player.getPos();
-
-		Vec2 vel = Vec2(player.getDirection() * 8, -4);
-
-		generator->push(std::make_unique<GameObject::TestObject>(pos, vel, player.getId()));
-	}
-
-	if (time == 50)
-	{
-		Vec2 pos = player.getPos();
-
-		Vec2 vel = Vec2(player.getDirection() * 8, -12);
-
-		generator->push(std::make_unique<GameObject::TestObject>(pos, vel, player.getId()));
+		generator->push(std::make_unique<GameObject::TestObject2>(pos, vel, player.getId()));
 	}
 }
 
@@ -109,7 +91,7 @@ void Skill::TestSkill3::draw(int, const GameObject::Player &) const
 
 bool Skill::TestSkill3::finish(int time) const
 {
-	return time > 60;
+	return time > 120;
 }
 
 
@@ -121,16 +103,16 @@ void Skill::TestSkill4::update(int time, const GameObject::Player & player, cons
 	{
 		Vec2 pos = player.getPos();
 
-		Vec2 vel = Vec2(player.getDirection() * 10, 0);
+		Vec2 vel = Vec2(player.getDirection() * 6, 0);
 
 		generator->push(std::make_unique<GameObject::TestObject2>(pos, vel, player.getId()));
 	}
 }
 
 
-String Skill::TestSkill4::collision(int, const GameObject::Player & player, const Rect & collider)
+String Skill::TestSkill4::collision(int, const GameObject::Player &, const Rect &)
 {
-	
+	return L"";
 }
 
 

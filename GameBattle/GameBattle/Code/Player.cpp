@@ -21,13 +21,17 @@ GameObject::Player::Player(int id)
 	_size     = Point(40, 60);
 	_tag      = L"Player[" + ToString(id) + L"]";
 
+	for (auto & n : _skillNum)
+	{
+		n = 0;
+	}
+
 	for (auto & skill : _skillList)
 	{
 		skill = nullptr;
 	}
 
-	_skillList[0] = std::make_shared<Skill::TestSkill1>();
-	_skillList[1] = std::make_shared<Skill::TestSkill2>();
+	_skillList[0] = std::make_shared<Skill::TestSkill3>();
 }
 
 
@@ -98,10 +102,16 @@ void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
 	if (getCollider().intersects(obj->getCollider()))
 	{
 		obj->collisionUpdate(_tag);
-	}
 
-	if (_state != State::USING_SKILL) { return; }
+		if (_state == State::GET_SKILL)
+		{
+			obj->collisionUpdate(L"GetSkill[]");
+		}
+	}
 	
+	if (_state != State::USING_SKILL) { return; }
+	// ↓ スキル使用時のみ
+
 	String skillTag = _skillList[_sId]->collision(_time, *this, obj->getCollider());
 
 	if (skillTag == L"") { return; }
@@ -166,12 +176,16 @@ void GameObject::Player::normal()
 				_sId = i;
 
 				changeState(State::GET_SKILL);
+
+				return;
 			}
 			else
 			{
 				_sId = i;
 
 				changeState(State::USING_SKILL);
+
+				return;
 			}
 		}
 	}
@@ -182,7 +196,14 @@ void GameObject::Player::useSkill()
 {
 	if (_skillList[_sId]->finish(_time))
 	{
+		if (--_skillNum[_sId] == 0)
+		{
+			_skillList[_sId] = nullptr;
+		}
+
 		changeState(State::NORMAL);
+
+		return;
 	}
 
 	_skillList[_sId]->update(_time, *this, _generator);
@@ -206,6 +227,8 @@ void GameObject::Player::getSkill()
 	if (_time == 145) 
 	{
 		changeState(State::NORMAL);
+
+		_skillNum[_sId] = 5;
 	}
 }
 

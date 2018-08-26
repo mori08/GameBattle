@@ -66,6 +66,8 @@ void GameObject::TestObject2::update()
 {
 	_velocity.y += 0.2;
 
+	_time++;
+
 	moveObject(true);
 }
 
@@ -76,7 +78,7 @@ void GameObject::TestObject2::draw() const
 
 bool GameObject::TestObject2::eraser() const
 {
-	return _time >= 600;
+	return _time >= 300;
 }
 
 void GameObject::TestObject2::collisionUpdate(const String & str)
