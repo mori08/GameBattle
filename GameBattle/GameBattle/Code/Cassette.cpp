@@ -1,17 +1,23 @@
+#include "StageData.h"
 #include "SkillManager.h"
 #include "Cassette.h"
 
 
-GameObject::Cassette::Cassette(const size_t & id, const Vec2 & pos)
+using namespace GameData;
+
+
+GameObject::Cassette::Cassette(const size_t & id)
 {
-	_id        = id;
-	_skillKey  = GameData::SkillManager::instance().getKeyRamdom();
+	auto data = StageData::Instance().getCassettePos(id);
+
+	_id        = data.second;
+	_skillKey  = SkillManager::instance().getKeyRamdom();
 	_eraseFlag = false;
 
-	_pos = pos;
-	_size = Size(30, 30);
+	_pos      = data.first;
+	_size     = Size(30, 30);
 	_velocity = Vec2(0, -10);
-	_tag = L"Cassette[" + _skillKey + L"]";
+	_tag      = L"Cassette[" + _skillKey + L"]";
 }
 
 
@@ -42,6 +48,10 @@ void GameObject::Cassette::collisionUpdate(const String & tag)
 		if (t.type == L"GetSkill")
 		{
 			_eraseFlag = true;
+
+			_tag = L"";
+
+			_generator->push(std::make_unique<Cassette>(_id));
 		}
 	}
 }

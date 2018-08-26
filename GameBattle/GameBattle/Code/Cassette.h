@@ -19,7 +19,7 @@ namespace GameObject
 
 	public:
 
-		Cassette(const size_t & id, const Vec2 & pos);
+		Cassette(const size_t & id);
 
 		void update() override;
 
