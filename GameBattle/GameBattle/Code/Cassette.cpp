@@ -27,8 +27,6 @@ void GameObject::Cassette::update()
 	_velocity.y += 0.02;
 
 	moveObject(true);
-
-	GameCamera::Instance().setPlayerPos(_pos.asPoint());
 }
 
 
