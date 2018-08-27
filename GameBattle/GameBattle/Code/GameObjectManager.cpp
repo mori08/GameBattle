@@ -6,6 +6,8 @@
 
 GameData::GameObjectManager::GameObjectManager()
 {
+	Skill::Skill::setTagData();
+
 	_generator = std::make_shared<Generator>();
 	GameObject::GameObject::setGenerator(_generator);
 
@@ -34,7 +36,6 @@ void GameData::GameObjectManager::update()
 	}
 
 	// 交差判定及びその処理
-	/*
 	for(auto & object1 : _gameObjectList)
 	{
 		for (auto & object2 : _gameObjectList)
@@ -47,7 +48,6 @@ void GameData::GameObjectManager::update()
 			object1->collisionCheck(object2);
 		}
 	}
-	*/
 	// オブジェクトの削除
 	_gameObjectList.remove_if([](auto & itr) { return itr->eraser(); });
 }

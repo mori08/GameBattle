@@ -281,6 +281,7 @@
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\Player.cpp" />
+    <ClCompile Include="Code\Skill.cpp" />
     <ClCompile Include="Code\SkillManager.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
     <ClCompile Include="Code\TestObject.cpp" />

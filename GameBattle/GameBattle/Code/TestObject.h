@@ -27,7 +27,7 @@ namespace GameObject
 
 	private:
 
-		void collisionUpdate(const String & tag) override;
+		void collisionUpdate(const GameData::TagData & tagData) override;
 
 	};
 
@@ -51,7 +51,7 @@ namespace GameObject
 
 	private:
 
-		void collisionUpdate(const String & tag) override;
+		void collisionUpdate(const GameData::TagData & tagData) override;
 
 	};
 

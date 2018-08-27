@@ -19,7 +19,7 @@ GameObject::Player::Player(int id)
 	_pos      = Point(100, 100);
 	_velocity = Point::Zero;
 	_size     = Point(40, 60);
-	_tag      = L"Player[" + ToString(id) + L"]";
+	_tagData  = makeTagData(L"Player[" + ToString(id) + L"]");
 
 	for (auto & n : _skillNum)
 	{
@@ -30,8 +30,6 @@ GameObject::Player::Player(int id)
 	{
 		skill = nullptr;
 	}
-
-	_skillList[0] = std::make_shared<Skill::TestSkill3>();
 }
 
 
@@ -99,30 +97,28 @@ bool GameObject::Player::eraser() const
 
 void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
 {
+	static TagData getSkillTag = makeTagData(L"GetSkill[]");
+
 	if (getCollider().intersects(obj->getCollider()))
 	{
-		obj->collisionUpdate(_tag);
+		obj->collisionUpdate(_tagData);
 
 		if (_state == State::GET_SKILL)
 		{
-			obj->collisionUpdate(L"GetSkill[]");
+			obj->collisionUpdate(getSkillTag);
 		}
 	}
 	
-	if (_state != State::USING_SKILL) { return; }
-	// ↓ スキル使用時のみ
-
-	String skillTag = _skillList[_sId]->collision(_time, *this, obj->getCollider());
-
-	if (skillTag == L"") { return; }
-
-	obj->collisionUpdate(skillTag);
+	if (_state == State::USING_SKILL)
+	{
+		obj->collisionUpdate(_skillList[_sId]->collision(_time, *this, obj->getCollider()));
+	}
 }
 
 
-void GameObject::Player::collisionUpdate(const String & tag)
+void GameObject::Player::collisionUpdate(const TagData & tagData)
 {
-	for(const auto & t : makeTagData(tag))
+	for(const auto & t : tagData)
 	{
 		if (t.type == L"Attack" && _id != ParseOr<int>(t.info[0], -1))
 		{

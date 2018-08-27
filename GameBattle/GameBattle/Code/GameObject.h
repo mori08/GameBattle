@@ -23,6 +23,8 @@ namespace GameData
 
 		Array<String> info;
 	};
+
+	using TagData = Array<Tag>;
 }
 
 
@@ -30,23 +32,19 @@ namespace GameObject
 {
 	class GameObject
 	{
-	protected:
-
-		using TagData = Array<GameData::Tag>;
-
 	private:
 
 		bool _isLanding = false;  // 接地判定
 
 	protected:
 
-		Vec2   _pos;      // 座標
+		Vec2    _pos;      // 座標
 
-		Vec2   _velocity; // 速度
+		Vec2    _velocity; // 速度
 
-		Point  _size;     // サイズ
+		Point   _size;     // サイズ
 
-		String _tag;      // タグ
+		GameData::TagData _tagData;  // タグ
 
 		static std::shared_ptr<GameData::Generator> _generator;
 
@@ -98,7 +96,7 @@ namespace GameObject
 		/// 他オブジェクトと交差した際の処理を行います。
 		/// </summary>
 		/// <param name="tag"> タグ </param>
-		virtual void collisionUpdate(const String & tag) = 0;
+		virtual void collisionUpdate(const GameData::TagData & tagData) = 0;
 
 	protected:
 
@@ -120,11 +118,13 @@ namespace GameObject
 		/// <returns> 接しているとき true , そうでないとき false </returns>
 		bool isTouchingMap() const;
 
+	public:
+
 		/// <summary>
 		/// タグの文字列を分割・整理します。
 		/// </summary>
 		/// <param name="tagStr"> タグの文字列 </param>
-		static TagData makeTagData(const String & tagsStr);
+		static GameData::TagData makeTagData(const String & tagsStr);
 
 	};
 }

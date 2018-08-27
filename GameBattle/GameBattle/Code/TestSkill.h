@@ -11,9 +11,9 @@ namespace Skill
 	{
 	public:
 
-		void update(int, const GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
+		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 
-		String collision(int, const GameObject::Player & player, const Rect & collider) override;
+		GameData::TagData & collision(int, const GameObject::Player & player, const Rect & collider) override;
 
 		void draw(int time, const GameObject::Player & player) const override;
 
@@ -24,9 +24,9 @@ namespace Skill
 	{
 	public:
 
-		void update(int time, const GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
+		void update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
 
-		String collision(int, const GameObject::Player &, const Rect &) override;
+		GameData::TagData & collision(int, const GameObject::Player &, const Rect &) override;
 
 		void draw(int, const GameObject::Player &) const override;
 
@@ -35,9 +35,9 @@ namespace Skill
 
 	class TestSkill3 : public Skill
 	{
-		void update(int time, const GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
+		void update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
 
-		String collision(int, const GameObject::Player &, const Rect &) override;
+		GameData::TagData & collision(int, const GameObject::Player &, const Rect &) override;
 
 		void draw(int, const GameObject::Player &) const override;
 
@@ -46,9 +46,9 @@ namespace Skill
 
 	class TestSkill4 : public Skill
 	{
-		void update(int time, const GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
+		void update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator> & generator) override;
 
-		String collision(int, const GameObject::Player &, const Rect &) override;
+		GameData::TagData & collision(int, const GameObject::Player &, const Rect &) override;
 
 		void draw(int, const GameObject::Player &) const override;
 

@@ -1,6 +1,7 @@
 #include "StageData.h"
 #include "SkillManager.h"
 #include "Cassette.h"
+#include "GameCamera.h"
 
 
 using namespace GameData;
@@ -17,7 +18,7 @@ GameObject::Cassette::Cassette(const size_t & id)
 	_pos      = data.first;
 	_size     = Size(30, 30);
 	_velocity = Vec2(0, -1);
-	_tag      = L"Cassette[" + _skillKey + L"]";
+	_tagData  = makeTagData(L"Cassette[" + _skillKey + L"]");
 }
 
 
@@ -26,6 +27,8 @@ void GameObject::Cassette::update()
 	_velocity.y += 0.02;
 
 	moveObject(true);
+
+	GameCamera::Instance().setPlayerPos(_pos.asPoint());
 }
 
 
@@ -41,9 +44,9 @@ bool GameObject::Cassette::eraser() const
 }
 
 
-void GameObject::Cassette::collisionUpdate(const String & tag)
+void GameObject::Cassette::collisionUpdate(const GameData::TagData & tag)
 {
-	for(const auto & t : makeTagData(tag))
+	for(const auto & t : tag)
 	{
 		if (t.type == L"GetSkill")
 		{

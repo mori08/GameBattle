@@ -12,7 +12,7 @@ void GameObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& o
 {
 	if (getCollider().intersects(obj->getCollider()))
 	{
-		obj->collisionUpdate(_tag);
+		obj->collisionUpdate(_tagData);
 	}
 }
 
@@ -102,13 +102,13 @@ bool GameObject::GameObject::isTouchingMap() const
 }
 
 
-GameObject::GameObject::TagData GameObject::GameObject::makeTagData(const String & tagsStr)
+TagData GameObject::GameObject::makeTagData(const String & tagsStr)
 {
 	if (tagsStr == L"")
 	{
 		return move(TagData());
 	}
-
+	
 	TagData tagData;
 
 	for (const auto & tagStr : tagsStr.split(L']'))

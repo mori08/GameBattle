@@ -27,7 +27,7 @@ namespace GameObject
 
 		bool eraser() const override;
 
-		void collisionUpdate(const String & tag) override;
+		void collisionUpdate(const GameData::TagData & tag) override;
 
 	};
 

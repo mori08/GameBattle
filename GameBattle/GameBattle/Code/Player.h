@@ -57,6 +57,8 @@ namespace GameObject
 		bool eraser() const override;
 
 		void collisionCheck(const std::unique_ptr<GameObject> & obj) override;
+		
+		void collisionUpdate(const GameData::TagData & tagData) override;
 
 	public:
 
@@ -78,19 +80,17 @@ namespace GameObject
 		/// <returns> 方向 左向きのとき -1 , 右向きのとき +1 </returns>
 		int getDirection() const { return _direction; };
 
-	private:
+		/// <summary>
+		/// プレイヤーの動きをコントローラーで制御します。
+		/// </summary>
+		void controllMove();
 
-		void collisionUpdate(const String & tag) override;
+	private:
 
 		/// <summary>
 		/// 状態を変更します。
 		/// </summary>
 		void changeState(const State & state);
-
-		/// <summary>
-		/// プレイヤーの動きをコントローラーで制御します。
-		/// </summary>
-		void controllMove();
 
 		/// <summary>
 		/// 通常時の処理
