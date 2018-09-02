@@ -49,7 +49,7 @@ String GameData::SkillManager::getKeyRamdom()
 
 	Println(L"error > getKeyRandom‚Å³‚µ‚­ˆ—‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
 
-	return _skillKeyList[Random<int>(0, _skillKeyList.size() - 1)];
+	return _skillKeyList[Random<int>(0, (int)_skillKeyList.size() - 1)];
 }
 
 

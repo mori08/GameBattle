@@ -444,6 +444,9 @@
     <ClCompile Include="Code\Skill.cpp">
       <Filter>ソース ファイル\Skill</Filter>
     </ClCompile>
+    <ClCompile Include="Code\AttackObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
@@ -477,6 +480,9 @@
       <Filter>ヘッダー ファイル\GameData</Filter>
     </ClInclude>
     <ClInclude Include="Code\Cassette.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\AttackObject.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
