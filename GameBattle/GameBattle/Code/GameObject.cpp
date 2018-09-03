@@ -88,14 +88,24 @@ bool GameObject::GameObject::isLanding() const
 }
 
 
+bool GameObject::GameObject::isTouchingWall() const
+{
+	Rect rect = getCollider();
+
+	if (StageData::Instance().get(rect.movedBy(Point(+1, 0))) == StageData::BLOCK) { return true; }
+	if (StageData::Instance().get(rect.movedBy(Point(-1, 0))) == StageData::BLOCK) { return true; }
+
+	return false;
+}
+
+
 bool GameObject::GameObject::isTouchingMap() const
 {
 	if (isLanding()) { return true; }
 
 	Rect rect = getCollider();
 	
-	if (StageData::Instance().get(rect.movedBy(Point(+1, 0))) == StageData::BLOCK) { return true; }
-	if (StageData::Instance().get(rect.movedBy(Point(-1, 0))) == StageData::BLOCK) { return true; }
+	if (isTouchingWall()) { return true; }
 	if (StageData::Instance().get(rect.movedBy(Point(0, -1))) == StageData::BLOCK) { return true; }
 
 	return false;

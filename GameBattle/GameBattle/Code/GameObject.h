@@ -113,6 +113,12 @@ namespace GameObject
 		bool isLanding() const;
 
 		/// <summary>
+		/// このオブジェクトがx軸方向でマップに接しているか示します。
+		/// </summary>
+		/// <returns> 接しているとき true , そうでないとき false </returns>
+		bool isTouchingWall() const;
+
+		/// <summary>
 		/// このオブジェクトがマップに接しているか示します。
 		/// </summary>
 		/// <returns> 接しているとき true , そうでないとき false </returns>

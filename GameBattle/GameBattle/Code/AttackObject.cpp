@@ -26,6 +26,10 @@ void GameObject::AttackObject::collisionUpdate(const GameData::TagData & tagData
 
 void GameObject::AttackObject::shooting(double gravity)
 {
+	++_time;
+
+	if (_time == 120) { _eraseFlag = true; }
+
 	_velocity.y += gravity;
 
 	moveObject(true);
@@ -36,5 +40,16 @@ void GameObject::AttackObject::shooting(double gravity)
 
 void GameObject::AttackObject::walking()
 {
+	++_time;
 
+	if (_time == 120) { _eraseFlag = true; }
+
+	_velocity.y += 0.2;
+
+	moveObject(true);
+
+	if (isTouchingWall())
+	{
+		_velocity.x = -_velocity.x;
+	}
 }

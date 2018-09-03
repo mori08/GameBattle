@@ -11,7 +11,9 @@ namespace GameObject
 	{
 	protected:
 
-		int  _id;
+		int  _id;   // プレイヤーの識別番号
+
+		int  _time; // オブジェクトが生成されてからかかる時間
 
 		bool _eraseFlag = false; // オブジェクトを削除する
 
