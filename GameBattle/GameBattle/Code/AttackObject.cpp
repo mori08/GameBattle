@@ -22,3 +22,19 @@ void GameObject::AttackObject::collisionUpdate(const GameData::TagData & tagData
 		}
 	}
 }
+
+
+void GameObject::AttackObject::shooting(double gravity)
+{
+	_velocity.y += gravity;
+
+	moveObject(true);
+
+	if (isTouchingMap()) { _eraseFlag = true; }
+}
+
+
+void GameObject::AttackObject::walking()
+{
+
+}
