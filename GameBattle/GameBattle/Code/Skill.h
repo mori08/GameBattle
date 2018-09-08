@@ -43,6 +43,24 @@ namespace Skill
 		}
 
 		/// <summary>
+		/// スキル名を取得
+		/// </summary>
+		/// <returns> スキル名 </returns>
+		const String & getSkillName() const
+		{
+			return _skillName;
+		}
+
+		/// <summary>
+		/// 画像の名前を取得
+		/// </summary>
+		/// <returns> 画像の名前を取得 </returns>
+		const String & getTextureName() const
+		{
+			return _textureName;
+		}
+
+		/// <summary>
 		/// 更新
 		/// </summary>
 		/// <param name="time"> スキルの進行状況 </param>
