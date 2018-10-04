@@ -127,3 +127,67 @@ bool Skill::TestSkill4::finish(int time) const
 {
 	return time > 6;
 }
+
+//---------------------------------------------------------------------------
+
+void Skill::TestSkill5::update(int , GameObject::Player & , const std::shared_ptr<GameData::Generator>& )
+{
+}
+
+
+GameData::TagData& Skill::TestSkill5::collision(int time, const GameObject::Player & player, const Rect & collider)
+{
+	const RectF rect = RectF(Size(50, time * 4)).setCenter(player.getPos() + player.getDirection()*Vec2(70, 0)).movedBy(0, player.getCollider().size.y / 2);
+
+	if (rect.intersects(collider))
+	{
+		return AttackTag[player.getId()];
+	}
+
+	return NoneTag;
+}
+
+
+void Skill::TestSkill5::draw(int time, const GameObject::Player& player) const
+{
+	const RectF rect = RectF(Size(50, time * 4)).setCenter(player.getPos() + player.getDirection()*Vec2(70, 0)).movedBy(0, player.getCollider().size.y / 2);
+	rect.draw(Palette::Yellow);
+}
+
+
+bool Skill::TestSkill5::finish(int time) const
+{
+	return time > 50;
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+void Skill::TestSkill6::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>& generator)
+{
+	if (time == 3)
+	{
+		const Vec2 pos = player.getPos();
+
+		const Vec2 vel = Vec2(player.getDirection() * 6, -6);
+
+		generator->push(std::make_unique<GameObject::TestObject3>(pos, vel, player.getId()));
+	}
+
+}
+
+
+GameData::TagData& Skill::TestSkill6::collision(int time, const GameObject::Player & player, const Rect & collider)
+{
+	return NoneTag;
+}
+
+
+void Skill::TestSkill6::draw(int , const GameObject::Player&) const
+{
+}
+
+
+bool Skill::TestSkill6::finish(int time) const
+{
+	return time > 50;
+}

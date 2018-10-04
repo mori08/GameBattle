@@ -274,12 +274,15 @@
     <Font Include="Example\YomogiFont.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Apple.cpp" />
+    <ClCompile Include="Code\AppleBattle.cpp" />
     <ClCompile Include="Code\Cassette.cpp" />
     <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\GameObjectManager.cpp" />
     <ClCompile Include="Code\InputManager.cpp" />
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
+    <ClCompile Include="Code\Moglie.cpp" />
     <ClCompile Include="Code\Player.cpp" />
     <ClCompile Include="Code\Skill.cpp" />
     <ClCompile Include="Code\SkillManager.cpp" />
@@ -288,11 +291,14 @@
     <ClCompile Include="Code\TestSkill.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Apple.h" />
+    <ClInclude Include="Code\AppleBattle.h" />
     <ClInclude Include="Code\Cassette.h" />
     <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\GameObjectManager.h" />
     <ClInclude Include="Code\InputManager.h" />
+    <ClInclude Include="Code\Moglie.h" />
     <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\Skill.h" />
     <ClInclude Include="Code\SkillManager.h" />

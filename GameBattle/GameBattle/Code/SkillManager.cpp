@@ -1,6 +1,8 @@
 #include"SkillManager.h"
 
 #include"TestSkill.h"
+# include "Moglie.h"
+# include "AppleBattle.h"
 
 
 GameData::SkillManager::SkillManager()
@@ -57,13 +59,15 @@ void GameData::SkillManager::setAllSkill()
 {
 #ifdef _DEBUG
 
-	setSkill<Skill::TestSkill1>(L"TestSkill1");
-	
-	setSkill<Skill::TestSkill2>(L"TestSkill2");
+	//setSkill<Skill::TestSkill1>(L"TestSkill1");
+	//setSkill<Skill::TestSkill2>(L"TestSkill2");
+	//setSkill<Skill::TestSkill3>(L"TestSkill3");
+	//setSkill<Skill::TestSkill4>(L"TestSkill4");
+	//setSkill<Skill::TestSkill5>(L"TestSkill5");
+	//setSkill<Skill::TestSkill6>(L"TestSkill6");]
 
-	setSkill<Skill::TestSkill3>(L"TestSkill3");
-
-	setSkill<Skill::TestSkill4>(L"TestSkill4");
+	setSkill<Skill::Moglie>(L"Moglie");
+	setSkill<Skill::AppleBattle>(L"Apple");
 
 #endif // _DEBUG
 }
