@@ -43,6 +43,15 @@ namespace Skill
 		}
 
 		/// <summary>
+		/// 未設定時のコンストラクタ
+		/// </summary>
+		Skill()
+			: _skillName(L"未設定")
+			, _textureName(L"未設定")
+		{
+		}
+
+		/// <summary>
 		/// スキル名を取得
 		/// </summary>
 		/// <returns> スキル名 </returns>
