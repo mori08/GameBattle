@@ -13,6 +13,8 @@ void Main()
 	GameData::GameObjectManager gameObject;
 	GameData::SkillManager::instance(); // ‰Šú‰»
 
+	Texture texture(L"Asset/Texture/back2.png");
+
 	while (System::Update())
 	{
 		ClearPrint();
@@ -28,6 +30,8 @@ void Main()
 
 		{
 			const auto t1 = GameData::GameCamera::Instance().createTransformer();
+
+			texture.draw();
 
 			GameData::StageData::Instance().draw();
 			gameObject.draw();
