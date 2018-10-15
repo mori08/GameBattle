@@ -24,6 +24,8 @@ GameData::SkillManager::skill_ptr GameData::SkillManager::getSkill(const String 
 
 String GameData::SkillManager::getKeyRamdom()
 {
+	return _skillKeyList[Random<int>(0, (int)_skillKeyList.size() - 1)];
+
 	int total = 0;
 
 	for (const auto & r : _rate) { total += r; }
