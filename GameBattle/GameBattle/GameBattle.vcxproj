@@ -278,6 +278,7 @@
     <ClCompile Include="Code\Cassette.cpp" />
     <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\GameObjectManager.cpp" />
+    <ClCompile Include="Code\GameScene.cpp" />
     <ClCompile Include="Code\InputManager.cpp" />
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
@@ -294,7 +295,9 @@
     <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\GameObjectManager.h" />
+    <ClInclude Include="Code\GameScene.h" />
     <ClInclude Include="Code\InputManager.h" />
+    <ClInclude Include="Code\Main.h" />
     <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\Skill.h" />
     <ClInclude Include="Code\SkillManager.h" />
