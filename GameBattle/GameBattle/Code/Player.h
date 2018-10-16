@@ -24,6 +24,8 @@ namespace GameObject
 		static const int LEFT  = -1;
 		static const int RIGHT = +1;
 
+		const double GRAVITY = 0.6;
+
 		const double DEFAULT_MOVE_SPEED = 4.0; // 初期移動速度
 
 	private:
@@ -44,7 +46,11 @@ namespace GameObject
 
 		double     _moveSpeed; // 左右方向への移動速度
 
-		bool _col;
+		bool       _muteki;    // true のとき当たり判定時の処理を無効
+
+		bool       _disabledGravity; // 重力加速度を無効にする
+
+		bool       _col;
 
 	public:
 
@@ -84,6 +90,26 @@ namespace GameObject
 		/// プレイヤーの動きをコントローラーで制御します。
 		/// </summary>
 		void controllMove();
+
+		/// <summary>
+		/// 無敵状態を設定します。
+		/// </summary>
+		/// <param name="m"> true のとき 無敵状態 , false のとき 解除 </param>
+		void setMuteki(bool m)
+		{
+			_muteki = m;
+		}
+
+		/// <summary>
+		/// 速度を設定します。
+		/// </summary>
+		/// <param name="v"> 速度 </param>
+		/// <remarks> この関数を呼んだループでは加速度は無視されます。 </remarks>
+		void setVelocity(const Vec2 & v)
+		{
+			_disabledGravity = true;
+			_velocity = v;
+		}
 
 	private:
 
