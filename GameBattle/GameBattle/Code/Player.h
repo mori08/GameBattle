@@ -6,7 +6,6 @@
 
 namespace GameObject
 {
-
 	class Player : public GameObject
 	{
 	private:
