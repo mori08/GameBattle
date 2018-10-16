@@ -94,6 +94,12 @@
     <Filter Include="ソース ファイル\Skill">
       <UniqueIdentifier>{067b4dce-90b9-4763-ac00-4d13914559d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Scene">
+      <UniqueIdentifier>{3b6e059a-8648-42a7-a873-d28181f42b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{e9ba28fe-9509-4c57-9f7c-3c7a26ff8b14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -444,14 +450,11 @@
     <ClCompile Include="Code\Skill.cpp">
       <Filter>ソース ファイル\Skill</Filter>
     </ClCompile>
-    <ClCompile Include="Code\Moglie.cpp">
-      <Filter>ソース ファイル\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\AppleBattle.cpp">
-      <Filter>ソース ファイル\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="Code\Apple.cpp">
+    <ClCompile Include="Code\AttackObject.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\GameScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -488,14 +491,14 @@
     <ClInclude Include="Code\Cassette.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Code\Moglie.h">
-      <Filter>ヘッダー ファイル\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\AppleBattle.h">
-      <Filter>ヘッダー ファイル\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="Code\Apple.h">
+    <ClInclude Include="Code\AttackObject.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Main.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\GameScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

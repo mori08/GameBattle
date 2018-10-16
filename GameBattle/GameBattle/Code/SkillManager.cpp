@@ -26,6 +26,8 @@ GameData::SkillManager::skill_ptr GameData::SkillManager::getSkill(const String 
 
 String GameData::SkillManager::getKeyRamdom()
 {
+	return _skillKeyList[Random<int>(0, (int)_skillKeyList.size() - 1)];
+
 	int total = 0;
 
 	for (const auto & r : _rate) { total += r; }
@@ -51,7 +53,7 @@ String GameData::SkillManager::getKeyRamdom()
 
 	Println(L"error > getKeyRandom‚Å³‚µ‚­ˆ—‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
 
-	return _skillKeyList[Random<int>(0, _skillKeyList.size() - 1)];
+	return _skillKeyList[Random<int>(0, (int)_skillKeyList.size() - 1)];
 }
 
 

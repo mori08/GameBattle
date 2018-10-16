@@ -20,6 +20,8 @@ GameObject::Player::Player(int id)
 	_velocity = Point::Zero;
 	_size     = Point(40, 60);
 	_tagData  = makeTagData(L"Player[" + ToString(id) + L"]");
+	_muteki   = false;
+	_textureId = 0;
 
 	for (auto & n : _skillNum)
 	{
@@ -41,7 +43,7 @@ void GameObject::Player::update()
 	{
 		_velocity.x = 0;
 	}
-	_velocity.y += 0.6;
+	_velocity.y += GRAVITY;
 
 	++_time;
 
@@ -59,6 +61,9 @@ void GameObject::Player::update()
 		getSkill();
 		break;
 	}
+
+	_velocity.y += _disabledGravity ? 0 : GRAVITY;
+	_disabledGravity = false;
 
 	moveObject(true);
 
@@ -231,7 +236,11 @@ void GameObject::Player::getSkill()
 
 void GameObject::Player::drawPlayer() const
 {
+	static const Size SIZE = Size(128, 176);
+	Point pos = Point(_textureId % 4, _textureId / 4);
+
 	getCollider().draw(_col ? Palette::Red : Palette::Orange);
+	//TextureAsset(L"player")(pos*SIZE, SIZE).draw(getCollider().pos);
 }
 
 

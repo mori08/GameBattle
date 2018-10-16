@@ -15,6 +15,12 @@ namespace Skill
 
 	class Skill
 	{
+	private:
+
+		const String _skillName;   // スキルの名前
+
+		const String _textureName; // 画像
+
 	protected:
 
 		static GameData::TagData NoneTag;
@@ -24,6 +30,44 @@ namespace Skill
 	public:
 
 		static void setTagData();
+
+		/// <summary>
+		/// コンストラクタ
+		/// </summary>
+		/// <param name="skillName"> スキルの名前 </param>
+		/// <param name="textureName"> 画像の名前 </param>
+		Skill(const String & skillName,const String & textureName)
+			: _skillName(skillName)
+			, _textureName(textureName)
+		{
+		}
+
+		/// <summary>
+		/// 未設定時のコンストラクタ
+		/// </summary>
+		Skill()
+			: _skillName(L"未設定")
+			, _textureName(L"未設定")
+		{
+		}
+
+		/// <summary>
+		/// スキル名を取得
+		/// </summary>
+		/// <returns> スキル名 </returns>
+		const String & getSkillName() const
+		{
+			return _skillName;
+		}
+
+		/// <summary>
+		/// 画像の名前を取得
+		/// </summary>
+		/// <returns> 画像の名前を取得 </returns>
+		const String & getTextureName() const
+		{
+			return _textureName;
+		}
 
 		/// <summary>
 		/// 更新
