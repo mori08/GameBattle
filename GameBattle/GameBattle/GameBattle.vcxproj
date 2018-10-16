@@ -278,6 +278,7 @@
     <ClCompile Include="Code\AppleBattle.cpp" />
     <ClCompile Include="Code\AttackObject.cpp" />
     <ClCompile Include="Code\Cassette.cpp" />
+    <ClCompile Include="Code\CrashBreak.cpp" />
     <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\GameObjectManager.cpp" />
     <ClCompile Include="Code\GameScene.cpp" />
@@ -297,6 +298,7 @@
     <ClInclude Include="Code\AppleBattle.h" />
     <ClInclude Include="Code\AttackObject.h" />
     <ClInclude Include="Code\Cassette.h" />
+    <ClInclude Include="Code\CrashBreak.h" />
     <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\GameObjectManager.h" />
