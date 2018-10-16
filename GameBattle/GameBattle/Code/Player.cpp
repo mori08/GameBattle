@@ -21,6 +21,7 @@ GameObject::Player::Player(int id)
 	_size     = Point(40, 60);
 	_tagData  = makeTagData(L"Player[" + ToString(id) + L"]");
 	_muteki   = false;
+	_textureId = 0;
 
 	for (auto & n : _skillNum)
 	{
@@ -235,7 +236,11 @@ void GameObject::Player::getSkill()
 
 void GameObject::Player::drawPlayer() const
 {
+	static const Size SIZE = Size(128, 176);
+	Point pos = Point(_textureId % 4, _textureId / 4);
+
 	getCollider().draw(_col ? Palette::Red : Palette::Orange);
+	//TextureAsset(L"player")(pos*SIZE, SIZE).draw(getCollider().pos);
 }
 
 

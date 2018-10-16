@@ -30,25 +30,27 @@ namespace GameObject
 
 	private:
 		
-		int        _id;        // 識別番号
+		int        _id;              // 識別番号
 
-		int	       _sId;       // スキルの識別番号
+		int	       _sId;             // スキルの識別番号
 
-		skill_list _skillList; // スキル
+		skill_list _skillList;       // スキル
 
-		std::array<int,4> _skillNum;  // スキルの残り使用回数
+		std::array<int,4> _skillNum; // スキルの残り使用回数
 
-		int	       _time;      // 演出用の時間
+		int	       _time;            // 演出用の時間
 
-		State      _state;     // 状態
+		State      _state;           // 状態
 
-		int	       _direction; // 向き 左向きのとき -1 , 右向きのとき +1
+		int	       _direction;       // 向き 左向きのとき -1 , 右向きのとき +1
 
-		double     _moveSpeed; // 左右方向への移動速度
+		double     _moveSpeed;       // 左右方向への移動速度
 
-		bool       _muteki;    // true のとき当たり判定時の処理を無効
+		bool       _muteki;          // true のとき当たり判定時の処理を無効
 
 		bool       _disabledGravity; // 重力加速度を無効にする
+
+		int        _textureId;       // 表示する画像の番号
 
 		bool       _col;
 
