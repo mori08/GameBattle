@@ -3,6 +3,7 @@
 #include"TestSkill.h"
 # include "Moglie.h"
 # include "AppleBattle.h"
+# include "CrashBreak.h"
 
 
 GameData::SkillManager::SkillManager()
@@ -66,8 +67,9 @@ void GameData::SkillManager::setAllSkill()
 	//setSkill<Skill::TestSkill5>(L"TestSkill5");
 	//setSkill<Skill::TestSkill6>(L"TestSkill6");]
 
-	setSkill<Skill::Moglie>(L"Moglie");
 	setSkill<Skill::AppleBattle>(L"Apple");
+//	setSkill<Skill::Moglie>(L"Moglie");
+	setSkill<Skill::CrashBreak>(L"CrashBreak");
 
 #endif // _DEBUG
 }
