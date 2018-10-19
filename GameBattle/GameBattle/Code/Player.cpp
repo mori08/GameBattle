@@ -43,7 +43,6 @@ void GameObject::Player::update()
 	{
 		_velocity.x = 0;
 	}
-	_velocity.y += GRAVITY;
 
 	++_time;
 
