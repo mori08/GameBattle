@@ -17,6 +17,8 @@ namespace GameObject
 
 		bool _eraseFlag = false; // オブジェクトを削除する
 
+		int  _endTime; // timeと値が等しくなると
+
 	public:
 
 		bool eraser() const override;
