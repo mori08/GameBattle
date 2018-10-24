@@ -2,9 +2,17 @@
 
 void Skill::CrashBreak::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>& generator)
 {
-	if (time == 50)
+	if (InRange(time,50,100))
 	{
-	
+		player.setMuteki(true);
+
+		const Vec2 vec = Vec2(10, 0)*player.getDirection();
+		player.setVelocity(vec);
+	}
+
+	else
+	{
+		player.setMuteki(false);
 	}
 }
 
