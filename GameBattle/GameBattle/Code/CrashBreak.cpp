@@ -30,9 +30,12 @@ GameData::TagData& Skill::CrashBreak::collision(int time, const GameObject::Play
 }
 
 
-void Skill::CrashBreak::draw(int, const GameObject::Player & player) const
+void Skill::CrashBreak::draw(int time, const GameObject::Player & player) const
 {
-	player.getCollider().draw(Palette::Yellow);
+	if (InRange(time, 50, 100))
+	{
+		player.getCollider().draw(Palette::Yellow);
+	}
 }
 
 

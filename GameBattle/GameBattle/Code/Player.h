@@ -38,9 +38,7 @@ namespace GameObject
 		static const int LEFT  = -1;
 		static const int RIGHT = +1;
 
-//		const double GRAVITY = 0.6;
-		const double GRAVITY = 0.3;
-
+		const double GRAVITY = 0.6;
 
 		const double DEFAULT_MOVE_SPEED = 4.0; // ‰ŠúˆÚ“®‘¬“x
 
