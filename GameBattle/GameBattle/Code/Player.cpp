@@ -43,7 +43,6 @@ void GameObject::Player::update()
 	{
 		_velocity.x = 0;
 	}
-	_velocity.y += GRAVITY;
 
 	++_time;
 
@@ -66,9 +65,6 @@ void GameObject::Player::update()
 	_disabledGravity = false;
 
 	moveObject(true);
-
-	if (_velocity.x < 0) { _direction = LEFT;  }
-	if (_velocity.x > 0) { _direction = RIGHT; }
 
 	GameCamera::Instance().setPlayerPos(_pos.asPoint());
 }
@@ -154,10 +150,12 @@ void GameObject::Player::controllMove()
 	if ( InputManager::get(_id, Button::Left, InputType::Pressed) && !InputManager::get(_id, Button::Right, InputType::Pressed))
 	{
 		_velocity.x = LEFT*_moveSpeed;
+		_direction = LEFT;
 	}
 	if (!InputManager::get(_id, Button::Left, InputType::Pressed) &&  InputManager::get(_id, Button::Right, InputType::Pressed))
 	{
 		_velocity.x = RIGHT*_moveSpeed;
+		_direction = RIGHT;
 	}
 
 	if (InputManager::get(_id, Button::Up, InputType::Clicked) && isLanding()) { _velocity.y = -12; }
@@ -166,7 +164,22 @@ void GameObject::Player::controllMove()
 
 void GameObject::Player::normal()
 {
+	static const int WALK_SPEED = 10;
+
 	controllMove();
+
+	if (!isLanding())
+	{
+		setTextureId(JAMP);
+	}
+	else if (Abs(_velocity.x) < 0.1f)
+	{
+		setTextureId(STAND);
+	}
+	else
+	{
+		setTextureId(WALK_0 + (_time % (4 * WALK_SPEED)) / WALK_SPEED);
+	}
 
 	for (int i = 0; i < 4; ++i)
 	{
@@ -236,11 +249,17 @@ void GameObject::Player::getSkill()
 
 void GameObject::Player::drawPlayer() const
 {
-	static const Size SIZE = Size(128, 176);
+	static const Size SIZE = Size(128, 160);
 	Point pos = Point(_textureId % 4, _textureId / 4);
+	double scl = 0.5;
 
 	getCollider().draw(_col ? Palette::Red : Palette::Orange);
-	//TextureAsset(L"player")(pos*SIZE, SIZE).draw(getCollider().pos);
+	/*
+	(
+		_direction == RIGHT ?
+		TextureAsset(L"player")(pos*SIZE, SIZE) : TextureAsset(L"player")(pos*SIZE, SIZE).flip()
+	).scale(scl).drawAt(_pos.asPoint());
+	*/
 }
 
 

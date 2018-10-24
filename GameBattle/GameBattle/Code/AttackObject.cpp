@@ -28,7 +28,7 @@ void GameObject::AttackObject::shooting(double gravity)
 {
 	++_time;
 
-	if (_time == 120) { _eraseFlag = true; }
+	if (_time == _endTime) { _eraseFlag = true; }
 
 	_velocity.y += gravity;
 
@@ -42,7 +42,7 @@ void GameObject::AttackObject::walking()
 {
 	++_time;
 
-	if (_time == 120) { _eraseFlag = true; }
+	if (_time == _endTime) { _eraseFlag = true; }
 
 	_velocity.y += 0.2;
 

@@ -12,7 +12,7 @@ void Main()
 	Window::SetBaseSize(960, 480);
 	Window::Resize(960, 540);
 
-	asseter(L"Asset");
+	asseter(L"Asset/");
 
 	GameData::SkillManager::instance(); // 初期化
 
@@ -22,12 +22,12 @@ void Main()
 
 	while (System::Update())
 	{
-		ClearPrint();
+		//ClearPrint();
 		
 		sceneManager.updateAndDraw();
 
 #ifdef _DEBUG
-		Println(Profiler::FPS(), L"FPS");
+		//Println(Profiler::FPS(), L"FPS");
 		GameData::InputManager::test();
 #endif // _DEBUG
 
@@ -40,7 +40,6 @@ void asseter(const String & direname)
 {
 	// 指定されたディレクトリのファイルパスを配列に
 	Array<FilePath> contents = FileSystem::DirectoryContents(direname);
-
 
 	for (const auto& content : contents)
 	{

@@ -8,6 +8,21 @@ namespace GameObject
 {
 	class Player : public GameObject
 	{
+	public:
+
+		const int
+			WALK_0 = 0,
+			WALK_1 = 1,
+			WALK_2 = 2,
+			WALK_3 = 3,
+			STAND  = 4,
+			SET_UP = 5,
+			SIT    = 6,
+			DOWN   = 7,
+			JAMP   = 8,
+			DAMAGE = 9,
+			ATTACK = 10;
+
 	private:
 
 		using skill_ptr  = std::shared_ptr<Skill::Skill>;
@@ -112,6 +127,15 @@ namespace GameObject
 		{
 			_disabledGravity = true;
 			_velocity = v;
+		}
+
+		/// <summary>
+		/// プレイヤーの画像を変更します。
+		/// </summary>
+		/// <param name="texture_id"> 画像の識別番号 </param>
+		void setTextureId(int textureId)
+		{
+			_textureId = textureId;
 		}
 
 	private:
