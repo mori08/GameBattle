@@ -1,6 +1,6 @@
 #include "CrashBreak.h"
 
-void Skill::CrashBreak::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>& generator)
+void Skill::CrashBreak::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>&)
 {
 	if (InRange(time,50,100))
 	{
