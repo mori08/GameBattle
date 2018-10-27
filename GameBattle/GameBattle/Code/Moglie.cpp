@@ -28,6 +28,6 @@ void Skill::Moglie::draw(int, const GameObject::Player & player) const
 
 bool Skill::Moglie::finish(int time) const
 {
-	return time > 40;
+	return time > ENDTIME;
 }
 

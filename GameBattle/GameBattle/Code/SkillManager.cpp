@@ -71,7 +71,7 @@ void GameData::SkillManager::setAllSkill()
 	//setSkill<Skill::TestSkill6>(L"TestSkill6");
 
 	setSkill<Skill::AppleBattle>(L"Apple");
-//	setSkill<Skill::Moglie>(L"Moglie");
+	setSkill<Skill::Moglie>(L"Moglie");
 	setSkill<Skill::CrashBreak>(L"CrashBreak");
 //	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
 

@@ -2,7 +2,7 @@
 
 void Skill::CrashBreak::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>&)
 {
-	if (InRange(time,50,100))
+	if (InRange(time,STARTTIME,ENDTIME))
 	{
 		player.setMuteki(true);
 
@@ -19,9 +19,10 @@ void Skill::CrashBreak::update(int time, GameObject::Player & player, const std:
 
 GameData::TagData& Skill::CrashBreak::collision(int time, const GameObject::Player & player, const Rect &collider)
 {
-	if (time < 50) { return NoneTag; }
+	if (time < STARTTIME) { return NoneTag; }
 
-	if (player.getCollider().intersects(collider))
+	const RectF rect = RectF(TextureAsset(L"crash").size).setCenter(player.getPos());
+	if (rect.intersects(collider))
 	{
 		return AttackTag[player.getId()];
 	}
@@ -32,15 +33,25 @@ GameData::TagData& Skill::CrashBreak::collision(int time, const GameObject::Play
 
 void Skill::CrashBreak::draw(int time, const GameObject::Player & player) const
 {
-	if (InRange(time, 50, 100))
+	if (InRange(time, STARTTIME, ENDTIME))
 	{
-		player.getCollider().draw(Palette::Yellow);
+		//player.getCollider().draw(Palette::Yellow);
+
+		if (player.getDirection() == 1)
+		{
+			TextureAsset(L"crash").drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
+		}
+
+		else
+		{
+			TextureAsset(L"crash").mirror().drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
+		}
 	}
 }
 
 
 bool Skill::CrashBreak::finish(int time) const
 {
-	return time > 100;
+	return time > ENDTIME;
 }
 

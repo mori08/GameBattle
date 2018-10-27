@@ -7,6 +7,10 @@ namespace Skill
 {
 	class CrashBreak : public Skill
 	{
+		const int STARTTIME = 20;
+		const int ENDTIME = 70;
+
+
 	public:
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;

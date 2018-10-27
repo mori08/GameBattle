@@ -8,6 +8,9 @@ namespace Skill
 
 	class AppleBattle : public Skill
 	{
+		const int STARTTIME = 3;
+		const int ENDTIME = 40;
+
 	public:
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;

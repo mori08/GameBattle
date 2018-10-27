@@ -8,6 +8,8 @@ namespace Skill
 
 	class Moglie: public Skill
 	{
+		const int ENDTIME = 40;
+
 	public:
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;

@@ -3,7 +3,7 @@
 
 void Skill::AppleBattle::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>& generator)
 {
-	if (time == 3)
+	if (time == STARTTIME)
 	{
 		const Vec2 pos = player.getPos();
 
@@ -28,6 +28,6 @@ void Skill::AppleBattle::draw(int, const GameObject::Player & player) const
 
 bool Skill::AppleBattle::finish(int time) const
 {
-	return time > 40;
+	return time > ENDTIME;
 }
 
