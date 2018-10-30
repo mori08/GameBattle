@@ -15,7 +15,7 @@ GameObject::Bomber::Bomber(const Vec2 & pos, const Vec2 & vel, int id)
 void GameObject::Bomber::update()
 {
 	_time++;
-	moveObject(true);
+	moveObject(false);
 	
 	if (_time %10 == 0)
 	{
@@ -34,7 +34,7 @@ void GameObject::Bomber::draw() const
 
 bool GameObject::Bomber::eraser() const
 {
-	return _time >= 300 || isTouchingMap();
+	return _time >= 300;
 }
 
 

@@ -13,6 +13,12 @@ GameObject::Bomb::Bomb(const Vec2 & pos, const Vec2 & vel, int id)
 void GameObject::Bomb::update()
 {
 	_time++;
+
+	if (isTouchingMap())
+	{
+		return;
+	}
+
 	moveObject(true);
 }
 
@@ -25,7 +31,7 @@ void GameObject::Bomb::draw() const
 
 bool GameObject::Bomb::eraser() const
 {
-	return isTouchingMap();
+	return isTouchingMap() || _time >= 600;
 }
 
 
