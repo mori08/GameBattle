@@ -10,11 +10,13 @@ namespace GameObject
 
 	class Finger : public AttackObject
 	{
-	private:
-
-
-
 	public:
+
+		Finger(const Vec2 & pos, const Vec2 & velocity, int id)
+			: AttackObject(pos, velocity, id)
+		{
+			_size = Point(40, 60);
+		}
 
 		void update() override;
 
