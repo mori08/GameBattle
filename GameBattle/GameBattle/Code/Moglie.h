@@ -10,6 +10,10 @@ namespace Skill
 	{
 		const int ENDTIME = 40;
 
+		int animCount = 0;
+
+		const int ANIMBETWEEN = 6;
+
 	public:
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
