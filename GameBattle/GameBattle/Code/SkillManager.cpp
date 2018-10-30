@@ -72,7 +72,7 @@ void GameData::SkillManager::setAllSkill()
 
 //	setSkill<Skill::AppleBattle>(L"Apple");
 	setSkill<Skill::Moglie>(L"Moglie");
-//	setSkill<Skill::CrashBreak>(L"CrashBreak");
+	setSkill<Skill::CrashBreak>(L"CrashBreak");
 //	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
 
 #endif // _DEBUG
