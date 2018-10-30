@@ -251,15 +251,15 @@ void GameObject::Player::drawPlayer() const
 {
 	static const Size SIZE = Size(128, 160);
 	Point pos = Point(_textureId % 4, _textureId / 4);
-	double scl = 0.5;
+	double scl = 0.45;
 
 	getCollider().draw(_col ? Palette::Red : Palette::Orange);
-	/*
+	
 	(
 		_direction == RIGHT ?
-		TextureAsset(L"player")(pos*SIZE, SIZE) : TextureAsset(L"player")(pos*SIZE, SIZE).flip()
-	).scale(scl).drawAt(_pos.asPoint());
-	*/
+		TextureAsset(L"player")(pos*SIZE, SIZE) : TextureAsset(L"player")(pos*SIZE, SIZE).mirror()
+	).scale(scl).drawAt(_pos.asPoint() + Point(0, -5));
+	
 }
 
 

@@ -21,6 +21,13 @@ namespace GameObject
 
 	public:
 
+		AttackObject(const Vec2 & pos, const Vec2 & velocity, int id)
+		{
+			_pos = pos;
+			_velocity = velocity;
+			_id = id;
+		}
+
 		bool eraser() const override;
 
 		void collisionUpdate(const GameData::TagData & tagData) override;

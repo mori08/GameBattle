@@ -22,12 +22,12 @@ void Main()
 
 	while (System::Update())
 	{
-		//ClearPrint();
+		ClearPrint();
 		
 		sceneManager.updateAndDraw();
 
 #ifdef _DEBUG
-		//Println(Profiler::FPS(), L"FPS");
+		Println(Profiler::FPS(), L"FPS");
 		GameData::InputManager::test();
 #endif // _DEBUG
 

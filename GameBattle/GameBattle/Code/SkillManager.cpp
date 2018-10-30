@@ -2,6 +2,8 @@
 
 #include"TestSkill.h"
 
+#include"Jihad1.h"
+
 
 GameData::SkillManager::SkillManager()
 {
@@ -24,7 +26,9 @@ GameData::SkillManager::skill_ptr GameData::SkillManager::getSkill(const String 
 
 String GameData::SkillManager::getKeyRamdom()
 {
-	return _skillKeyList[Random<int>(0, (int)_skillKeyList.size() - 1)];
+	if (_skillKeyList.empty()) return L"";
+
+	if (_skillKeyList.size() == 1) return _skillKeyList[0];
 
 	int total = 0;
 
@@ -58,7 +62,7 @@ String GameData::SkillManager::getKeyRamdom()
 void GameData::SkillManager::setAllSkill()
 {
 #ifdef _DEBUG
-
+	/*
 	setSkill<Skill::TestSkill1>(L"TestSkill1");
 	
 	setSkill<Skill::TestSkill2>(L"TestSkill2");
@@ -66,6 +70,8 @@ void GameData::SkillManager::setAllSkill()
 	setSkill<Skill::TestSkill3>(L"TestSkill3");
 
 	setSkill<Skill::TestSkill4>(L"TestSkill4");
+	*/
+	setSkill<Skill::Jihad1>(L"Jihad1");
 
 #endif // _DEBUG
 }
