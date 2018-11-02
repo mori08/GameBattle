@@ -28,7 +28,17 @@ void GameObject::Bomber::update()
 
 void GameObject::Bomber::draw() const
 {
-	getCollider().draw(Palette::Yellow);
+	//getCollider().draw(Palette::Yellow);
+
+	if (_velocity.x > 0)
+	{
+		TextureAsset(L"bomber").draw(getCollider().pos);
+
+	}
+	else
+	{
+		TextureAsset(L"bomber").mirror().draw(getCollider().pos);
+	}
 }
 
 

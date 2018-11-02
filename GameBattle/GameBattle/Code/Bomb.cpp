@@ -25,7 +25,8 @@ void GameObject::Bomb::update()
 
 void GameObject::Bomb::draw() const
 {
-	getCollider().draw(Palette::Yellow);
+	//getCollider().draw(Palette::Yellow);
+	TextureAsset(L"bomb").draw(getCollider().pos);
 }
 
 
