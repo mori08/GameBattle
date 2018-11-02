@@ -11,7 +11,7 @@ namespace GameObject
 	{
 	public:
 
-		const int
+		static const int
 			WALK_0 = 0,
 			WALK_1 = 1,
 			WALK_2 = 2,

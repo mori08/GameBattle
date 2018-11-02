@@ -4,6 +4,8 @@
 
 #include"Jihad1.h"
 
+#include"ColorPanic.h"
+
 
 GameData::SkillManager::SkillManager()
 {
@@ -72,6 +74,8 @@ void GameData::SkillManager::setAllSkill()
 	setSkill<Skill::TestSkill4>(L"TestSkill4");
 	*/
 	setSkill<Skill::Jihad1>(L"Jihad1");
+
+	setSkill<Skill::ColorPanic>(L"ColorPanic");
 
 #endif // _DEBUG
 }

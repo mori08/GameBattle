@@ -16,6 +16,7 @@ namespace GameObject
 			: AttackObject(pos, velocity, id)
 		{
 			_size = Point(40, 60);
+			_endTime = 600;
 		}
 
 		void update() override;

@@ -276,6 +276,7 @@
   <ItemGroup>
     <ClCompile Include="Code\AttackObject.cpp" />
     <ClCompile Include="Code\Cassette.cpp" />
+    <ClCompile Include="Code\ColorPanic.cpp" />
     <ClCompile Include="Code\Finger.cpp" />
     <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\GameObjectManager.cpp" />
@@ -284,16 +285,19 @@
     <ClCompile Include="Code\Jihad1.cpp" />
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
+    <ClCompile Include="Code\Panicn.cpp" />
     <ClCompile Include="Code\Player.cpp" />
     <ClCompile Include="Code\Skill.cpp" />
     <ClCompile Include="Code\SkillManager.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
     <ClCompile Include="Code\TestObject.cpp" />
     <ClCompile Include="Code\TestSkill.cpp" />
+    <ClCompile Include="Code\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\AttackObject.h" />
     <ClInclude Include="Code\Cassette.h" />
+    <ClInclude Include="Code\ColorPanic.h" />
     <ClInclude Include="Code\Finger.h" />
     <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
@@ -302,12 +306,14 @@
     <ClInclude Include="Code\InputManager.h" />
     <ClInclude Include="Code\Jihad1.h" />
     <ClInclude Include="Code\Main.h" />
+    <ClInclude Include="Code\Panicn.h" />
     <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\Skill.h" />
     <ClInclude Include="Code\SkillManager.h" />
     <ClInclude Include="Code\StageData.h" />
     <ClInclude Include="Code\TestObject.h" />
     <ClInclude Include="Code\TestSkill.h" />
+    <ClInclude Include="Code\TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

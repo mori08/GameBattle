@@ -462,6 +462,15 @@
     <ClCompile Include="Code\Finger.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="Code\TitleScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\ColorPanic.cpp">
+      <Filter>ソース ファイル\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Panicn.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
@@ -510,6 +519,15 @@
       <Filter>ヘッダー ファイル\Skill</Filter>
     </ClInclude>
     <ClInclude Include="Code\Finger.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\TitleScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\ColorPanic.h">
+      <Filter>ヘッダー ファイル\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Panicn.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
   </ItemGroup>

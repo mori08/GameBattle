@@ -1,7 +1,9 @@
 #include"Main.h"
 #include"InputManager.h"
 #include"SkillManager.h"
+
 #include"GameScene.h"
+#include"TitleScene.h"
 
 
 void asseter(const String & direname);
@@ -18,6 +20,7 @@ void Main()
 
 	MyApp sceneManager;
 
+	sceneManager.add<Scene::GameScene>(L"TitleScene");
 	sceneManager.add<Scene::GameScene>(L"GameScene");
 
 	while (System::Update())

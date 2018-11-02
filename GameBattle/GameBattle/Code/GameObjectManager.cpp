@@ -11,7 +11,7 @@ GameData::GameObjectManager::GameObjectManager()
 	_generator = std::make_shared<Generator>();
 	GameObject::GameObject::setGenerator(_generator);
 
-	for (int i = 0; i < 2; ++i)
+	for (int i = 0; i < 4; ++i)
 	{
 		_gameObjectList.emplace_back(std::make_unique<GameObject::Player>(i));
 	}

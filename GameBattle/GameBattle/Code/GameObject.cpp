@@ -26,6 +26,8 @@ void GameObject::GameObject::moveObject(bool useMapData)
 		return;
 	}
 
+	const int LOOP_RIMIT = 30;
+	int loopNum = 0;
 	_pos.x += _velocity.x;
 
 	if (Abs(_velocity.x) > 0.01)
@@ -36,6 +38,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 		{
 			_velocity.x = 0;
 			_pos.x -= unit;
+			if (++loopNum > LOOP_RIMIT)break;
 		}
 	}
 
@@ -53,6 +56,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 		{
 			_velocity.y = 0;
 			_pos.y -= unit;
+			if (++loopNum > LOOP_RIMIT)break;
 		}
 
 		return;
@@ -64,6 +68,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 	{
 		_velocity.y = 0;
 		_pos.y -= unit;
+		if (++loopNum > LOOP_RIMIT)break;
 	}
 }
 

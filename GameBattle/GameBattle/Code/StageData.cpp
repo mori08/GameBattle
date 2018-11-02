@@ -47,6 +47,8 @@ std::pair<Vec2, size_t> GameData::StageData::getCassettePos(const size_t & id) c
 
 void GameData::StageData::draw() const
 {
+	TextureAsset(L"stage").draw();
+
 	for (int y = 0; y < HEIGHT; ++y)
 	{
 		for (int x = 0; x < WIDTH; ++x)
