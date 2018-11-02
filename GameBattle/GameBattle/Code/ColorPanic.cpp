@@ -6,11 +6,11 @@ void Skill::ColorPanic::update(int time, GameObject::Player & player, const std:
 {
 	player.setTextureId(GameObject::Player::ATTACK);
 
-	if(time%10==0)
+	if(time%20==0)
 	{
 		Vec2 pos = player.getPos();
 
-		double speed = player.getDirection()*5.0*Random(1.0, 1.2);
+		double speed = player.getDirection()*5.0*Random(0.2, 0.6);
 
 		generator->push(std::make_unique<GameObject::Panicn>(pos, speed, player.getId()));
 	}

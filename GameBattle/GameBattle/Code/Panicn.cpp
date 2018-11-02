@@ -7,7 +7,7 @@ void GameObject::Panicn::update()
 
 	if (_time == _endTime) { _eraseFlag = true; }
 
-	_velocity.y = Sin(_time*0.01f + _geta);
+	_velocity.y = 0.5f*Sin(_time*0.01f + _geta);
 
 	moveObject(false);
 }
@@ -15,8 +15,6 @@ void GameObject::Panicn::update()
 
 void GameObject::Panicn::draw() const
 {
-	getCollider().draw();
-
 	(
 	_velocity.x < 0 ?
 	TextureAsset(_colorId) : TextureAsset(_colorId).mirror()
