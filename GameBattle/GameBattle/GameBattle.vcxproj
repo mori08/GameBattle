@@ -280,7 +280,8 @@
     <ClCompile Include="Code\Bomb.cpp" />
     <ClCompile Include="Code\Bomber.cpp" />
     <ClCompile Include="Code\Cassette.cpp" />
-    <ClCompile Include="Code\CrashBreak.cpp" />
+    <ClCompile Include="Code\ClashBreak.cpp" />
+    <ClCompile Include="Code\Explosion.cpp" />
     <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\GameObjectManager.cpp" />
     <ClCompile Include="Code\GameScene.cpp" />
@@ -303,7 +304,8 @@
     <ClInclude Include="Code\Bomb.h" />
     <ClInclude Include="Code\Bomber.h" />
     <ClInclude Include="Code\Cassette.h" />
-    <ClInclude Include="Code\CrashBreak.h" />
+    <ClInclude Include="Code\ClashBreak.h" />
+    <ClInclude Include="Code\Explosion.h" />
     <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\GameObjectManager.h" />

@@ -7,6 +7,8 @@ namespace Skill
 	{
 	public:
 
+		MaterialDefence():Skill(L"éëçﬁñhâq", L"MaterialDefence_title") {}
+
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 
 		GameData::TagData & collision(int, const GameObject::Player & player, const Rect & collider) override;

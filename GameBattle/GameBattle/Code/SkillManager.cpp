@@ -3,7 +3,7 @@
 #include"TestSkill.h"
 # include "Moglie.h"
 # include "AppleBattle.h"
-# include "CrashBreak.h"
+# include "ClashBreak.h"
 # include "MaterialDefence.h"
 
 #include"Jihad1.h"
@@ -75,7 +75,7 @@ void GameData::SkillManager::setAllSkill()
 
 //	setSkill<Skill::AppleBattle>(L"Apple");
 //	setSkill<Skill::Moglie>(L"Moglie");
-//	setSkill<Skill::CrashBreak>(L"CrashBreak");
+//	setSkill<Skill::ClashBreak>(L"ClashBreak");
 	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
 //	setSkill<Skill::Jihad1>(L"Jihad1");
 

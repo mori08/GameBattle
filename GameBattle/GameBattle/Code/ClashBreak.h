@@ -5,13 +5,15 @@
 
 namespace Skill
 {
-	class CrashBreak : public Skill
+	class ClashBreak : public Skill
 	{
 		const int STARTTIME = 20;
 		const int ENDTIME = 70;
 
-
 	public:
+
+		ClashBreak() :Skill(L"Clash&Break", L"ClashBreak_title") {}
+
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 

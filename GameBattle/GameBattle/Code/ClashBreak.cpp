@@ -1,6 +1,6 @@
-#include "CrashBreak.h"
+#include "ClashBreak.h"
 
-void Skill::CrashBreak::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>&)
+void Skill::ClashBreak::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>&)
 {
 	if (InRange(time,STARTTIME,ENDTIME))
 	{
@@ -17,7 +17,7 @@ void Skill::CrashBreak::update(int time, GameObject::Player & player, const std:
 }
 
 
-GameData::TagData& Skill::CrashBreak::collision(int time, const GameObject::Player & player, const Rect &collider)
+GameData::TagData& Skill::ClashBreak::collision(int time, const GameObject::Player & player, const Rect &collider)
 {
 	if (time < STARTTIME) { return NoneTag; }
 
@@ -31,12 +31,10 @@ GameData::TagData& Skill::CrashBreak::collision(int time, const GameObject::Play
 }
 
 
-void Skill::CrashBreak::draw(int time, const GameObject::Player & player) const
+void Skill::ClashBreak::draw(int time, const GameObject::Player & player) const
 {
 	if (InRange(time, STARTTIME, ENDTIME))
 	{
-		//player.getCollider().draw(Palette::Yellow);
-
 		if (player.getDirection() == 1)
 		{
 			TextureAsset(L"crash").drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
@@ -50,7 +48,7 @@ void Skill::CrashBreak::draw(int time, const GameObject::Player & player) const
 }
 
 
-bool Skill::CrashBreak::finish(int time) const
+bool Skill::ClashBreak::finish(int time) const
 {
 	return time > ENDTIME;
 }
