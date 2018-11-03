@@ -4,7 +4,7 @@ GameObject::Explosion::Explosion(const Vec2 & pos, const Vec2 & vel, int id)
 {
 	_pos = pos;
 	_velocity = vel;
-	_size = Size(40, 40);
+	_size = Size(40, 50);
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
 	_id = id;

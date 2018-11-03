@@ -282,6 +282,7 @@
     <ClCompile Include="Code\Cassette.cpp" />
     <ClCompile Include="Code\ClashBreak.cpp" />
     <ClCompile Include="Code\Explosion.cpp" />
+    <ClCompile Include="Code\FE.cpp" />
     <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\GameObjectManager.cpp" />
     <ClCompile Include="Code\GameScene.cpp" />
@@ -291,6 +292,7 @@
     <ClCompile Include="Code\MaterialDefence.cpp" />
     <ClCompile Include="Code\Moglie.cpp" />
     <ClCompile Include="Code\Player.cpp" />
+    <ClCompile Include="Code\Robot.cpp" />
     <ClCompile Include="Code\Skill.cpp" />
     <ClCompile Include="Code\SkillManager.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
@@ -306,6 +308,7 @@
     <ClInclude Include="Code\Cassette.h" />
     <ClInclude Include="Code\ClashBreak.h" />
     <ClInclude Include="Code\Explosion.h" />
+    <ClInclude Include="Code\FE.h" />
     <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
     <ClInclude Include="Code\GameObjectManager.h" />
@@ -315,6 +318,7 @@
     <ClInclude Include="Code\MaterialDefence.h" />
     <ClInclude Include="Code\Moglie.h" />
     <ClInclude Include="Code\Player.h" />
+    <ClInclude Include="Code\Robot.h" />
     <ClInclude Include="Code\Skill.h" />
     <ClInclude Include="Code\SkillManager.h" />
     <ClInclude Include="Code\StageData.h" />

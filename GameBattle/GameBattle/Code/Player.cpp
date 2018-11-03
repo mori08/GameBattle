@@ -17,6 +17,12 @@ GameObject::Player::Player(int id)
 	_moveSpeed = DEFAULT_MOVE_SPEED;
 
 	_pos      = Point(100, 100);
+
+	if (id != 1)
+	{
+		_pos = Point(1600, 100);
+	}
+
 	_velocity = Point::Zero;
 	_size     = Point(40, 60);
 	_tagData  = makeTagData(L"Player[" + ToString(id) + L"]");
