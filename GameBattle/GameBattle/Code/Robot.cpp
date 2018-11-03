@@ -1,4 +1,5 @@
 # include "Robot.h"
+# include "Bullet.h"
 
 GameObject::Robot::Robot(const Vec2 & pos, const Vec2 & vel, int id)
 {
@@ -6,7 +7,7 @@ GameObject::Robot::Robot(const Vec2 & pos, const Vec2 & vel, int id)
 	_savedVel = vel;
 	_velocity = vel;
 	_id = id;
-	_size = Size(80, 80);
+	_size = Size(60, 60);
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
 
@@ -16,8 +17,13 @@ GameObject::Robot::Robot(const Vec2 & pos, const Vec2 & vel, int id)
 void GameObject::Robot::update()
 {
 	_time++;
-	
-	PutText(_velocity).at(500, 0);
+
+	if (_time % 20 == 0 && _time % 80 != 0)
+	{
+		const Vec2 vel = Vec2(_direction * 5, 0);
+		_generator->push(std::make_unique<Bullet>(_pos, vel, _id));
+	}
+
 
 	if (isLanding())
 	{
@@ -32,7 +38,7 @@ void GameObject::Robot::update()
 
 	moveObject(true);
 
-	if (isTouchingWall())
+	if (isTouchingWall() && isLanding())
 	{
 		_savedVel.x = -_savedVel.x;
 		_direction = (_savedVel.x >= 0) ? 1 : -1;
@@ -45,13 +51,15 @@ void GameObject::Robot::draw() const
 {
 	if (_direction == 1)
 	{
-		TextureAsset(L"robot").resize(_size).mirror().drawAt(_pos);
+		TextureAsset(Format(L"robot", _id+1)).resize(_size).mirror().drawAt(_pos);
 	}
 
 	else
 	{
-		TextureAsset(L"robot").resize(_size).drawAt(_pos);
+		TextureAsset(Format(L"robot", _id+1)).resize(_size).drawAt(_pos);
 	}
+
+//	getCollider().draw(Palette::Yellow);
 }
 
 bool GameObject::Robot::eraser() const

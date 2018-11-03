@@ -279,6 +279,7 @@
     <ClCompile Include="Code\AttackObject.cpp" />
     <ClCompile Include="Code\Bomb.cpp" />
     <ClCompile Include="Code\Bomber.cpp" />
+    <ClCompile Include="Code\Bullet.cpp" />
     <ClCompile Include="Code\Cassette.cpp" />
     <ClCompile Include="Code\ClashBreak.cpp" />
     <ClCompile Include="Code\Explosion.cpp" />
@@ -305,6 +306,7 @@
     <ClInclude Include="Code\AttackObject.h" />
     <ClInclude Include="Code\Bomb.h" />
     <ClInclude Include="Code\Bomber.h" />
+    <ClInclude Include="Code\Bullet.h" />
     <ClInclude Include="Code\Cassette.h" />
     <ClInclude Include="Code\ClashBreak.h" />
     <ClInclude Include="Code\Explosion.h" />

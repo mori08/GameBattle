@@ -16,11 +16,25 @@ GameObject::Player::Player(int id)
 	_direction = RIGHT;
 	_moveSpeed = DEFAULT_MOVE_SPEED;
 
-	_pos      = Point(100, 100);
+//	_pos = Point(100, 100);
 
-	if (id != 1)
+	if (id == 0)
+	{
+		_pos = Point(100, 100);
+	}
+
+	else if (id == 1)
 	{
 		_pos = Point(1600, 100);
+	}
+
+	else if (id == 2)
+	{
+		_pos = Point(100, 500);
+	}
+	else if (id == 3)
+	{
+		_pos = Point(1600, 500);
 	}
 
 	_velocity = Point::Zero;
