@@ -5,11 +5,14 @@
 
 Scene::GameScene::GameScene()
 {
+	_time = 0;
 }
 
 
 void Scene::GameScene::update()
 {
+	++_time;
+
 	_gameObjectManager.update();
 
 	GameData::GameCamera::Instance().update();

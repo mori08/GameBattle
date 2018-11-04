@@ -95,3 +95,52 @@ void GameObject::TestObject2::collisionUpdate(const GameData::TagData & tagData)
 		}
 	}
 }
+
+
+//--------------------------------------------------------------------------------
+
+GameObject::TestObject3::TestObject3(Vec2 pos, Vec2 vel, int id)
+{
+	_pos = pos;
+	_velocity = vel;
+	_size = Point(30, 30);
+	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
+	_eraseFlag = false;
+	_id = id;
+}
+
+
+void GameObject::TestObject3::update()
+{
+	_velocity.y += 0.2;
+
+	moveObject(true);
+
+	if (isTouchingMap()) { _eraseFlag = true; }
+
+}
+
+void GameObject::TestObject3::draw() const
+{
+	getCollider().draw(Palette::Yellow);
+}
+
+bool GameObject::TestObject3::eraser() const
+{
+	return _eraseFlag;
+}
+
+void GameObject::TestObject3::collisionUpdate(const GameData::TagData & tagData)
+{
+	for (const auto & tag : tagData)
+	{
+		if (tag.type == L"Player" && _id != ParseOr<int>(tag.info[0], -1))
+		{
+			_eraseFlag = true;
+		}
+		if (tag.type == L"Attack" && _id != ParseOr<int>(tag.info[0], -1))
+		{
+			_eraseFlag = true;
+		}
+	}
+}

@@ -274,9 +274,14 @@
     <Font Include="Example\YomogiFont.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Code\Apple.cpp" />
+    <ClCompile Include="Code\AppleBattle.cpp" />
     <ClCompile Include="Code\AttackObject.cpp" />
+    <ClCompile Include="Code\Bomb.cpp" />
+    <ClCompile Include="Code\Bomber.cpp" />
     <ClCompile Include="Code\Cassette.cpp" />
     <ClCompile Include="Code\ColorPanic.cpp" />
+    <ClCompile Include="Code\CrashBreak.cpp" />
     <ClCompile Include="Code\Finger.cpp" />
     <ClCompile Include="Code\GameCamera.cpp" />
     <ClCompile Include="Code\GameObjectManager.cpp" />
@@ -285,8 +290,11 @@
     <ClCompile Include="Code\Jihad1.cpp" />
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
+    <ClCompile Include="Code\MaterialDefence.cpp" />
+    <ClCompile Include="Code\Moglie.cpp" />
     <ClCompile Include="Code\Panicn.cpp" />
     <ClCompile Include="Code\Player.cpp" />
+    <ClCompile Include="Code\PlayerBoard.cpp" />
     <ClCompile Include="Code\Skill.cpp" />
     <ClCompile Include="Code\SkillManager.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
@@ -295,9 +303,14 @@
     <ClCompile Include="Code\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Code\Apple.h" />
+    <ClInclude Include="Code\AppleBattle.h" />
     <ClInclude Include="Code\AttackObject.h" />
+    <ClInclude Include="Code\Bomb.h" />
+    <ClInclude Include="Code\Bomber.h" />
     <ClInclude Include="Code\Cassette.h" />
     <ClInclude Include="Code\ColorPanic.h" />
+    <ClInclude Include="Code\CrashBreak.h" />
     <ClInclude Include="Code\Finger.h" />
     <ClInclude Include="Code\GameCamera.h" />
     <ClInclude Include="Code\GameObject.h" />
@@ -306,8 +319,11 @@
     <ClInclude Include="Code\InputManager.h" />
     <ClInclude Include="Code\Jihad1.h" />
     <ClInclude Include="Code\Main.h" />
+    <ClInclude Include="Code\MaterialDefence.h" />
+    <ClInclude Include="Code\Moglie.h" />
     <ClInclude Include="Code\Panicn.h" />
     <ClInclude Include="Code\Player.h" />
+    <ClInclude Include="Code\PlayerBoard.h" />
     <ClInclude Include="Code\Skill.h" />
     <ClInclude Include="Code\SkillManager.h" />
     <ClInclude Include="Code\StageData.h" />

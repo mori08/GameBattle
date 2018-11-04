@@ -11,6 +11,8 @@ namespace Scene
 	{
 	private:
 
+		int _time;
+
 		GameData::GameObjectManager _gameObjectManager;
 
 	public:

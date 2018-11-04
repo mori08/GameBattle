@@ -1,19 +1,20 @@
 #pragma once
 
-
 #include"Player.h"
 
 
 namespace Skill
 {
 
-	class Jihad1 : public Skill
+	class Moglie: public Skill
 	{
-	public:
+		const int ENDTIME = 40;
 
-		Jihad1() : Skill(L"Ç∂ÇÕÇ†Ç«ÅI", L"Jihad1_title")
-		{
-		}
+		int animCount = 0;
+
+		const int ANIMBETWEEN = 6;
+
+	public:
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 
@@ -22,7 +23,7 @@ namespace Skill
 		void draw(int time, const GameObject::Player & player) const override;
 
 		bool finish(int time)const override;
-
 	};
+
 
 }

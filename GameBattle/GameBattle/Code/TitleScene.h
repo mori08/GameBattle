@@ -11,7 +11,7 @@ namespace Scene
 
 		Font font;
 
-
+		bool isStart;
 
 		void init()override;
 

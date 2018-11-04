@@ -1,19 +1,11 @@
 #pragma once
-
-
 #include"Player.h"
-
 
 namespace Skill
 {
-
-	class Jihad1 : public Skill
+	class MaterialDefence : public Skill
 	{
 	public:
-
-		Jihad1() : Skill(L"Ç∂ÇÕÇ†Ç«ÅI", L"Jihad1_title")
-		{
-		}
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 
@@ -22,7 +14,7 @@ namespace Skill
 		void draw(int time, const GameObject::Player & player) const override;
 
 		bool finish(int time)const override;
-
 	};
+
 
 }

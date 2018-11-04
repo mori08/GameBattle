@@ -1,6 +1,10 @@
 #include"SkillManager.h"
 
 #include"TestSkill.h"
+# include "Moglie.h"
+# include "AppleBattle.h"
+# include "CrashBreak.h"
+# include "MaterialDefence.h"
 
 #include"Jihad1.h"
 
@@ -64,18 +68,18 @@ String GameData::SkillManager::getKeyRamdom()
 void GameData::SkillManager::setAllSkill()
 {
 #ifdef _DEBUG
-	/*
-	setSkill<Skill::TestSkill1>(L"TestSkill1");
-	
-	setSkill<Skill::TestSkill2>(L"TestSkill2");
-
-	setSkill<Skill::TestSkill3>(L"TestSkill3");
-
-	setSkill<Skill::TestSkill4>(L"TestSkill4");
-	*/
-	setSkill<Skill::Jihad1>(L"Jihad1");
-
-	setSkill<Skill::ColorPanic>(L"ColorPanic");
-
+	//setSkill<Skill::TestSkill1>(L"TestSkill1");
+	//setSkill<Skill::TestSkill2>(L"TestSkill2");
+	//setSkill<Skill::TestSkill3>(L"TestSkill3");
+	//setSkill<Skill::TestSkill4>(L"TestSkill4");
+	//setSkill<Skill::TestSkill5>(L"TestSkill5");
+	//setSkill<Skill::TestSkill6>(L"TestSkill6");
 #endif // _DEBUG
+
+	//setSkill<Skill::AppleBattle>(L"Apple");
+	//setSkill<Skill::Moglie>(L"Moglie");
+	//setSkill<Skill::CrashBreak>(L"CrashBreak");
+	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
+	setSkill<Skill::Jihad1>(L"Jihad1");
+	//setSkill<Skill::ColorPanic>(L"ColorPanic");
 }

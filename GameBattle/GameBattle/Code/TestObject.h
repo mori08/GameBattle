@@ -55,4 +55,28 @@ namespace GameObject
 
 	};
 
+	class TestObject3 : public GameObject
+	{
+	private:
+
+		bool _eraseFlag = false;
+
+		int _id;
+
+	public:
+
+		TestObject3(Vec2 pos, Vec2 vel, int id);
+
+		void update() override;
+
+		void draw() const override;
+
+		bool eraser() const override;
+
+	private:
+
+		void collisionUpdate(const GameData::TagData & tagData) override;
+
+	};
+
 }

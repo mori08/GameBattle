@@ -20,7 +20,7 @@ void Main()
 
 	MyApp sceneManager;
 
-	sceneManager.add<Scene::GameScene>(L"TitleScene");
+	sceneManager.add<Scene::TitleScene>(L"TitleScene");
 	sceneManager.add<Scene::GameScene>(L"GameScene");
 
 	while (System::Update())

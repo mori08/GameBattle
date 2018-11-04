@@ -6,7 +6,6 @@
 
 namespace GameObject
 {
-
 	class Player : public GameObject
 	{
 	public:
@@ -23,6 +22,7 @@ namespace GameObject
 			JAMP   = 8,
 			DAMAGE = 9,
 			ATTACK = 10;
+			
 
 	private:
 
