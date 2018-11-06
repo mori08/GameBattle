@@ -11,8 +11,10 @@ void asseter(const String & direname);
 
 void Main()
 {
+	double scl = 2;
+
+	Window::Resize(Size(960 * scl, 480 * scl));
 	Window::SetBaseSize(960, 480);
-	Window::Resize(960, 540);
 
 	asseter(L"Asset/");
 
@@ -26,7 +28,9 @@ void Main()
 	while (System::Update())
 	{
 		ClearPrint();
-		
+
+		Graphics2D::SetTransform(Mat3x2::Scale(2, Point::Zero));
+
 		sceneManager.updateAndDraw();
 
 #ifdef _DEBUG

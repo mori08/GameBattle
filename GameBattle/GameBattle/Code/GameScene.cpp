@@ -6,6 +6,9 @@
 Scene::GameScene::GameScene()
 {
 	_time = 0;
+
+	SoundAsset(L"battle_bgm").setLoop(true);
+	SoundAsset(L"battle_bgm").play();
 }
 
 
