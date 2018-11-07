@@ -1,6 +1,6 @@
 # include "Explosion.h"
 
-GameObject::Explosion::Explosion(const Vec2 & pos, const Vec2 & vel, int id)
+GameObject::Explosion::Explosion(const Vec2 & pos, const Vec2 & vel, int id,int texId)
 {
 	_pos = pos;
 	_velocity = vel;
@@ -8,6 +8,7 @@ GameObject::Explosion::Explosion(const Vec2 & pos, const Vec2 & vel, int id)
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
 	_id = id;
+	_texId = texId;
 }
 
 void GameObject::Explosion::update()
@@ -18,7 +19,7 @@ void GameObject::Explosion::update()
 
 void GameObject::Explosion::draw() const
 {
-	TextureAsset(L"explosion")(160 * (_time / 10), 0, 160, 160).drawAt(getCollider().center.movedBy(0, -40));
+	TextureAsset(Format(L"explosion",_texId))(160 * (_time / 10), 0, 160, 160).drawAt(getCollider().center.movedBy(0, -40));
 }
 
 

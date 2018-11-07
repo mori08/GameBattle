@@ -291,6 +291,7 @@
     <ClCompile Include="Code\Main.cpp" />
     <ClCompile Include="Code\GameObject.cpp" />
     <ClCompile Include="Code\MaterialDefence.cpp" />
+    <ClCompile Include="Code\Mine.cpp" />
     <ClCompile Include="Code\Moglie.cpp" />
     <ClCompile Include="Code\Player.cpp" />
     <ClCompile Include="Code\Robot.cpp" />
@@ -299,6 +300,7 @@
     <ClCompile Include="Code\StageData.cpp" />
     <ClCompile Include="Code\TestObject.cpp" />
     <ClCompile Include="Code\TestSkill.cpp" />
+    <ClCompile Include="Code\TransportDefence.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\Apple.h" />
@@ -318,6 +320,7 @@
     <ClInclude Include="Code\InputManager.h" />
     <ClInclude Include="Code\Main.h" />
     <ClInclude Include="Code\MaterialDefence.h" />
+    <ClInclude Include="Code\Mine.h" />
     <ClInclude Include="Code\Moglie.h" />
     <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\Robot.h" />
@@ -326,6 +329,7 @@
     <ClInclude Include="Code\StageData.h" />
     <ClInclude Include="Code\TestObject.h" />
     <ClInclude Include="Code\TestSkill.h" />
+    <ClInclude Include="Code\TransportDefence.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

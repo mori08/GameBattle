@@ -6,6 +6,7 @@
 # include "ClashBreak.h"
 # include "MaterialDefence.h"
 # include "FE.h"
+# include "TransportDefence.h"
 
 #include"Jihad1.h"
 
@@ -76,9 +77,11 @@ void GameData::SkillManager::setAllSkill()
 
 //	setSkill<Skill::AppleBattle>(L"Apple");
 //	setSkill<Skill::Moglie>(L"Moglie");
-	setSkill<Skill::ClashBreak>(L"ClashBreak");
-//	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
+//	setSkill<Skill::ClashBreak>(L"ClashBreak");
+	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
 //	setSkill<Skill::FE>(L"FE");
+	setSkill<Skill::TransportDefence>(L"TransportDefence");
+
 //	setSkill<Skill::Jihad1>(L"Jihad1");
 
 #endif // _DEBUG

@@ -1,9 +1,10 @@
 #pragma once
+
 #include "GameObject.h"
 
 namespace GameObject
 {
-	class Explosion : public GameObject
+	class Mine : public GameObject
 	{
 	private:
 
@@ -11,11 +12,9 @@ namespace GameObject
 
 		int _id;
 
-		int _texId;
-
 	public:
 
-		Explosion(const Vec2 & pos, const Vec2 & vel, int id, int texId);
+		Mine(const Vec2 & pos, const Vec2 & vel, int id);
 
 		void update() override;
 
@@ -26,6 +25,11 @@ namespace GameObject
 	private:
 
 		void collisionUpdate(const GameData::TagData & tagData) override;
+
+		int getDirection()const
+		{
+			return _velocity.x >= 0 ? 1 : -1;
+		}
 
 	};
 }
