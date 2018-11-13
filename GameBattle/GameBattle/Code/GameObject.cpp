@@ -7,6 +7,8 @@ using namespace GameData;
 
 std::shared_ptr<GameData::Generator> GameObject::GameObject::_generator;
 
+Array<GameData::PlayerBoard>         GameObject::GameObject::_playerBoardList;
+
 
 void GameObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& obj)
 {

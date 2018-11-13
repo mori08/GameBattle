@@ -16,12 +16,13 @@ GameObject::Player::Player(int id)
 	_direction = RIGHT;
 	_moveSpeed = DEFAULT_MOVE_SPEED;
 
-	_pos      = Point(100, 100);
-	_velocity = Point::Zero;
-	_size     = Point(40, 60);
-	_tagData  = makeTagData(L"Player[" + ToString(id) + L"]");
-	_muteki   = false;
-	_textureId = 0;
+	_pos         = Point(100, 100);
+	_velocity    = Point::Zero;
+	_size        = Point(40, 60);
+	_tagData     = makeTagData(L"Player[" + ToString(id) + L"]");
+	_muteki      = false;
+	_textureId   = 0;
+	_damageTime  = 0;
 
 	for (auto & n : _skillNum)
 	{
@@ -44,6 +45,13 @@ void GameObject::Player::update()
 		_velocity.x = 0;
 	}
 
+	if (_damageTime > 0)
+	{
+		--_damageTime;
+
+		if (_damageTime == 0) _muteki = false;
+	}
+
 	++_time;
 
 	switch(_state)
@@ -60,6 +68,8 @@ void GameObject::Player::update()
 		getSkill();
 		break;
 	}
+
+	setPlayerBoard();
 
 	_velocity.y += _disabledGravity ? 0 : GRAVITY;
 	_disabledGravity = false;
@@ -123,7 +133,18 @@ void GameObject::Player::collisionUpdate(const TagData & tagData)
 	{
 		if (t.type == L"Attack" && _id != ParseOr<int>(t.info[0], -1))
 		{
-			_col = true;
+			if (_muteki) break;
+			
+			_damageTime = 120;
+			_muteki     = true;
+
+			int anotherId = ParseOr<int>(t.info[0], -1);
+
+			if (anotherId < 0 || anotherId >= _playerBoardList.size()) break;
+
+			_playerBoardList[_id].addScore(-1);
+			
+			_playerBoardList[anotherId].addScore(3);
 		}
 
 		if (t.type == L"Cassette" && _state == State::GET_SKILL)
@@ -250,13 +271,14 @@ void GameObject::Player::getSkill()
 void GameObject::Player::drawPlayer() const
 {
 	static const Size SIZE = Size(128, 160);
-	Point pos = Point(_textureId % 4, _textureId / 4);
-	double scl = 0.45;
+	const Point pos = Point(_textureId % 4, _textureId / 4);
+	const double scl = 0.45;
+	const double alpha = (_damageTime % 20 < 10) ? 1.0 : 0.5;
 
 	(
 		_direction == RIGHT ?
 		TextureAsset(L"player_" + ToString(_id))(pos*SIZE, SIZE) : TextureAsset(L"player_" + ToString(_id))(pos*SIZE, SIZE).mirror()
-	).scale(scl).drawAt(_pos.asPoint() + Point(0, -5));
+	).scale(scl).drawAt(_pos.asPoint() + Point(0, -5), AlphaF(alpha));
 
 }
 
@@ -295,7 +317,7 @@ void GameObject::Player::drawSkillWall() const
 
 	if (_skillList[_sId] == nullptr)
 	{
-		Println(L"a");
+		drawPlayer();
 		return;
 	}
 	if (_time < 15)
@@ -321,5 +343,21 @@ void GameObject::Player::drawSkillWall() const
 		int a = 200 - 2 * (_time - 105);
 		TextureAsset(_skillList[_sId]->getTextureName()).scale(1 - t / 240.0).drawAt(_pos, Alpha(a));
 		drawPlayer();
+	}
+}
+
+
+void GameObject::Player::setPlayerBoard()
+{
+	for (int i = 0; i < 4; ++i)
+	{
+		if (_skillList[i] == nullptr)
+		{
+			_playerBoardList[_id].setSkillData(i, L"", 0);
+		}
+		else
+		{
+			_playerBoardList[_id].setSkillData(i, _skillList[i]->getSkillName(), _skillNum[i]);
+		}
 	}
 }

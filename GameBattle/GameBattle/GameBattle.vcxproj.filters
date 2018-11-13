@@ -495,6 +495,9 @@
     <ClCompile Include="Code\PlayerBoard.cpp">
       <Filter>ソース ファイル\GameData</Filter>
     </ClCompile>
+    <ClCompile Include="Code\ResultScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
@@ -577,6 +580,9 @@
     </ClInclude>
     <ClInclude Include="Code\PlayerBoard.h">
       <Filter>ヘッダー ファイル\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\ResultScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

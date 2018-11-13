@@ -295,6 +295,7 @@
     <ClCompile Include="Code\Panicn.cpp" />
     <ClCompile Include="Code\Player.cpp" />
     <ClCompile Include="Code\PlayerBoard.cpp" />
+    <ClCompile Include="Code\ResultScene.cpp" />
     <ClCompile Include="Code\Skill.cpp" />
     <ClCompile Include="Code\SkillManager.cpp" />
     <ClCompile Include="Code\StageData.cpp" />
@@ -324,6 +325,7 @@
     <ClInclude Include="Code\Panicn.h" />
     <ClInclude Include="Code\Player.h" />
     <ClInclude Include="Code\PlayerBoard.h" />
+    <ClInclude Include="Code\ResultScene.h" />
     <ClInclude Include="Code\Skill.h" />
     <ClInclude Include="Code\SkillManager.h" />
     <ClInclude Include="Code\StageData.h" />

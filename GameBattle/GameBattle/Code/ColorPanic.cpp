@@ -17,13 +17,13 @@ void Skill::ColorPanic::update(int time, GameObject::Player & player, const std:
 }
 
 
-GameData::TagData & Skill::ColorPanic::collision(int, const GameObject::Player & player, const Rect & collider)
+GameData::TagData & Skill::ColorPanic::collision(int, const GameObject::Player &, const Rect &)
 {
 	return NoneTag;
 }
 
 
-void Skill::ColorPanic::draw(int time, const GameObject::Player & player) const
+void Skill::ColorPanic::draw(int, const GameObject::Player &) const
 {
 
 }

@@ -5,16 +5,28 @@
 void Scene::TitleScene::init()
 {
 	isStart = true;
-	SoundAsset(L"title_bgm").setLoop(true);
-	SoundAsset(L"title_bgm").play();
+
+	if (m_data->_bgm)
+	{
+		SoundAsset(L"title_bgm").setLoop(true);
+		SoundAsset(L"title_bgm").play();
+	}
+
+	_panelNameList.emplace_back(L"Jihad1_title");
+	_panelNameList.emplace_back(L"AppleBattle_title");
+	_panelNameList.emplace_back(L"Moglie_title");
+	_panelNameList.emplace_back(L"CrashBreak_title");
+
+	_panelId = Random(100);
 }
 
 
 void Scene::TitleScene::update()
 {
-	if (Random(60) == 0)
+	if (Random(_panelNameList.size() * 50) == 0)
 	{
-		_panelList.emplace_back(Random(0.0, 960.0), Random(0.5, 1.0), _panelNameList[Random(0, (int)_panelNameList.size() - 1)]);
+		_panelId = (_panelId + 1) % _panelNameList.size();
+		_panelList.emplace_back(Random(0.0, 960.0), Random(0.5, 1.0), _panelNameList[_panelId]);
 	}
 
 	for (auto & panel : _panelList)
@@ -50,7 +62,7 @@ void Scene::TitleScene::update()
 void Scene::TitleScene::draw() const
 {
 	Rect(0, 0, Window::BaseSize()).draw(Color(240, 240, 240));
-	font(_panelList.size()).draw(Point::Zero,Palette::Black);
+
 	for(const auto & panel : _panelList)
 	{
 		panel.draw();

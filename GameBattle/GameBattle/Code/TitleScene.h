@@ -24,7 +24,7 @@ namespace Scene
 		public:
 
 			Panel(double  x, double scl, const String & panelName)
-				: _pos(x, 600)
+				: _pos(x, 550)
 				, _scl(scl)
 				, _speed(-_scl*_scl)
 				, _panelName(panelName)
@@ -43,7 +43,7 @@ namespace Scene
 
 			void draw() const
 			{
-				TextureAsset(_panelName).scale(_scl).drawAt(_pos, AlphaF(_scl));
+				TextureAsset(_panelName).scale(_scl).drawAt(_pos, AlphaF(0.3 + _scl / 2.0));
 			}
 
 			bool eraser() const
@@ -61,13 +61,13 @@ namespace Scene
 
 		Array<Panel> _panelList;
 
+		int _panelId;
+
 	public:
 
 		TitleScene()
 			: font(20, L"ü‡ÉSÉVÉbÉN Medium")
 		{
-			_panelNameList.emplace_back(L"Jihad1_title");
-			_panelNameList.emplace_back(L"AppleBattle_title");
 		}
 
 		bool isStart;

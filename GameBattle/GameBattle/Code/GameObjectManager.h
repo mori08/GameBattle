@@ -3,6 +3,8 @@
 
 #include"GameObject.h"
 
+#include"PlayerBoard.h"
+
 
 namespace GameData
 {

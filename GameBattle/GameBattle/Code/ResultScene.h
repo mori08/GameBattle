@@ -2,22 +2,21 @@
 
 
 #include"Main.h"
-#include"GameObjectManager.h"
 
 
 namespace Scene
 {
-	class GameScene : public MyApp::Scene
+	class ResultScene : public MyApp::Scene
 	{
 	private:
 
-		int _time;
+		Array<int> _rank;
 
-		GameData::GameObjectManager _gameObjectManager;
+		Array<Color> _colorList;
 
 	public:
 
-		GameScene();
+		ResultScene();
 
 		void init()override;
 

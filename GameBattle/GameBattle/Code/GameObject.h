@@ -5,6 +5,8 @@
 
 #include<queue>
 
+#include"PlayerBoard.h"
+
 
 namespace GameObject
 {
@@ -47,6 +49,8 @@ namespace GameObject
 		GameData::TagData _tagData;  // タグ
 
 		static std::shared_ptr<GameData::Generator> _generator;
+
+		static Array<GameData::PlayerBoard>         _playerBoardList;
 
 	public:
 
@@ -131,6 +135,40 @@ namespace GameObject
 		/// </summary>
 		/// <param name="tagStr"> タグの文字列 </param>
 		static GameData::TagData makeTagData(const String & tagsStr);
+
+		/// <summary>
+		/// プレイヤーボードを初期化します。
+		/// </summary>
+		/// <param name="playerNum"> プレイヤーの数 </param>
+		static void initPlayerBoard(int playerNum)
+		{
+			_playerBoardList.clear();
+
+			for (int i = 0; i < playerNum; ++i)
+			{
+				_playerBoardList.emplace_back(i);
+			}
+		}
+
+		/// <summary>
+		/// プレイヤーボードからスコアを取得します。
+		/// </summary>
+		/// <param name="id"> プレイヤーの識別番号 </param>
+		static int getPlayerScore(int id)
+		{
+			return _playerBoardList[id].getScore();
+		}
+
+		/// <summary>
+		/// プレイヤーボードを描画します。
+		/// </summary>
+		static void drawPlayerBoard()
+		{
+			for(const auto & playerBoard : _playerBoardList)
+			{
+				playerBoard.draw();
+			}
+		}
 
 	};
 }

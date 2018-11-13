@@ -16,6 +16,8 @@ GameData::GameObjectManager::GameObjectManager()
 		_gameObjectList.emplace_back(std::make_unique<GameObject::Player>(i));
 	}
 
+	GameObject::GameObject::initPlayerBoard(4);
+
 	_gameObjectList.emplace_back(std::make_unique<GameObject::Cassette>(-1)); 
 }
 
@@ -60,3 +62,4 @@ void GameData::GameObjectManager::draw() const
 		object->draw();
 	}
 }
+
