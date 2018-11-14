@@ -14,6 +14,8 @@ namespace Scene
 
 		Array<Color> _colorList;
 
+		int _time;
+
 	public:
 
 		ResultScene();

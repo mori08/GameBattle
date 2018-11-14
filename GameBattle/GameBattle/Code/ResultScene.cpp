@@ -1,5 +1,7 @@
 #include "ResultScene.h"
 
+#include "InputManager.h"
+
 
 Scene::ResultScene::ResultScene()
 	: _rank(4)
@@ -37,7 +39,23 @@ void Scene::ResultScene::init()
 
 void Scene::ResultScene::update()
 {
+	++_time;
 
+	if (_time > 300)
+	{
+		if (
+			GameData::InputManager::get(0, GameData::Button::Two, GameData::InputType::Clicked)
+			||
+			GameData::InputManager::get(1, GameData::Button::Two, GameData::InputType::Clicked)
+			||
+			GameData::InputManager::get(2, GameData::Button::Two, GameData::InputType::Clicked)
+			||
+			GameData::InputManager::get(3, GameData::Button::Two, GameData::InputType::Clicked)
+			)
+		{
+			changeScene(L"TitleScene");
+		}
+	}
 }
 
 

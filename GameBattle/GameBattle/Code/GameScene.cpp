@@ -30,6 +30,7 @@ void Scene::GameScene::update()
 	if (_time >= 7200 || Input::KeySpace.clicked)
 	{
 		changeScene(L"ResultScene");
+		SoundAsset(L"battle_bgm").stop(2.0s);
 
 		m_data->_scoreList.clear();
 
