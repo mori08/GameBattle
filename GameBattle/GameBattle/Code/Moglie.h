@@ -16,6 +16,8 @@ namespace Skill
 
 	public:
 
+		Moglie() :Skill(L"‚Ù‚ê‚Ù‚êƒ‚ƒOƒŠ[", L"Moglie_title") {}
+
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 
 		GameData::TagData & collision(int, const GameObject::Player & player, const Rect & collider) override;

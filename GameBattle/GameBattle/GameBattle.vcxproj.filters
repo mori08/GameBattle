@@ -471,9 +471,6 @@
     <ClCompile Include="Code\Panicn.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="Code\CrashBreak.cpp">
-      <Filter>ソース ファイル\Skill</Filter>
-    </ClCompile>
     <ClCompile Include="Code\MaterialDefence.cpp">
       <Filter>ソース ファイル\Skill</Filter>
     </ClCompile>
@@ -497,6 +494,36 @@
     </ClCompile>
     <ClCompile Include="Code\ResultScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Bullet.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Mine.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\SmallEyeBall.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Explosion.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\EyeBall.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\FE.cpp">
+      <Filter>ソース ファイル\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Jihad2.cpp">
+      <Filter>ソース ファイル\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Robot.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\TransportDefence.cpp">
+      <Filter>ソース ファイル\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\CrashBreak.cpp">
+      <Filter>ソース ファイル\Skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -557,9 +584,6 @@
     <ClInclude Include="Code\Panicn.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Code\CrashBreak.h">
-      <Filter>ヘッダー ファイル\Skill</Filter>
-    </ClInclude>
     <ClInclude Include="Code\MaterialDefence.h">
       <Filter>ヘッダー ファイル\Skill</Filter>
     </ClInclude>
@@ -583,6 +607,36 @@
     </ClInclude>
     <ClInclude Include="Code\ResultScene.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Bullet.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Mine.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\SmallEyeBall.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Explosion.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\EyeBall.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\FE.h">
+      <Filter>ヘッダー ファイル\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Jihad2.h">
+      <Filter>ヘッダー ファイル\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Robot.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\TransportDefence.h">
+      <Filter>ヘッダー ファイル\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\CrashBreak.h">
+      <Filter>ヘッダー ファイル\Skill</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

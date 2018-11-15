@@ -35,16 +35,14 @@ void Skill::CrashBreak::draw(int time, const GameObject::Player & player) const
 {
 	if (InRange(time, STARTTIME, ENDTIME))
 	{
-		//player.getCollider().draw(Palette::Yellow);
-
 		if (player.getDirection() == 1)
 		{
-			TextureAsset(L"crash").drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
+			TextureAsset(Format(L"crash", player.getId() + 1)).drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
 		}
 
 		else
 		{
-			TextureAsset(L"crash").mirror().drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
+			TextureAsset(Format(L"crash", player.getId() + 1)).mirror().drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
 		}
 	}
 }

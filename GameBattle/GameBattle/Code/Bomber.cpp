@@ -17,7 +17,7 @@ void GameObject::Bomber::update()
 	_time++;
 	moveObject(false);
 	
-	if (_time %10 == 0)
+	if (_time %30 == 0)
 	{
 		const Vec2 pos = _pos;
 		const Vec2 vel = Vec2(0,7);
@@ -28,8 +28,6 @@ void GameObject::Bomber::update()
 
 void GameObject::Bomber::draw() const
 {
-	//getCollider().draw(Palette::Yellow);
-
 	if (_velocity.x > 0)
 	{
 		TextureAsset(L"bomber").draw(getCollider().pos);
@@ -41,12 +39,10 @@ void GameObject::Bomber::draw() const
 	}
 }
 
-
 bool GameObject::Bomber::eraser() const
 {
 	return _time >= 300;
 }
-
 
 void GameObject::Bomber::collisionUpdate(const GameData::TagData & tagData)
 {

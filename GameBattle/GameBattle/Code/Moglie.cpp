@@ -28,12 +28,12 @@ void Skill::Moglie::draw(int, const GameObject::Player & player) const
 
 	if (player.getDirection() == 1)
 	{
-		TextureAsset(L"moguri")(0, 48 * anim, 96, 48).drawAt(player.getPos().movedBy(20, 5));
+		TextureAsset(Format(L"moglie", player.getId() + 1))(0, 48 * anim, 96, 48).drawAt(player.getPos().movedBy(20, 5));
 	}
 
 	else
 	{
-		TextureAsset(L"moguri")(0, 48 * anim, 96, 48).mirror().drawAt(player.getPos().movedBy(-20,5));
+		TextureAsset(Format(L"moglie", player.getId() + 1))(0, 48 * anim, 96, 48).mirror().drawAt(player.getPos().movedBy(-20,5));
 	}
 
 

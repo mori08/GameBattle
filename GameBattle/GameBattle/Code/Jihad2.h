@@ -1,13 +1,18 @@
 #pragma once
+
 #include"Player.h"
+
 
 namespace Skill
 {
-	class MaterialDefence : public Skill
+	class Jihad2 : public Skill
 	{
+		const int STARTTIME = 20;
+		const int ENDTIME = 100;
+
 	public:
 
-		MaterialDefence():Skill(L"éëçﬁñhâq", L"MaterialDefence_title") {}
+		Jihad2() :Skill(L"Jihad2", L"Jihad2_title") {}
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 

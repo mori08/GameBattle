@@ -5,8 +5,11 @@
 # include "AppleBattle.h"
 # include "CrashBreak.h"
 # include "MaterialDefence.h"
+# include "FE.h"
+# include "TransportDefence.h"
 
-#include"Jihad1.h"
+# include"Jihad1.h"
+# include "Jihad2.h"
 
 #include"ColorPanic.h"
 
@@ -82,4 +85,12 @@ void GameData::SkillManager::setAllSkill()
 	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
 	setSkill<Skill::Jihad1>(L"Jihad1");
 	setSkill<Skill::ColorPanic>(L"ColorPanic");
+	setSkill<Skill::AppleBattle>(L"Apple");
+	setSkill<Skill::Moglie>(L"Moglie");
+	setSkill<Skill::CrashBreak>(L"CrashBreak");
+	setSkill<Skill::MaterialDefence>(L"MaterialDefence");
+	setSkill<Skill::FE>(L"FE");
+	setSkill<Skill::TransportDefence>(L"TransportDefence");
+	setSkill<Skill::Jihad1>(L"Jihad1");
+	setSkill<Skill::Jihad2>(L"Jihad2");
 }
