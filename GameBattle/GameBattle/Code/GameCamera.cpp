@@ -26,7 +26,7 @@ void GameData::GameCamera::update()
 	_reset = true;
 
 	Point pos = (_posTL + _posBR) / 2;
-	Size  size = _posBR - _posTL + 200 * Size(2, 1);
+	Size  size = _posBR - _posTL + 400 * Size(2, 1);
 
 	const Size MIN_SIZE = 300 * Size(2, 1); // ç≈è¨ÉTÉCÉY
 

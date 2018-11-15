@@ -1,19 +1,19 @@
 #pragma once
 
+
 #include"Player.h"
 
 
 namespace Skill
 {
-	class ClashBreak : public Skill
-	{
-		const int STARTTIME = 20;
-		const int ENDTIME = 70;
 
+	class ColorPanic : public Skill
+	{
 	public:
 
-		ClashBreak() :Skill(L"Clash&Break", L"ClashBreak_title") {}
-
+		ColorPanic() : Skill(L"ColorPanic", L"ColorPanic_title")
+		{
+		}
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 
@@ -22,7 +22,7 @@ namespace Skill
 		void draw(int time, const GameObject::Player & player) const override;
 
 		bool finish(int time)const override;
-	};
 
+	};
 
 }

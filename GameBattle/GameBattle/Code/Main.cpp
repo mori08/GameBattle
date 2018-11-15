@@ -1,7 +1,10 @@
 #include"Main.h"
 #include"InputManager.h"
 #include"SkillManager.h"
+
 #include"GameScene.h"
+#include"TitleScene.h"
+#include"ResultScene.h"
 
 
 void asseter(const String & direname);
@@ -9,8 +12,10 @@ void asseter(const String & direname);
 
 void Main()
 {
+	double scl = 1;
+
+	Window::Resize(Size(960 * scl, 480 * scl));
 	Window::SetBaseSize(960, 480);
-	Window::Resize(960, 540);
 
 	asseter(L"Asset/");
 
@@ -18,12 +23,16 @@ void Main()
 
 	MyApp sceneManager;
 
+	sceneManager.add<Scene::TitleScene>(L"TitleScene");
 	sceneManager.add<Scene::GameScene>(L"GameScene");
+	sceneManager.add<Scene::ResultScene>(L"ResultScene");
 
 	while (System::Update())
 	{
 		ClearPrint();
-		
+
+		Graphics2D::SetTransform(Mat3x2::Scale(scl, Point::Zero));
+
 		sceneManager.updateAndDraw();
 
 #ifdef _DEBUG

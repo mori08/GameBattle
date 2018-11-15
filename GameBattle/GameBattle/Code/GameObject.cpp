@@ -7,6 +7,8 @@ using namespace GameData;
 
 std::shared_ptr<GameData::Generator> GameObject::GameObject::_generator;
 
+Array<GameData::PlayerBoard>         GameObject::GameObject::_playerBoardList;
+
 
 void GameObject::GameObject::collisionCheck(const std::unique_ptr<GameObject>& obj)
 {
@@ -26,6 +28,8 @@ void GameObject::GameObject::moveObject(bool useMapData)
 		return;
 	}
 
+	const int LOOP_RIMIT = 30;
+	int loopNum = 0;
 	_pos.x += _velocity.x;
 
 	if (Abs(_velocity.x) > 0.01)
@@ -36,6 +40,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 		{
 			_velocity.x = 0;
 			_pos.x -= unit;
+			if (++loopNum > LOOP_RIMIT)break;
 		}
 	}
 
@@ -53,6 +58,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 		{
 			_velocity.y = 0;
 			_pos.y -= unit;
+			if (++loopNum > LOOP_RIMIT)break;
 		}
 
 		return;
@@ -64,6 +70,7 @@ void GameObject::GameObject::moveObject(bool useMapData)
 	{
 		_velocity.y = 0;
 		_pos.y -= unit;
+		if (++loopNum > LOOP_RIMIT)break;
 	}
 }
 

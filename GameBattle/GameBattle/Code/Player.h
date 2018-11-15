@@ -10,7 +10,7 @@ namespace GameObject
 	{
 	public:
 
-		const int
+		static const int
 			WALK_0 = 0,
 			WALK_1 = 1,
 			WALK_2 = 2,
@@ -67,6 +67,8 @@ namespace GameObject
 
 		int        _textureId;       // 表示する画像の番号
 
+		int        _damageTime;      // 0 でないとき無敵時間
+
 		bool       _col;
 
 	public:
@@ -115,6 +117,7 @@ namespace GameObject
 		void setMuteki(bool m)
 		{
 			_muteki = m;
+			_damageTime = 0;
 		}
 
 		/// <summary>
@@ -168,6 +171,11 @@ namespace GameObject
 		/// スキルを獲得するための壁を描画します。
 		/// </summary>
 		void drawSkillWall() const;
+
+		/// <summary>
+		/// プレイヤーボードにスキルの情報を設定します。
+		/// </summary>
+		void setPlayerBoard();
 
 	};
 

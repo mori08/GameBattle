@@ -38,7 +38,7 @@ void Skill::Moglie::draw(int, const GameObject::Player & player) const
 
 
 	const RectF rect = RectF(50, 50).setCenter(player.getPos()).movedBy(player.getDirection()*Vec2(70, 0));
-	rect.draw(Palette::Yellow);
+	//rect.draw(Palette::Yellow);
 }
 
 

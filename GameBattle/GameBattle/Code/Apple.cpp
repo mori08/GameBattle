@@ -19,7 +19,7 @@ void GameObject::Apple::update()
 
 void GameObject::Apple::draw() const
 {
-	getCollider().draw(Palette::Yellow);
+	TextureAsset(L"apple").drawAt(_pos + Point(0, -20));
 }
 
 

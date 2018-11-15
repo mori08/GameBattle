@@ -26,6 +26,7 @@ namespace GameObject
 			_pos = pos;
 			_velocity = velocity;
 			_id = id;
+			_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 		}
 
 		bool eraser() const override;
