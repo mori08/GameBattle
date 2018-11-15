@@ -6,7 +6,7 @@ GameObject::EyeBall::EyeBall(const Vec2 & pos, const Vec2 & vel, int id)
 	_pos = pos;
 	_velocity = vel;
 	_texSize = Size(TextureAsset(L"eye").size.x / 3 / 1.5, TextureAsset(L"eye").size.y / 2 / 1.5);
-	_size = Size(20,20);
+	_size = Size(30, 30);
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
 	_id = id;
@@ -33,8 +33,14 @@ void GameObject::EyeBall::update()
 
 void GameObject::EyeBall::draw() const
 {
+	if (_time >= ANIMENDTIME) 
+	{
+		TextureAsset(L"eye")(128 * 2, 80 * 1, 128, 80).resize(_texSize).drawAt(_pos);
+		return; 
+	}
+
 //	getCollider().draw(Palette::Yellow);
-	TextureAsset(L"eye")(128 * ((_time % (ENDTIME / 2)) / (ENDTIME / 6)), 80 * (_time / (ENDTIME / 2)), 128, 80).resize(_texSize).drawAt(_pos);
+	TextureAsset(L"eye")(128 * ((_time % (ANIMENDTIME / 2)) / (ANIMENDTIME / 6)), 80 * (_time / (ANIMENDTIME / 2)), 128, 80).resize(_texSize).drawAt(_pos);
 	//getCollider().draw(Palette::Yellow);
 
 }

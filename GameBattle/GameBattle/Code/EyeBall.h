@@ -15,7 +15,8 @@ namespace GameObject
 		bool _bombed = false;
 		Size _texSize;
 
-		const int ENDTIME = 60;
+		const int ANIMENDTIME = 6 * 6;
+		const int ENDTIME = 50;
 
 	public:
 
