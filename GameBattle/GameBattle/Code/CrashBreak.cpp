@@ -37,12 +37,12 @@ void Skill::CrashBreak::draw(int time, const GameObject::Player & player) const
 	{
 		if (player.getDirection() == 1)
 		{
-			TextureAsset(Format(L"crash", player.getId() + 1)).drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
+			TextureAsset(Format(L"crash", player.getId() + 1)).drawAt(player.getPos());// .drawFrame(1, 0, Palette::Yellow);
 		}
 
 		else
 		{
-			TextureAsset(Format(L"crash", player.getId() + 1)).mirror().drawAt(player.getPos()).drawFrame(1, 0, Palette::Yellow);
+			TextureAsset(Format(L"crash", player.getId() + 1)).mirror().drawAt(player.getPos());//.drawFrame(1, 0, Palette::Yellow);
 		}
 	}
 }
