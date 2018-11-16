@@ -1,6 +1,8 @@
 #pragma once
 
 #include "GameObject.h"
+# include "Explosion.h"
+
 
 namespace GameObject
 {
@@ -30,6 +32,12 @@ namespace GameObject
 		{
 			return _velocity.x >= 0 ? 1 : -1;
 		}
+
+		void generateExplosion()
+		{
+			_generator->push(std::make_unique<Explosion>(_pos, Size(40, 50), _id, 2));
+		}
+
 
 	};
 }

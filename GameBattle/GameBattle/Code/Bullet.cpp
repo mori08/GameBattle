@@ -1,5 +1,4 @@
 # include "Bullet.h"
-# include "Explosion.h"
 
 GameObject::Bullet::Bullet(const Vec2 & pos, const Vec2 & vel, int id)
 {
@@ -20,7 +19,7 @@ void GameObject::Bullet::update()
 
 	if (isTouchingMap())
 	{
-		_generator->push(std::make_unique<Explosion>(_pos, Size(0, 0), _id, 2));
+		generateExplosion();
 	}
 }
 
@@ -43,12 +42,12 @@ void GameObject::Bullet::collisionUpdate(const GameData::TagData & tagData)
 		if (tag.type == L"Player" && _id != ParseOr<int>(tag.info[0], -1))
 		{
 			_time = 600;
-			_generator->push(std::make_unique<Explosion>(_pos, Size(0, 0), _id, 2));
+			generateExplosion();
 		}
 		if (tag.type == L"Attack" && _id != ParseOr<int>(tag.info[0], -1))
 		{
 			_time = 600;
-			_generator->push(std::make_unique<Explosion>(_pos, Size(0, 0), _id, 2));
+			generateExplosion();
 		}
 	}
 }

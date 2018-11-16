@@ -1,6 +1,8 @@
 #pragma once
 
 #include "GameObject.h"
+# include "Explosion.h"
+
 
 namespace GameObject
 {
@@ -25,6 +27,11 @@ namespace GameObject
 	private:
 
 		void collisionUpdate(const GameData::TagData & tagData) override;
+
+		void generateExplosion()
+		{
+			_generator->push(std::make_unique<Explosion>(_pos, Size(40, 50), _id, 1));
+		}
 
 	};
 }

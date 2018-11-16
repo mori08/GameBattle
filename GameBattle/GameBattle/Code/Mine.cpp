@@ -1,5 +1,4 @@
 # include "Mine.h"
-# include "Explosion.h"
 
 GameObject::Mine::Mine(const Vec2 & pos, const Vec2 & vel, int id)
 {
@@ -24,7 +23,7 @@ void GameObject::Mine::update()
 
 	if (_time == 300)
 	{
-		_generator->push(std::make_unique<Explosion>(_pos, Size(40, 50), _id, 2));
+		generateExplosion();
 	}
 
 
@@ -50,12 +49,12 @@ void GameObject::Mine::collisionUpdate(const GameData::TagData & tagData)
 		if (tag.type == L"Player" && _id != ParseOr<int>(tag.info[0], -1))
 		{
 			_time = 600;
-			_generator->push(std::make_unique<Explosion>(_pos, Size(40,50), _id,2));
+			generateExplosion();
 		}
 		if (tag.type == L"Attack" && _id != ParseOr<int>(tag.info[0], -1))
 		{
 			_time = 600;
-			_generator->push(std::make_unique<Explosion>(_pos, Size(40, 50), _id,2));
+			generateExplosion();
 		}
 	}
 }
