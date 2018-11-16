@@ -16,7 +16,7 @@ namespace GameObject
 		Size _texSize;
 
 		const int ANIMENDTIME = 6 * 6;
-		const int ENDTIME = 50;
+		const int ENDTIME = 40;
 
 	public:
 
