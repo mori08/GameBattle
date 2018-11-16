@@ -8,8 +8,12 @@ void Skill::CrashBreak::update(int time, GameObject::Player & player, const std:
 
 		const Vec2 vec = Vec2(10, 0)*player.getDirection();
 		player.setVelocity(vec);
-	}
 
+		if (time == ENDTIME)
+		{
+			player.setMuteki(false);
+		}
+	}
 	else
 	{
 		player.setMuteki(false);
