@@ -5,7 +5,7 @@ GameObject::Bullet::Bullet(const Vec2 & pos, const Vec2 & vel, int id)
 	_pos = pos;
 	_velocity = vel;
 	_id = id;
-	_size = Size(15, 15);
+	_size = Size(48, 48);
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
 
@@ -26,7 +26,16 @@ void GameObject::Bullet::update()
 
 void GameObject::Bullet::draw() const
 {
-	getCollider().draw(Palette::Yellow);
+	//getCollider().draw(Palette::Yellow);
+	if (_velocity.x > 0)
+	{
+		TextureAsset(L"bullet")(16 * 2, 16 * 1, 16, 16).resize(_size).drawAt(_pos);
+	}
+	else
+	{
+		TextureAsset(L"bullet")(16 * 0, 16 * 1, 16, 16).resize(_size).drawAt(_pos);
+	}
+
 }
 
 bool GameObject::Bullet::eraser() const
