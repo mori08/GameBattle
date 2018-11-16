@@ -23,7 +23,7 @@ void GameObject::EyeBall::update()
 	_velocity.y += 0.4;	
 	moveObject(true);
 
-	if (isTouchingMap() && !_bombed)
+	if (isLanding() && !_bombed)
 	{
 		generateSmallEyeBalls();
 		_bombed = true;
@@ -58,14 +58,15 @@ void GameObject::EyeBall::collisionUpdate(const GameData::TagData & tagData)
 	{
 		if (tag.type == L"Player" && _id != ParseOr<int>(tag.info[0], -1))
 		{
-			_bombed = true;
 			generateSmallEyeBalls();
+			_bombed = true;
 		}
 
 		if (tag.type == L"Attack" && _id != ParseOr<int>(tag.info[0], -1))
 		{
-			_bombed = true;
 			generateSmallEyeBalls();
+			_bombed = true;
+
 		}
 	}
 }
