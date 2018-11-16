@@ -1,14 +1,15 @@
 # include "Explosion.h"
 
-GameObject::Explosion::Explosion(const Vec2 & pos, const Vec2 & vel, int id,int texId)
+GameObject::Explosion::Explosion(const Vec2 & pos, const Size& size,int id,int texId)
 {
 	_pos = pos;
-	_velocity = vel;
-	_size = Size(40, 50);
+	_velocity = Vec2(0, 0);
+	_size = size;
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
 	_id = id;
 	_texId = texId;
+
 }
 
 void GameObject::Explosion::update()

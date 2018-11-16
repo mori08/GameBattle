@@ -13,9 +13,11 @@ namespace GameObject
 
 		int _texId;
 
+		bool _collision;
+
 	public:
 
-		Explosion(const Vec2 & pos, const Vec2 & vel, int id, int texId);
+		Explosion(const Vec2 & pos, const Size& size, int id, int texId);
 
 		void update() override;
 
