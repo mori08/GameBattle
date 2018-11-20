@@ -8,7 +8,7 @@ namespace Skill
 
 	class Moglie: public Skill
 	{
-		const int ENDTIME = 40;
+		const int ENDTIME = 80;
 
 		int animCount = 0;
 

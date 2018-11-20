@@ -10,10 +10,7 @@ void Skill::AppleBattle::update(int time, GameObject::Player & player, const std
 		const Vec2 vel = Vec2(player.getDirection() * 8, 0);
 
 		generator->push(std::make_unique<GameObject::Apple>(pos, vel, player.getId()));
-
-		const int ATTACK = 10;
-
-		player.setTextureId(ATTACK);
+		player.setTextureId(GameObject::Player::ATTACK);
 	}
 
 }

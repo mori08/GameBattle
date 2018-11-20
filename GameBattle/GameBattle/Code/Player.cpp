@@ -289,6 +289,8 @@ void GameObject::Player::getSkill()
 
 void GameObject::Player::drawPlayer() const
 {
+	if (_textureId == -1) { return; }
+
 	static const Size SIZE = Size(128, 160);
 	const Point pos = Point(_textureId % 4, _textureId / 4);
 	const double scl = 0.45;
