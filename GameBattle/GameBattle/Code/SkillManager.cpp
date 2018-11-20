@@ -80,13 +80,13 @@ void GameData::SkillManager::setAllSkill()
 #endif // _DEBUG
 
 	//setSkill<Skill::AppleBattle>(L"Apple");
-	setSkill<Skill::Moglie>(L"Moglie");
+	//setSkill<Skill::Moglie>(L"Moglie");
 	//setSkill<Skill::CrashBreak>(L"CrashBreak");
 	//setSkill<Skill::MaterialDefence>(L"MaterialDefence");
 	//setSkill<Skill::TransportDefence>(L"TransportDefence");
 	//setSkill<Skill::ColorPanic>(L"ColorPanic");
 	//setSkill<Skill::FE>(L"FE");
 	//setSkill<Skill::Jihad1>(L"Jihad1");
-	//setSkill<Skill::Jihad2>(L"Jihad2");
+	setSkill<Skill::Jihad2>(L"Jihad2");
 	
 }
