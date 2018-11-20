@@ -7,6 +7,7 @@ void Skill::TransportDefence::update(int time, GameObject::Player & player, cons
 	{
 		const Vec2 vel = Vec2(10, 0)*player.getDirection();
 		generator->push(std::make_unique<GameObject::Mine>(player.getPos(), vel, player.getId()));
+		player.setTextureId(GameObject::Player::ATTACK);
 	}
 }
 
