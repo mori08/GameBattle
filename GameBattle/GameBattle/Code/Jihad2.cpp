@@ -7,6 +7,7 @@ void Skill::Jihad2::update(int time, GameObject::Player & player, const std::sha
 	{
 		const Vec2 vel = Vec2(10 * player.getDirection(), -10);
 		generator->push(std::make_unique<GameObject::EyeBall>(player.getPos(), vel, player.getId()));
+		player.setTextureId(GameObject::Player::ATTACK);
 	}
 }
 

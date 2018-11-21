@@ -1,4 +1,3 @@
-# include "Explosion.h"
 # include "Bomb.h"
 
 GameObject::Bomb::Bomb(const Vec2 & pos, const Vec2 & vel, int id)
@@ -17,7 +16,7 @@ void GameObject::Bomb::update()
 
 	if (isTouchingMap())
 	{
-		_generator->push(std::make_unique<Explosion>(_pos, Vec2(0, 0), _id, 1));
+		_generator->push(std::make_unique<Explosion>(_pos, Size(40, 50), _id, 1));
 		return;
 	}
 
@@ -25,7 +24,7 @@ void GameObject::Bomb::update()
 	
 	if (isTouchingMap())
 	{
-		_generator->push(std::make_unique<Explosion>(_pos, Vec2(0, 0), _id,1));
+		generateExplosion();
 		return;
 	}
 
@@ -50,12 +49,12 @@ void GameObject::Bomb::collisionUpdate(const GameData::TagData & tagData)
 	{
 		if (tag.type == L"Player" && _id != ParseOr<int>(tag.info[0], -1))
 		{
-			_generator->push(std::make_unique<Explosion>(_pos, Vec2(0, 0), _id,1));
+			generateExplosion();
 			_time = 600;
 		}
 		if (tag.type == L"Attack" && _id != ParseOr<int>(tag.info[0], -1))
 		{
-			_generator->push(std::make_unique<Explosion>(_pos, Vec2(0, 0), _id,1));
+			generateExplosion();
 			_time = 600;
 		}
 	}

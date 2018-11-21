@@ -3,7 +3,6 @@
 #include "SkillManager.h"
 #include "TestSkill.h"
 #include "InputManager.h"
-#include "StageData.h"
 
 
 using namespace GameData;
@@ -17,7 +16,26 @@ GameObject::Player::Player(int id)
 	_direction = RIGHT;
 	_moveSpeed = DEFAULT_MOVE_SPEED;
 
-	_pos = StageData::Instance().getPlayerPos(id);
+//	_pos = Point(100, 100);
+
+	if (id == 0)
+	{
+		_pos = Point(100, 100);
+	}
+
+	else if (id == 1)
+	{
+		_pos = Point(1600, 100);
+	}
+
+	else if (id == 2)
+	{
+		_pos = Point(100, 500);
+	}
+	else if (id == 3)
+	{
+		_pos = Point(1600, 500);
+	}
 
 	_velocity = Point::Zero;
 	_size     = Point(40, 60);
@@ -115,7 +133,7 @@ void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
 	{
 		obj->collisionUpdate(_tagData);
 
-		if (_state == State::GET_SKILL&&_skillList[_sId] == nullptr)
+		if (_state == State::GET_SKILL)
 		{
 			obj->collisionUpdate(getSkillTag);
 		}
@@ -148,7 +166,7 @@ void GameObject::Player::collisionUpdate(const TagData & tagData)
 			_playerBoardList[anotherId].addScore(3);
 		}
 
-		if (t.type == L"Cassette" && _state == State::GET_SKILL && _skillList[_sId] == nullptr)
+		if (t.type == L"Cassette" && _state == State::GET_SKILL)
 		{
 			_skillList[_sId] = SkillManager::instance().getSkill(t.info[0]);
 		}
@@ -260,19 +278,6 @@ void GameObject::Player::getSkill()
 		return;
 	}
 
-	if (!isLanding())
-	{
-		setTextureId(JAMP);
-	}
-	else if (Abs(_velocity.x) < 0.1f)
-	{
-		setTextureId(STAND);
-	}
-	else
-	{
-		setTextureId(WALK_0 + (_time % (4 * WALK_SPEED)) / WALK_SPEED);
-	}
-
 	if (_time == 145) 
 	{
 		changeState(State::NORMAL);
@@ -283,8 +288,8 @@ void GameObject::Player::getSkill()
 
 
 void GameObject::Player::drawPlayer() const
-{	
-	if (_textureId == -1) return;
+{
+	if (_textureId == -1) { return; }
 
 	static const Size SIZE = Size(128, 160);
 	const Point pos = Point(_textureId % 4, _textureId / 4);

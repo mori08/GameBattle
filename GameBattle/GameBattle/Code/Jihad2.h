@@ -8,7 +8,7 @@ namespace Skill
 	class Jihad2 : public Skill
 	{
 		const int STARTTIME = 20;
-		const int ENDTIME = 100;
+		const int ENDTIME = 60;
 
 	public:
 

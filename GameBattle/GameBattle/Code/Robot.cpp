@@ -20,7 +20,7 @@ void GameObject::Robot::update()
 
 	if (_time % 20 == 0 && _time % 80 != 0)
 	{
-		const Vec2 vel = Vec2(_direction * 5, 0);
+		const Vec2 vel = Vec2(_direction * 10, 0);
 		_generator->push(std::make_unique<Bullet>(_pos, vel, _id));
 	}
 
