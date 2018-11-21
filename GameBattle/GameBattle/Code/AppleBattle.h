@@ -13,7 +13,7 @@ namespace Skill
 
 	public:
 
-		AppleBattle() :Skill(L"アップルバトル", L"AppleBattle_title") {}
+		AppleBattle() :Skill(L"ｱｯﾌﾟﾙﾊﾞﾄﾙ", L"AppleBattle_title") {}
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 

@@ -1,5 +1,6 @@
 #include "TitleScene.h"
 #include "InputManager.h"
+#include "StageData.h"
 
 
 void Scene::TitleScene::init()
@@ -42,8 +43,7 @@ void Scene::TitleScene::update()
 	{
 		if (isStart)
 		{
-			SoundAsset(L"title_bgm").stop(2.0s);
-			changeScene(L"GameScene");
+			changeScene(L"StageSelectScene");
 		}
 		else
 		{
@@ -61,7 +61,9 @@ void Scene::TitleScene::update()
 
 void Scene::TitleScene::draw() const
 {
-	Rect(0, 0, Window::BaseSize()).draw(Color(240, 240, 240));
+	Graphics2D::SetTransform(Mat3x2::Scale(m_data->_scl, Point::Zero));
+
+	Rect(0, 0, Window::BaseSize()/2).draw(Color(240, 240, 240));
 
 	for(const auto & panel : _panelList)
 	{
@@ -70,15 +72,15 @@ void Scene::TitleScene::draw() const
 
 	if (isStart) 
 	{
-		font(L"START").regionCenter(Window::BaseCenter() + Point(200, 0)).draw(Color(0, 0, 255, 128));
+		font(L"START").regionCenter(Window::BaseCenter()/2 + Point(200, 0)).draw(Color(0, 0, 255, 128));
 	}
 	else
 	{
-		font(L"EXIT").regionCenter(Window::BaseCenter() + Point(200, 50)).draw(Color(0, 0, 255, 128));
+		font(L"EXIT").regionCenter(Window::BaseCenter()/2 + Point(200, 50)).draw(Color(0, 0, 255, 128));
 	}
 	
-	TextureAsset(L"title_logo").scale(0.8).drawAt(Window::BaseCenter() + Point(-200, 0));
+	TextureAsset(L"title_logo").scale(0.8).drawAt(Window::BaseCenter()/2 + Point(-200, 0));
 
-	font(L"START").drawAt(Window::BaseCenter() + Point(200, 0));
-	font(L"EXIT").drawAt(Window::BaseCenter() + Point(200, 50));
+	font(L"START").drawAt(Window::BaseCenter()/2 + Point(200, 0));
+	font(L"EXIT").drawAt(Window::BaseCenter()/2 + Point(200, 50));
 }

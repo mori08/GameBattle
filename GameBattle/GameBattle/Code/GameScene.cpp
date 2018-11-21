@@ -16,13 +16,15 @@ void Scene::GameScene::init()
 		SoundAsset(L"battle_bgm").setLoop(true);
 		SoundAsset(L"battle_bgm").play();
 	}
+
+	GameData::GameCamera::Instance().init();
 }
 
 
 void Scene::GameScene::update()
 {
 	++_time;
-	Println(_time);
+	
 	_gameObjectManager.update();
 
 	GameData::GameCamera::Instance().update();
@@ -52,5 +54,7 @@ void Scene::GameScene::draw() const
 		_gameObjectManager.draw();
 	}
 
-	GameObject::GameObject::drawPlayerBoard();
+	{
+		GameObject::GameObject::drawPlayerBoard(m_data->_scl);
+	}
 }

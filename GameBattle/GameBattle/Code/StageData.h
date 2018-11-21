@@ -21,17 +21,24 @@ namespace GameData
 
 	private:
 
-		static const int WIDTH = 120; // 幅
+		int _width; // 幅
 
-		static const int HEIGHT = 60;  // 高さ
+		int _height;  // 高さ
 
-		static const int CASSETTE_POS = 3; // カセット出現箇所
+		String _name; // ステージ名
 
-	private:
+		static const int CASSETTE_POS = 3;     // カセット出現箇所
 
-		int cell[HEIGHT][WIDTH];         // マスごとのステージデータ
+		static const int PLAYER_POS = 4;       // プレイヤー生成座標
 
-		Array<Vec2> cassettePos;        // カセットを生成する座標
+		std::vector<std::vector<int>> cell;    // マスごとのステージデータ
+
+		std::vector<Vec2> playerPos;           // プレイヤー生成の座標
+	public:
+
+		Array<Vec2> cassettePos;               // カセットを生成する座標
+
+		Array<int> cassetteGenerateFrameCount; // カセット生成までのフレーム数
 
 	private:
 
@@ -62,8 +69,15 @@ namespace GameData
 		/// </summary>
 		Size getSize() const
 		{
-			return CELLSIZE*Size(WIDTH, HEIGHT);
+			return CELLSIZE*Size(_width, _height);
 		}
+
+		/// <summary>
+		/// プレイヤーを生成する座標を取得します。
+		/// </summary>
+		/// <param name="id"> プレイヤーの識別番号 </param>
+		/// <returns> 
+		Vec2 getPlayerPos(int id)const;
 
 		/// <summary>
 		/// カセットを出現させる座標をランダムで決定します。
@@ -77,8 +91,6 @@ namespace GameData
 		/// </summary>
 		void draw() const;
 
-	private:
-
 		/// <summary>
 		/// 指定された座標のステージのデータを取得します。
 		/// </summary>
@@ -89,7 +101,8 @@ namespace GameData
 		/// <summary>
 		/// CSVファイルの読み込み
 		/// </summary>
-		void read();
+		/// <param name="stageName"> ステージ名 </param>
+		void read(const String & stageName);
 
 	};
 

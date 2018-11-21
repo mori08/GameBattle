@@ -8,6 +8,7 @@
 struct ShareData
 {
 	bool _bgm = false;
+	double _scl = 2;
 	Array<int> _scoreList;
 };
 

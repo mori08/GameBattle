@@ -9,13 +9,11 @@ using namespace GameData;
 
 GameObject::Cassette::Cassette(const size_t & id)
 {
-	auto data = StageData::Instance().getCassettePos(id);
-
-	_id        = data.second;
+	_id        = id;
 	_skillKey  = SkillManager::instance().getKeyRamdom();
 	_eraseFlag = false;
 
-	_pos      = data.first;
+	_pos      = StageData::Instance().cassettePos[id];
 	_size     = Size(30, 30);
 	_velocity = Vec2(0, -1);
 	_tagData  = makeTagData(L"Cassette[" + _skillKey + L"]");
@@ -32,7 +30,7 @@ void GameObject::Cassette::update()
 
 void GameObject::Cassette::draw() const
 {
-	getCollider().draw(Palette::Aqua);
+	TextureAsset(L"cassette").scale(1.0 / 1.5).draw(getCollider().tl);
 }
 
 
@@ -50,7 +48,9 @@ void GameObject::Cassette::collisionUpdate(const GameData::TagData & tag)
 		{
 			_eraseFlag = true;
 
-			_generator->push(std::make_unique<Cassette>(_id));
+			//_generator->push(std::make_unique<Cassette>(_id));
+
+			StageData::Instance().cassetteGenerateFrameCount[_id] = Random(120, 240);
 		}
 	}
 }

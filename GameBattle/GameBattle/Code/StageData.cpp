@@ -3,7 +3,7 @@
 
 GameData::StageData::StageData()
 {
-	read();
+	
 }
 
 
@@ -28,6 +28,23 @@ int GameData::StageData::get(const Rect & rect) const
 }
 
 
+Vec2 GameData::StageData::getPlayerPos(int id) const
+{
+	if (playerPos.size() == 0)
+	{
+#ifdef _DEBUG
+		Println(L"error > マップにプレイヤー生成座標が設定されていません");
+#endif // _DEBUG
+
+		return Vec2::Zero;
+	}
+
+	int i = id % playerPos.size();
+
+	return playerPos[i];
+}
+
+
 std::pair<Vec2, size_t> GameData::StageData::getCassettePos(const size_t & id) const
 {
 	if (id < 0 || id >= cassettePos.size())
@@ -47,17 +64,17 @@ std::pair<Vec2, size_t> GameData::StageData::getCassettePos(const size_t & id) c
 
 void GameData::StageData::draw() const
 {
-	TextureAsset(L"stage").scale(2).draw();
+	TextureAsset(_name).scale(getSize().x / 960.0).draw();
 
-	for (int y = 0; y < HEIGHT; ++y)
+	for (int y = 0; y < _height; ++y)
 	{
-		for (int x = 0; x < WIDTH; ++x)
+		for (int x = 0; x < _width; ++x)
 		{
-			if (cell[y][x] == 1)
+			if (cell[y][x] == HARF_BLOCK)
 			{
 				Rect(CELLSIZE*Point(x, y), CELLSIZE).draw(Palette::Wheat);
 			}
-			else if (cell[y][x] == 2)
+			else if (cell[y][x] == BLOCK)
 			{
 				Rect(CELLSIZE*Point(x, y), CELLSIZE).draw(Palette::White);
 			}
@@ -68,23 +85,31 @@ void GameData::StageData::draw() const
 
 int GameData::StageData::getCell(const Point & pos) const
 {
-	if (pos.x < 0 || pos.x >= WIDTH) { return BLOCK; }
+	if (pos.x < 0 || pos.x >= _width) { return BLOCK; }
 
 	if (pos.y < 0) { return EMPTY; }
 
-	if (pos.y >= HEIGHT) { return BLOCK; }
+	if (pos.y >= _height) { return BLOCK; }
 
 	return cell[pos.y][pos.x];
 }
 
 
-void GameData::StageData::read()
+void GameData::StageData::read(const String & stageName)
 {
-	const CSVReader csv(L"Asset/Data/Stage.csv");
+	_name = stageName;
 
-	for (int y = 0; y < HEIGHT; ++y)
+	const CSVReader csv(L"Asset/Data/" + stageName + L".csv");
+
+	_width = csv.columns(0);
+	_height = csv.rows;
+
+	cell = std::vector<std::vector<int>>(_height, std::vector<int>(_width));
+	playerPos.clear();
+
+	for (int y = 0; y < _height; ++y)
 	{
-		for (int x = 0; x < WIDTH; ++x)
+		for (int x = 0; x < _width; ++x)
 		{
 			switch (csv.get<int>(y, x))
 			{
@@ -98,7 +123,14 @@ void GameData::StageData::read()
 				cell[y][x] = 0;
 				cassettePos.emplace_back(x*CELLSIZE, y*CELLSIZE);
 				break;
+
+			case PLAYER_POS:
+				cell[y][x] = 0;
+				playerPos.emplace_back(CELLSIZE*Vec2(x, y));
+				break;
 			}
 		}
 	}
+
+	cassetteGenerateFrameCount = Array<int>(cassettePos.size(), 0);
 }

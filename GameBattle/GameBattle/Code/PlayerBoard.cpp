@@ -29,8 +29,10 @@ void GameData::PlayerBoard::setSkillData(int id, const String & name, int num)
 }
 
 
-void GameData::PlayerBoard::draw() const
+void GameData::PlayerBoard::draw(double scl) const
 {
+	Graphics2D::SetTransform(Mat3x2::Scale(scl, Point::Zero));
+
 	Point pos = Point((_id + 0.5) * 960 / 4, 50);
 
 	TextureAsset(L"PlayerBoard_" + ToString(_id)).scale(0.7).drawAt(pos);
@@ -42,4 +44,6 @@ void GameData::PlayerBoard::draw() const
 		_fontSkill(_skillDataList[i].first)
 			.draw(pos + Point((i == 0 || i == 3) ? 5 : 15, -42 + i * 22), Palette::Black);
 	}
+
+	Graphics2D::SetTransform(Mat3x2::Scale(1, Point::Zero));
 }

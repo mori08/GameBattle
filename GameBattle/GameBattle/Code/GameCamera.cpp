@@ -2,6 +2,13 @@
 #include "StageData.h"
 
 
+void GameData::GameCamera::init()
+{
+	setPos(StageData::Instance().getSize() / 2);
+	setScale(1.0*Window::BaseSize().x / StageData::Instance().getSize().x);
+}
+
+
 void GameData::GameCamera::setPlayerPos(const Point & pos)
 {
 	if (_reset)

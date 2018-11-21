@@ -162,11 +162,11 @@ namespace GameObject
 		/// <summary>
 		/// プレイヤーボードを描画します。
 		/// </summary>
-		static void drawPlayerBoard()
+		static void drawPlayerBoard(double scl)
 		{
 			for(const auto & playerBoard : _playerBoardList)
 			{
-				playerBoard.draw();
+				playerBoard.draw(scl);
 			}
 		}
 
