@@ -68,10 +68,12 @@ void Scene::ResultScene::draw() const
 	for (int i = 0; i < 4; ++i)
 	{
 		Point pos (110 + 200 * i, 240 + 60 * _rank[i]);
-		Size  size(140, 180 + 60 * _rank[i]);
+		Size  size(140, 1000);
 
 		Rect(pos, size).draw(_colorList[i]);
 
 		TextureAsset(L"player_" + ToString(i))(0, 160, 128, 160).drawAt(pos + Point(70, -80));
+
+		font(m_data->_scoreList[i]).drawAt(pos + Point(70, 70), Palette::Black);
 	}
 }

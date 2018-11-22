@@ -16,6 +16,8 @@ namespace Scene
 
 		int _time;
 
+		Font font{ 30 };
+
 	public:
 
 		ResultScene();

@@ -16,7 +16,8 @@ namespace GameData
 		One,
 		Two,
 		Three,
-		Four
+		Four,
+		START
 	};
 
 	enum class InputType

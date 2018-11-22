@@ -13,6 +13,11 @@ namespace Scene
 
 		int _time;
 
+		bool _pause;
+		bool _stopGame;
+
+		Font font{ 20, L"ü‡ÉSÉVÉbÉN Medium" };
+
 		GameData::GameObjectManager _gameObjectManager;
 
 	public:

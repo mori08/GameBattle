@@ -106,6 +106,7 @@ void GameData::StageData::read(const String & stageName)
 
 	cell = std::vector<std::vector<int>>(_height, std::vector<int>(_width));
 	playerPos.clear();
+	cassettePos.clear();
 
 	for (int y = 0; y < _height; ++y)
 	{

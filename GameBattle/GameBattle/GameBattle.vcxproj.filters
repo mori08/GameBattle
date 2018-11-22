@@ -641,9 +641,6 @@
     <ClInclude Include="Code\CrashBreak.h">
       <Filter>ヘッダー ファイル\Skill</Filter>
     </ClInclude>
-    <ClInclude Include="StageSelectScene.h">
-      <Filter>ヘッダー ファイル\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Code\StageSelectScene.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>

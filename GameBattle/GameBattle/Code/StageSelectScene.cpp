@@ -100,6 +100,7 @@ void Scene::StageSelectScene::update()
 				{
 
 					SoundAsset(L"title_bgm").stop(2.0s);
+					SoundAsset(L"decision").play();
 					GameData::StageData::Instance().read(stage.Name);
 					changeScene(L"GameScene");
 

@@ -43,6 +43,7 @@ void Scene::TitleScene::update()
 	{
 		if (isStart)
 		{
+			SoundAsset(L"decision").play();
 			changeScene(L"StageSelectScene");
 		}
 		else
@@ -54,6 +55,8 @@ void Scene::TitleScene::update()
 	if (GameData::InputManager::get(0, GameData::Button::Up, GameData::InputType::Clicked)
 		|| GameData::InputManager::get(0, GameData::Button::Down, GameData::InputType::Clicked))
 	{
+		SoundAsset(L"cursor").stop();
+		SoundAsset(L"cursor").play();
 		isStart = !isStart;
 	}
 }

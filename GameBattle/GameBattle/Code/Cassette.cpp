@@ -50,7 +50,7 @@ void GameObject::Cassette::collisionUpdate(const GameData::TagData & tag)
 
 			//_generator->push(std::make_unique<Cassette>(_id));
 
-			StageData::Instance().cassetteGenerateFrameCount[_id] = Random(120, 240);
+			StageData::Instance().cassetteGenerateFrameCount[_id] = Random(240, 480);
 		}
 	}
 }

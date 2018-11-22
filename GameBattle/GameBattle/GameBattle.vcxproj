@@ -352,7 +352,6 @@
     <ClInclude Include="Code\TestSkill.h" />
     <ClInclude Include="Code\TitleScene.h" />
     <ClInclude Include="Code\TransportDefence.h" />
-    <ClInclude Include="StageSelectScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
