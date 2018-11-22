@@ -20,8 +20,8 @@ void Scene::GameScene::init()
 
 	if (m_data->_bgm)
 	{
-		SoundAsset(L"battle_bgm").setLoop(true);
-		SoundAsset(L"battle_bgm").play();
+		SoundAsset(StageData::Instance().getName()).setLoop(true);
+		SoundAsset(StageData::Instance().getName()).play();
 	}
 
 	GameData::GameCamera::Instance().init();
@@ -52,7 +52,7 @@ void Scene::GameScene::update()
 			{
 				SoundAsset(L"poseClose").play();
 				changeScene(L"TitleScene");
-				SoundAsset(L"battle_bgm").stop(2.0s);
+				SoundAsset(StageData::Instance().getName()).stop(2.0s);
 			}
 			else
 			{
@@ -75,7 +75,7 @@ void Scene::GameScene::update()
 	if (_time >= 7200 || Input::KeySpace.clicked)
 	{
 		changeScene(L"ResultScene");
-		SoundAsset(L"battle_bgm").stop(2.0s);
+		SoundAsset(StageData::Instance().getName()).stop(2.0s);
 
 		m_data->_scoreList.clear();
 

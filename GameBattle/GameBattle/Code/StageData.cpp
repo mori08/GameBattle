@@ -72,11 +72,13 @@ void GameData::StageData::draw() const
 		{
 			if (cell[y][x] == HARF_BLOCK)
 			{
-				Rect(CELLSIZE*Point(x, y), CELLSIZE).draw(Palette::Wheat);
+				//Rect(CELLSIZE*Point(x, y), CELLSIZE).draw(Palette::Wheat);
+				TextureAsset(_name + L"_halfBlock").scale(0.5).draw(CELLSIZE*Point(x, y));
 			}
 			else if (cell[y][x] == BLOCK)
 			{
-				Rect(CELLSIZE*Point(x, y), CELLSIZE).draw(Palette::White);
+				//Rect(CELLSIZE*Point(x, y), CELLSIZE).draw(Palette::White);
+				TextureAsset(_name + L"_block").scale(0.5).draw(CELLSIZE*Point(x, y));
 			}
 		}
 	}

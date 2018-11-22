@@ -72,6 +72,11 @@ namespace GameData
 			return CELLSIZE*Size(_width, _height);
 		}
 
+		String getName() const 
+		{
+			return _name;
+		}
+
 		/// <summary>
 		/// プレイヤーを生成する座標を取得します。
 		/// </summary>

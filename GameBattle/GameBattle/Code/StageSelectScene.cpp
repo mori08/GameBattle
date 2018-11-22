@@ -69,8 +69,11 @@ Scene::StageSelectScene::StageSelectScene()
 
 	Size stageTextureSize(320, 160);
 
-	_stageList.emplace_back(StageButton(L"stage_yusha", Rect(Point(  0, 0), stageTextureSize)));
-	_stageList.emplace_back(StageButton(L"stage_boei" , Rect(Point(320, 0), stageTextureSize)));
+	_stageList.emplace_back(StageButton(L"stage_yusha" , Rect(Point(  0,   0), stageTextureSize)));
+	_stageList.emplace_back(StageButton(L"stage_boei"  , Rect(Point(320,   0), stageTextureSize)));
+	_stageList.emplace_back(StageButton(L"stage_goast" , Rect(Point(640,   0), stageTextureSize)));
+	_stageList.emplace_back(StageButton(L"stage_kakure", Rect(Point(160, 160), stageTextureSize)));
+	_stageList.emplace_back(StageButton(L"stage_okashi", Rect(Point(480, 160), stageTextureSize)));
 }
 
 
