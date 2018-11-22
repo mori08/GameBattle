@@ -10,6 +10,7 @@ void Skill::AppleBattle::update(int time, GameObject::Player & player, const std
 
 		generator->push(std::make_unique<GameObject::Apple>(pos, vel, player.getId()));
 		player.setTextureId(GameObject::Player::ATTACK);
+		SoundAsset(L"throwApple").playMulti();
 	}
 
 }

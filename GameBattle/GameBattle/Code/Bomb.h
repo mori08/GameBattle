@@ -31,6 +31,7 @@ namespace GameObject
 		void generateExplosion()
 		{
 			_generator->push(std::make_unique<Explosion>(_pos, Size(40, 50), _id, 1));
+			SoundAsset(L"airRaid").playMulti();
 		}
 
 	};

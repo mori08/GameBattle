@@ -22,6 +22,7 @@ void GameObject::Robot::update()
 	{
 		const Vec2 vel = Vec2(_direction * 10, 0);
 		_generator->push(std::make_unique<Bullet>(_pos, vel, _id));
+		SoundAsset(L"cannon").playMulti();
 	}
 
 
