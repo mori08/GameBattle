@@ -14,11 +14,11 @@ void GameObject::Bomb::update()
 {
 	_time++;
 
-	if (isTouchingMap())
+/*	if (isTouchingMap())
 	{
 		_generator->push(std::make_unique<Explosion>(_pos, Size(40, 50), _id, 1));
 		return;
-	}
+	}*/
 
 	moveObject(true);
 	

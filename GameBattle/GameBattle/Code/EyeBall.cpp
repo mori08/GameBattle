@@ -75,6 +75,7 @@ void GameObject::EyeBall::generateSmallEyeBalls()
 {
 	if (_bombed) { return; }
 
+	SoundAsset(L"repture").playMulti();
 	_generator->push(std::make_unique<SmallEyeBall>(_pos, Vec2(-15, -10), _id));
 	_generator->push(std::make_unique<SmallEyeBall>(_pos, Vec2(-10, -10), _id));
 	_generator->push(std::make_unique<SmallEyeBall>(_pos, Vec2(-6, -10), _id));

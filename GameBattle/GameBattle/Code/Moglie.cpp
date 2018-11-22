@@ -2,6 +2,11 @@
 
 void Skill::Moglie::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>&)
 {
+	if (time == 1)
+	{
+		SoundAsset(L"drill").playMulti();
+	}
+
 	animCount++;
 	
 	if (time < ENDTIME)
@@ -13,6 +18,7 @@ void Skill::Moglie::update(int time, GameObject::Player & player, const std::sha
 	else
 	{
 		player.setTextureId(GameObject::Player::STAND);
+		SoundAsset(L"drill").pauseMulti();
 	}
 }
 

@@ -10,6 +10,7 @@ void Skill::Jihad1::update(int time, GameObject::Player & player, const std::sha
 		Vec2 vel = Vec2(player.getDirection(), 0);
 
 		generator->push(std::make_unique<GameObject::Finger>(pos, vel, player.getId()));
+		SoundAsset(L"summon").playMulti();
 	}
 }
 

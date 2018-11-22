@@ -30,6 +30,7 @@ namespace GameObject
 		void generateExplosion()
 		{
 			_generator->push(std::make_unique<Explosion>(_pos, Size(0, 0), _id, 2));
+			SoundAsset(L"bomb").playMulti();
 		}
 
 	};

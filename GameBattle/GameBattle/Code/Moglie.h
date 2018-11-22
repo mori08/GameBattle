@@ -16,7 +16,10 @@ namespace Skill
 
 	public:
 
-		Moglie() :Skill(L"ほれほれモグリー", L"Moglie_title") {}
+		Moglie() :Skill(L"ほれほれモグリー", L"Moglie_title") 
+		{
+			
+		}
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 

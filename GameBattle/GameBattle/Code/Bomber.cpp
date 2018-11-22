@@ -10,6 +10,7 @@ GameObject::Bomber::Bomber(const Vec2 & pos, const Vec2 & vel, int id)
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
 	_id = id;
+	SoundAsset(L"propeller").playMulti();
 }
 
 void GameObject::Bomber::update()

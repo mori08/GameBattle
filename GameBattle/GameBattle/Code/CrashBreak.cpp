@@ -2,6 +2,11 @@
 
 void Skill::CrashBreak::update(int time, GameObject::Player & player, const std::shared_ptr<GameData::Generator>&)
 {
+	if (time == 1)
+	{
+		SoundAsset(L"jet").playMulti();
+	}
+
 	if (InRange(time,STARTTIME,ENDTIME))
 	{
 		player.setMuteki(true);
@@ -13,6 +18,8 @@ void Skill::CrashBreak::update(int time, GameObject::Player & player, const std:
 		{
 			player.setMuteki(false);
 			player.setTextureId(GameObject::Player::STAND);
+
+			SoundAsset(L"jet").pauseMulti();
 		}
 	}
 	else
