@@ -11,7 +11,7 @@ namespace Skill
 
 	public:
 
-		FE() :Skill(L"FE", L"FE_title") {}
+		FE() :Skill(L"FE", L"Fe_title") {}
 
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;

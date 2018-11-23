@@ -12,7 +12,7 @@ namespace Skill
 
 	public:
 
-		Jihad2() :Skill(L"Ç∂ÇÕÇ†Ç«ÅIÅI", L"Jihad2_title") {}
+		Jihad2() :Skill(L"JIHAD!!", L"Jihad2_title") {}
 
 		void update(int, GameObject::Player &, const std::shared_ptr<GameData::Generator> &) override;
 
