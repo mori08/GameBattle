@@ -137,6 +137,10 @@ void GameObject::Player::collisionUpdate(const TagData & tagData)
 			if (_muteki) break;
 
 			_damageTime = 120;
+
+			SoundAsset(L"hit").stop();
+			SoundAsset(L"hit").play();
+
 			_muteki = true;
 
 			int anotherId = ParseOr<int>(t.info[0], -1);
@@ -180,7 +184,11 @@ void GameObject::Player::controllMove()
 		_direction = RIGHT;
 	}
 
-	if (InputManager::get(_id, Button::Up, InputType::Clicked) && isLanding()) { _velocity.y = -12; }
+	if (InputManager::get(_id, Button::Up, InputType::Clicked) && isLanding())
+	{
+		SoundAsset(L"jump").play();
+		_velocity.y = -12; 
+	}
 }
 
 
@@ -192,7 +200,6 @@ void GameObject::Player::normal()
 
 	if (!isLanding())
 	{
-		SoundAsset(L"jump").play();
 		setTextureId(JAMP);
 	}
 	else if (Abs(_velocity.x) < 0.1f)
