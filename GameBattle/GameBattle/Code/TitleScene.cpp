@@ -13,10 +13,15 @@ void Scene::TitleScene::init()
 		SoundAsset(L"title_bgm").play();
 	}
 
-	_panelNameList.emplace_back(L"Jihad1_title");
 	_panelNameList.emplace_back(L"AppleBattle_title");
-	_panelNameList.emplace_back(L"Moglie_title");
+	_panelNameList.emplace_back(L"ColorPanic_title");
 	_panelNameList.emplace_back(L"CrashBreak_title");
+	_panelNameList.emplace_back(L"fe_title");
+	_panelNameList.emplace_back(L"Jihad1_title");
+	_panelNameList.emplace_back(L"Jihad2_title");
+	_panelNameList.emplace_back(L"MaterialDefence_title");
+	_panelNameList.emplace_back(L"Moglie_title");
+	_panelNameList.emplace_back(L"TransportDefence_title_title");
 
 	_panelId = Random(100);
 }
