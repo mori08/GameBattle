@@ -192,6 +192,7 @@ void GameObject::Player::normal()
 
 	if (!isLanding())
 	{
+		SoundAsset(L"jump").play();
 		setTextureId(JAMP);
 	}
 	else if (Abs(_velocity.x) < 0.1f)
@@ -234,6 +235,7 @@ void GameObject::Player::useSkill()
 	{
 		if (--_skillNum[_sId] == 0)
 		{
+			SoundAsset(L"lostCassette").play();
 			_skillList[_sId] = nullptr;
 		}
 
@@ -258,6 +260,11 @@ void GameObject::Player::getSkill()
 		normal();
 
 		return;
+	}
+
+	if (_time == 10)
+	{
+		SoundAsset(L"getCassette").play();
 	}
 
 	if (!isLanding())

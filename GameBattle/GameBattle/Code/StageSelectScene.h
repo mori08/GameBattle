@@ -66,6 +66,8 @@ namespace Scene
 
 		Array<StageButton>  _stageList;
 
+		Font font{ 30 };
+
 	public:
 
 		StageSelectScene();

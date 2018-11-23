@@ -129,4 +129,6 @@ void Scene::StageSelectScene::draw() const
 	{
 		cursor.draw();
 	}
+
+	font(L"ステージをえらんでください").drawAt(Point(Window::BaseCenter().x/2, 0.75*Window::BaseCenter().y), Palette::Black);
 }
