@@ -8,6 +8,7 @@ GameObject::Mine::Mine(const Vec2 & pos, const Vec2 & vel, int id)
 	_size = Size(TextureAsset(L"MT1").size.x / 4, TextureAsset(L"MT1").size.y);
 	_tagData = makeTagData(L"Attack[" + ToString(id) + L"]");
 	_time = 0;
+	_eraser = false;
 }
 
 void GameObject::Mine::update()
@@ -21,10 +22,10 @@ void GameObject::Mine::update()
 	
 	moveObject(true);
 
-	if (_time == 300)
+	/*if (_time == 300)
 	{
 		generateExplosion();
-	}
+	}*/
 
 
 }
@@ -38,7 +39,8 @@ void GameObject::Mine::draw() const
 
 bool GameObject::Mine::eraser() const
 {
-	return _time >= 300;
+	//return _time >= 300;
+	return _eraser;
 }
 
 
@@ -48,12 +50,14 @@ void GameObject::Mine::collisionUpdate(const GameData::TagData & tagData)
 	{
 		if (tag.type == L"Player" && _id != ParseOr<int>(tag.info[0], -1))
 		{
-			_time = 600;
+			//_time = 600;
+			_eraser = true;
 			generateExplosion();
 		}
 		if (tag.type == L"Attack" && _id != ParseOr<int>(tag.info[0], -1))
 		{
-			_time = 600;
+			//_time = 600;
+			_eraser = true;
 			generateExplosion();
 		}
 	}

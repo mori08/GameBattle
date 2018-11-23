@@ -14,6 +14,8 @@ namespace GameObject
 
 		int _id;
 
+		bool _eraser;
+
 	public:
 
 		Mine(const Vec2 & pos, const Vec2 & vel, int id);
