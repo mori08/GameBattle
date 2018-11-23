@@ -525,6 +525,9 @@
     <ClCompile Include="Code\CrashBreak.cpp">
       <Filter>ソース ファイル\Skill</Filter>
     </ClCompile>
+    <ClCompile Include="Code\StageSelectScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Code\GameObject.h">
@@ -637,6 +640,9 @@
     </ClInclude>
     <ClInclude Include="Code\CrashBreak.h">
       <Filter>ヘッダー ファイル\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\StageSelectScene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

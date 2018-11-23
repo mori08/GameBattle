@@ -61,15 +61,19 @@ void Scene::ResultScene::update()
 
 void Scene::ResultScene::draw() const
 {
+	Graphics2D::SetTransform(Mat3x2::Scale(m_data->_scl, Point::Zero));
+
 	Rect(0, 0, Window::BaseSize()).draw(Color(240, 240, 240));
 
 	for (int i = 0; i < 4; ++i)
 	{
-		Point pos (110 + 200 * i, 180 + 60 * _rank[i]);
-		Size  size(140, 180 + 60 * _rank[i]);
+		Point pos (110 + 200 * i, 240 + 60 * _rank[i]);
+		Size  size(140, 1000);
 
 		Rect(pos, size).draw(_colorList[i]);
 
 		TextureAsset(L"player_" + ToString(i))(0, 160, 128, 160).drawAt(pos + Point(70, -80));
+
+		font(m_data->_scoreList[i]).drawAt(pos + Point(70, 70), Palette::Black);
 	}
 }

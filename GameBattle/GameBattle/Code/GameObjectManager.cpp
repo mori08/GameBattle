@@ -18,12 +18,14 @@ GameData::GameObjectManager::GameObjectManager()
 
 	GameObject::GameObject::initPlayerBoard(4);
 
-	_gameObjectList.emplace_back(std::make_unique<GameObject::Cassette>(-1)); 
+	//_gameObjectList.emplace_back(std::make_unique<GameObject::Cassette>(-1)); 
 }
 
 
 void GameData::GameObjectManager::update()
 {
+	cassetteManage();
+
 	// オブジェクトの生成
 	while (!_generator->empty())
 	{
@@ -60,6 +62,18 @@ void GameData::GameObjectManager::draw() const
 	for (const auto & object : _gameObjectList)
 	{
 		object->draw();
+	}
+}
+
+
+void GameData::GameObjectManager::cassetteManage()
+{
+	for (int i = 0; i < StageData::Instance().cassetteGenerateFrameCount.size(); ++i)
+	{
+		if (StageData::Instance().cassetteGenerateFrameCount[i]-- == 0)
+		{
+			_gameObjectList.emplace_back(std::make_unique<GameObject::Cassette>(i));
+		}
 	}
 }
 

@@ -17,7 +17,7 @@ namespace GameData
 
 		std::shared_ptr<Generator> _generator; // 生成するオブジェクトのリスト
 
-		Array<Point> _cassettePos;
+		Array<Vec2> _cassettePos;
 
 	public:
 
@@ -32,6 +32,10 @@ namespace GameData
 		/// オブジェクトの描画
 		/// </summary>
 		void draw()const;
+
+	private:
+
+		void cassetteManage();
 
 	};
 }

@@ -3,6 +3,7 @@
 #include "SkillManager.h"
 #include "TestSkill.h"
 #include "InputManager.h"
+#include "StageData.h"
 
 
 using namespace GameData;
@@ -10,37 +11,18 @@ using namespace GameData;
 
 GameObject::Player::Player(int id)
 {
-	_id        = id;
-	_time      = 0;
-	_state     = State::NORMAL;
+	_id = id;
+	_time = 0;
+	_state = State::NORMAL;
 	_direction = RIGHT;
 	_moveSpeed = DEFAULT_MOVE_SPEED;
 
-//	_pos = Point(100, 100);
-
-	if (id == 0)
-	{
-		_pos = Point(100, 100);
-	}
-
-	else if (id == 1)
-	{
-		_pos = Point(1600, 100);
-	}
-
-	else if (id == 2)
-	{
-		_pos = Point(100, 500);
-	}
-	else if (id == 3)
-	{
-		_pos = Point(1600, 500);
-	}
+	_pos = StageData::Instance().getPlayerPos(id);
 
 	_velocity = Point::Zero;
-	_size     = Point(40, 60);
-	_tagData  = makeTagData(L"Player[" + ToString(id) + L"]");
-	_muteki   = false;
+	_size = Point(40, 60);
+	_tagData = makeTagData(L"Player[" + ToString(id) + L"]");
+	_muteki = false;
 	_textureId = 0;
 
 	for (auto & n : _skillNum)
@@ -73,7 +55,7 @@ void GameObject::Player::update()
 
 	++_time;
 
-	switch(_state)
+	switch (_state)
 	{
 	case State::NORMAL:
 		normal();
@@ -133,12 +115,12 @@ void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
 	{
 		obj->collisionUpdate(_tagData);
 
-		if (_state == State::GET_SKILL)
+		if (_state == State::GET_SKILL&&_skillList[_sId] == nullptr)
 		{
 			obj->collisionUpdate(getSkillTag);
 		}
 	}
-	
+
 	if (_state == State::USING_SKILL)
 	{
 		obj->collisionUpdate(_skillList[_sId]->collision(_time, *this, obj->getCollider()));
@@ -148,25 +130,25 @@ void GameObject::Player::collisionCheck(const std::unique_ptr<GameObject>& obj)
 
 void GameObject::Player::collisionUpdate(const TagData & tagData)
 {
-	for(const auto & t : tagData)
+	for (const auto & t : tagData)
 	{
 		if (t.type == L"Attack" && _id != ParseOr<int>(t.info[0], -1))
 		{
 			if (_muteki) break;
-			
+
 			_damageTime = 120;
-			_muteki     = true;
+			_muteki = true;
 
 			int anotherId = ParseOr<int>(t.info[0], -1);
 
 			if (anotherId < 0 || anotherId >= _playerBoardList.size()) break;
 
 			_playerBoardList[_id].addScore(-1);
-			
+
 			_playerBoardList[anotherId].addScore(3);
 		}
 
-		if (t.type == L"Cassette" && _state == State::GET_SKILL)
+		if (t.type == L"Cassette" && _state == State::GET_SKILL && _skillList[_sId] == nullptr)
 		{
 			_skillList[_sId] = SkillManager::instance().getSkill(t.info[0]);
 		}
@@ -187,12 +169,12 @@ void GameObject::Player::controllMove()
 {
 	_velocity.x = 0;
 
-	if ( InputManager::get(_id, Button::Left, InputType::Pressed) && !InputManager::get(_id, Button::Right, InputType::Pressed))
+	if (InputManager::get(_id, Button::Left, InputType::Pressed) && !InputManager::get(_id, Button::Right, InputType::Pressed))
 	{
 		_velocity.x = LEFT*_moveSpeed;
 		_direction = LEFT;
 	}
-	if (!InputManager::get(_id, Button::Left, InputType::Pressed) &&  InputManager::get(_id, Button::Right, InputType::Pressed))
+	if (!InputManager::get(_id, Button::Left, InputType::Pressed) && InputManager::get(_id, Button::Right, InputType::Pressed))
 	{
 		_velocity.x = RIGHT*_moveSpeed;
 		_direction = RIGHT;
@@ -210,6 +192,7 @@ void GameObject::Player::normal()
 
 	if (!isLanding())
 	{
+		SoundAsset(L"jump").play();
 		setTextureId(JAMP);
 	}
 	else if (Abs(_velocity.x) < 0.1f)
@@ -252,6 +235,7 @@ void GameObject::Player::useSkill()
 	{
 		if (--_skillNum[_sId] == 0)
 		{
+			SoundAsset(L"lostCassette").play();
 			_skillList[_sId] = nullptr;
 		}
 
@@ -278,7 +262,25 @@ void GameObject::Player::getSkill()
 		return;
 	}
 
-	if (_time == 145) 
+	if (_time == 10)
+	{
+		SoundAsset(L"getCassette").play();
+	}
+
+	if (!isLanding())
+	{
+		setTextureId(JAMP);
+	}
+	else if (Abs(_velocity.x) < 0.1f)
+	{
+		setTextureId(STAND);
+	}
+	else
+	{
+		setTextureId(WALK_0 + (_time % (4 * WALK_SPEED)) / WALK_SPEED);
+	}
+
+	if (_time == 145)
 	{
 		changeState(State::NORMAL);
 
@@ -289,7 +291,7 @@ void GameObject::Player::getSkill()
 
 void GameObject::Player::drawPlayer() const
 {
-	if (_textureId == -1) { return; }
+	if (_textureId == -1) return;
 
 	static const Size SIZE = Size(128, 160);
 	const Point pos = Point(_textureId % 4, _textureId / 4);
@@ -299,7 +301,7 @@ void GameObject::Player::drawPlayer() const
 	(
 		_direction == RIGHT ?
 		TextureAsset(L"player_" + ToString(_id))(pos*SIZE, SIZE) : TextureAsset(L"player_" + ToString(_id))(pos*SIZE, SIZE).mirror()
-	).scale(scl).drawAt(_pos.asPoint() + Point(0, -5), AlphaF(alpha));
+		).scale(scl).drawAt(_pos.asPoint() + Point(0, -5), AlphaF(alpha));
 
 }
 

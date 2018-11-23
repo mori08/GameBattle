@@ -27,7 +27,7 @@ namespace GameData
 
 		GameCamera()
 			: _reset(true)
-			, _raito(2.0)
+			, _raito(16.0 / 9.0)
 			, _lerpRatio(0.01)
 		{}
 
@@ -43,6 +43,11 @@ namespace GameData
 
 			return camera;
 		}
+
+		/// <summary>
+		/// ‰Šú‰»
+		/// </summary>
+		void init();
 
 		/// <summary>
 		/// ”íÊ‘Ì‚ÌÀ•W‚ğ“o˜^‚µ‚Ü‚·B

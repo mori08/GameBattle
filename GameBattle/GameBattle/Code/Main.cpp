@@ -4,6 +4,7 @@
 
 #include"GameScene.h"
 #include"TitleScene.h"
+#include"StageSelectScene.h"
 #include"ResultScene.h"
 
 
@@ -12,10 +13,11 @@ void asseter(const String & direname);
 
 void Main()
 {
-	double scl = 1;
+	double scl = 2;
 
-	Window::Resize(Size(960 * scl, 480 * scl));
-	Window::SetBaseSize(960, 480);
+	//Window::Resize(Size(960 * scl, 480 * scl));
+	Window::SetFullscreen(true, Size(1920, 1080));
+	Window::SetBaseSize(Size(1920, 1080));
 
 	asseter(L"Asset/");
 
@@ -24,14 +26,13 @@ void Main()
 	MyApp sceneManager;
 
 	sceneManager.add<Scene::TitleScene>(L"TitleScene");
+	sceneManager.add<Scene::StageSelectScene>(L"StageSelectScene");
 	sceneManager.add<Scene::GameScene>(L"GameScene");
 	sceneManager.add<Scene::ResultScene>(L"ResultScene");
 
 	while (System::Update())
 	{
 		ClearPrint();
-
-		Graphics2D::SetTransform(Mat3x2::Scale(scl, Point::Zero));
 
 		sceneManager.updateAndDraw();
 

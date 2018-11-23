@@ -34,7 +34,7 @@ namespace GameData
 
 		void setSkillData(int id, const String & name, int num);
 
-		void draw()const;
+		void draw(double scl)const;
 
 	};
 }

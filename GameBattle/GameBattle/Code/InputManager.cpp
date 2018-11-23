@@ -109,6 +109,8 @@ bool GameData::InputManager::padInput(const Gamepad & pad, const Button & button
 
 	case Button::Four:  key = pad.button(3);   break;
 
+	case Button::START: key = pad.button(9);   break;
+
 	default: return false;
 	}
 

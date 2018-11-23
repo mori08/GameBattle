@@ -29,7 +29,7 @@ void GameData::PlayerBoard::setSkillData(int id, const String & name, int num)
 }
 
 
-void GameData::PlayerBoard::draw() const
+void GameData::PlayerBoard::draw(double scl) const
 {
 	Point pos = Point((_id + 0.5) * 960 / 4, 50);
 
